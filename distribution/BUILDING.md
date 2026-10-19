@@ -54,6 +54,8 @@ Windows 파일 설명과 버전은 `native-rust/glazebar.rc`에서 정의하며,
 `GlazeBar-Community-0.1.0-preview.4-windows-arm64` 또는 `...-x64` 이름으로 배치한 경로를 지정합니다.
 두 아키텍처를 모두 만들려면 양쪽 번들 입력이 필요합니다.
 
-## preview.4 x64 modified WM
+## preview.4 x64 / ARM64 modified WM
 
-The previous Build-Bundle.ps1 recipe produces upstream-based bundles. For preview.4 use Build-ModifiedBundle.py with an existing preview.3 x64 bundle (dependency/license inputs), the GlazeBar repository, built GlazeBar executable, and modified GlazeWM checkout/runtime. Then run Build-Setup.ps1 (defaults to preview.4 x64). See docs/glazewm-modifications.md for the WM toolchain and patch. Extract glazewm-modified-source.zip into a build root, then extract glazewm-vendor.zip into its vendor/ subfolder beside Cargo.toml. Set VERSION_NUMBER=3.10.1-glazebar.1.
+The previous Build-Bundle.ps1 recipe produces upstream-based bundles. For preview.4 use Build-ModifiedBundle.py with an existing preview.3 x64 bundle (dependency/license inputs), the GlazeBar repository, built GlazeBar executable, and modified GlazeWM checkout/runtime. Then run Build-Setup.ps1 (defaults to preview.4 x64; pass -Architectures arm64 for ARM64). See docs/glazewm-modifications.md for the WM toolchain and patch. Extract glazewm-modified-source.zip into a build root, then extract glazewm-vendor.zip into its vendor/ subfolder beside Cargo.toml. Set VERSION_NUMBER=3.10.1-glazebar.1.
+
+ARM64: pass `--arch arm64` and a preview.3 ARM64 base bundle to Build-ModifiedBundle.py, then `-Architectures arm64` to Build-Setup.ps1. Use `vcvarsamd64_arm64.bat` and `--target aarch64-pc-windows-msvc` for both programs. Install the ARM64 Rust target for nightly and 1.93.0.

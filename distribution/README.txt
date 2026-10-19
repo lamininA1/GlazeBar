@@ -1,8 +1,8 @@
-﻿preview.4 x64: GlazeWM 3.10.1-glazebar.1 (modified from https://github.com/glzr-io/glazewm).
+﻿preview.4 x64 / ARM64: GlazeWM 3.10.1-glazebar.1 (modified from https://github.com/glzr-io/glazewm).
 Alt+M preserves the layout while minimizing/restoring real windows. Corrective placement is retained.
 Use GlazeBar + GlazeWM in the Start menu, or run %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe.
 The unchanged upstream MSI is retained for CLI compatibility and rollback; community shortcuts run the modified build.
-This release is x64 only. ARM64 stays on preview.3. No IME fix is claimed.
+This release supports x64 and ARM64. ARM64 is cross-built, not tested on physical ARM64 hardware. No IME fix is claimed.
 
 GlazeBar Community Bundle 0.1.0-preview.4 / GlazeWM 3.10.1
 
@@ -12,7 +12,7 @@ bar, or foreground switches without requiring a prior click inside the popup.
 Input controls and owned settings dialogs remain part of the popup.
 
 Independent community bundle. Not an official GlazeWM release.
-Windows 11 x64 (Intel / AMD).
+Windows 11 x64 (Intel / AMD) or ARM64; use the matching package.
 GlazeBar needs no .NET, Go, Rust or WebView2 installation.
 Modified GlazeWM is included alongside the unchanged official standalone MSI.
 GlazeBar statically links its C runtime. The official GlazeWM binary still
@@ -62,8 +62,8 @@ Brightness is detected per display through WMI. Unsupported providers or
 missing brightness classes disable the control without terminating the bar.
 External-monitor DDC/CI control is not included. The resident process and
 Windows file description are now GlazeBar (GlazeBar.exe).
-The preview.4 x64 build is tested on physical x64 Windows. No preview.4 ARM64
-build is provided. Clean-machine MSI/UAC validation remains pending.
+The x64 build is tested on physical x64 Windows. ARM64 is cross-built and
+package-validated on x64, without physical ARM64 execution validation. Clean-machine MSI/UAC validation remains pending.
 Preview binaries/scripts are not signed. Checksums detect accidental changes;
 they are not a substitute for publisher identity verification.
 

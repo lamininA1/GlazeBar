@@ -1,6 +1,6 @@
 # GlazeBar + GlazeWM
 
-> **preview.4 x64: 수정 GlazeWM 포함.** [원본 GlazeWM](https://github.com/glzr-io/glazewm) v3.10.1을 수정해 Alt+M의 실제 최소화·배치 보존 복원, 빈 분할 정리와 포커스 처리를 개선했습니다. ARM64는 기존 preview.3입니다. 한영 입력 증상은 사용자가 기존 Codex 세션에 한정된 것으로 확인했으며, 이번 배포를 IME 수정으로 주장하지 않습니다. [변경 내역과 검증](docs/glazewm-modifications.md).
+> **preview.4 x64 / ARM64: 수정 GlazeWM 포함.** [원본 GlazeWM](https://github.com/glzr-io/glazewm) v3.10.1을 수정해 Alt+M의 실제 최소화·배치 보존 복원, 빈 분할 정리와 포커스 처리를 개선했습니다. ARM64에도 동일한 수정본을 포함합니다. ARM64는 교차 빌드했으며 실제 장치 검증은 별도입니다. 한영 입력 증상은 사용자가 기존 Codex 세션에 한정된 것으로 확인했으며, 이번 배포를 IME 수정으로 주장하지 않습니다. [변경 내역과 검증](docs/glazewm-modifications.md).
 
 [한국어](README.md) · [English](README.en.md)
 
@@ -24,7 +24,7 @@ GlazeWM이 창과 작업공간을 관리하고, GlazeBar에서 시스템 상태�
 | 사용하는 PC | 통합 설치 프로그램 |
 | --- | --- |
 | Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.4/GlazeBar-GlazeWM-Setup-0.1.0-preview.4-x64.exe) |
-| Windows on ARM (preview.3) | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.3/GlazeBar-GlazeWM-Setup-0.1.0-preview.3-arm64.exe) |
+| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.4/GlazeBar-GlazeWM-Setup-0.1.0-preview.4-arm64.exe) |
 
 ## 설치
 
@@ -38,7 +38,7 @@ GlazeWM이 창과 작업공간을 관리하고, GlazeBar에서 시스템 상태�
 4. 시작 메뉴의 **GlazeBar + GlazeWM**을 실행합니다.
 
 **명령어 입력이나 별도의 GlazeWM 다운로드는 필요하지 않습니다.** 기존 설정은 설치 전에 백업합니다.
-x64는 사용자 폴더의 수정 GlazeWM 3.10.1-glazebar.1을 실행합니다. 공식 3.10.1은 CLI 호환성과 원복용으로 유지합니다. 다른 버전이나 이전 커뮤니티 번들이 있으면 안내에 따라 먼저 정리해야 합니다.
+x64와 ARM64 모두 사용자 폴더의 수정 GlazeWM 3.10.1-glazebar.1을 실행합니다. 공식 3.10.1은 CLI 호환성과 원복용으로 유지합니다. 다른 버전이나 이전 커뮤니티 번들이 있으면 안내에 따라 먼저 정리해야 합니다.
 
 GlazeBar에는 .NET·Go·WebView2 설치가 필요 없습니다. GlazeWM에 필요한 Visual C++ 런타임이 없는 경우에만 Microsoft 설치 프로그램을 내려받도록 안내합니다.
 GlazeWM 및 런타임 설치 중 Windows 관리자 권한 확인이 나타날 수 있습니다.
@@ -116,7 +116,7 @@ GlazeWM까지 지우려면 앱 목록에서 **GlazeWM**도 제거해주세요. �
 
 - Windows 11 ARM64 / x64
 - 아직 미리보기 버전이고 코드 서명은 없습니다.
-- ARM64와 x64 에뮬레이션에서 확인했습니다. Intel/AMD PC에서 잘 안 되면 꼭 알려주세요!
+- preview.4: 실제 x64에서 확인했습니다. ARM64는 교차 빌드 및 패키지 검사만 완료했으며 실제 ARM64 실행 검증은 별도입니다.
 - 밝기와 전원 설정은 기기에 따라 다를 수 있습니다.
 - 날씨는 일단 서울입니다. Open-Meteo 무료 API를 사용합니다([이용 조건](https://open-meteo.com/en/terms)).
 

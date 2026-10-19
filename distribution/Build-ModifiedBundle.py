@@ -1,4 +1,4 @@
-"""Package preview.4 x64 from verified binaries and a preview.3 dependency bundle."""
+"""Package preview.4 from matching-architecture binaries and a preview.3 bundle."""
 import argparse
 import hashlib
 import json
@@ -19,6 +19,7 @@ def tracked(root):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--arch', choices=['x64', 'arm64'], default='x64')
     for name in ['base', 'bar', 'wm-source', 'wm-runtime', 'output']:
         parser.add_argument('--' + name, type=Path, required=True)
     args = parser.parse_args()
@@ -26,12 +27,15 @@ def main():
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=True)
     version = '0.1.0-preview.4'
-    folder = out / f'GlazeBar-Community-{version}-windows-x64'
+    folder = out / f'GlazeBar-Community-{version}-windows-{args.arch}'
+    machine = 0xAA64 if args.arch == 'arm64' else 0x8664
+    target = 'aarch64-pc-windows-msvc' if args.arch == 'arm64' else 'x86_64-pc-windows-msvc'
+    assert json.loads((args.base / 'manifest.json').read_text(encoding='utf-8-sig'))['architecture'] == args.arch
     if folder.exists():
         raise RuntimeError(f'Refusing to overwrite {folder}')
     for binary in [args.bar, args.wm_runtime / 'glazewm.exe', args.wm_runtime / 'glazewm-watcher.exe']:
         data = binary.read_bytes()
-        assert struct.unpack_from('<H', data, struct.unpack_from('<I', data, 60)[0] + 4)[0] == 0x8664, binary
+        assert struct.unpack_from('<H', data, struct.unpack_from('<I', data, 60)[0] + 4)[0] == machine, binary
     source = out / 'glazebar-source.zip'
     with zipfile.ZipFile(args.base / 'source/glazebar-source.zip') as old, zipfile.ZipFile(source, 'w', zipfile.ZIP_DEFLATED, strict_timestamps=False) as z:
         written = set()
@@ -68,7 +72,7 @@ def main():
     shutil.copy2(repo / 'glazewm-patches/glazewm-v3.10.1.patch', folder / 'source/glazewm-v3.10.1.patch')
     shutil.copy2(repo / 'docs/glazewm-modifications.md', folder / 'source/GLAZEWM-MODIFICATIONS.md')
     provenance = {
-        'version': version, 'architecture': 'x64', 'glazewmVersion': '3.10.1-glazebar.1',
+        'version': version, 'architecture': args.arch, 'glazewmVersion': '3.10.1-glazebar.1',
         'upstream': 'https://github.com/glzr-io/glazewm/tree/v3.10.1',
         'wmToolchain': '1.101.0-nightly (b6eeb93c9 2026-10-18)', 'barToolchain': '1.93.0',
         'barSourceRevision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=repo).decode().strip(),
@@ -79,13 +83,13 @@ def main():
     (folder / 'source/BUILD-MODIFIED-WM.txt').write_text(
         'Extract glazewm-modified-source.zip into a build folder.\n'
         'Extract glazewm-vendor.zip INTO its vendor/ subfolder (beside Cargo.toml).\n'
-        'Run in an x64 MSVC developer shell (Windows SDK required):\n'
+        'Run in an MSVC developer shell for the target architecture (Windows SDK required):\n'
         'set VERSION_NUMBER=3.10.1-glazebar.1\n'
-        'cargo +nightly build --offline --locked --release -p wm --bin glazewm\n'
+        f'cargo +nightly build --offline --locked --release --target {target} -p wm --bin glazewm -p wm-watcher --bin glazewm-watcher\n'
         'Tested nightly: 1.101.0-nightly (b6eeb93c9 2026-10-18).\n'
-        'The watcher is unchanged from upstream 3.10.1; source and dependencies are included.\n', encoding='utf-8')
-    manifest = {'version': version, 'architecture': 'x64', 'glazewmVersion': '3.10.1-glazebar.1',
-                'glazewmMsi': 'upstream/standalone-glazewm-v3.10.1-x64.msi',
+        'The watcher implementation is unchanged; ARM64 watcher is rebuilt with the matching source.\n', encoding='utf-8')
+    manifest = {'version': version, 'architecture': args.arch, 'glazewmVersion': '3.10.1-glazebar.1',
+                'glazewmMsi': f'upstream/standalone-glazewm-v3.10.1-{args.arch}.msi',
                 'files': [{'path': p.relative_to(folder).as_posix(), 'sha256': sha(p)}
                           for p in sorted(folder.rglob('*')) if p.is_file() and p.name != 'manifest.json']}
     (folder / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')

@@ -1,8 +1,8 @@
-﻿preview.4 x64: GlazeWM 3.10.1-glazebar.1 (modified from https://github.com/glzr-io/glazewm).
+﻿preview.4 x64 / ARM64: GlazeWM 3.10.1-glazebar.1 (modified from https://github.com/glzr-io/glazewm).
 Alt+M preserves the layout while minimizing/restoring real windows. Corrective placement is retained.
 Use GlazeBar + GlazeWM in the Start menu, or run %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe.
 The unchanged upstream MSI is retained for CLI compatibility and rollback; community shortcuts run the modified build.
-This release is x64 only. ARM64 stays on preview.3. No IME fix is claimed.
+This release supports x64 and ARM64. ARM64 is cross-built, not tested on physical ARM64 hardware. No IME fix is claimed.
 
 GlazeBar + GlazeWM 커뮤니티 번들 0.1.0-preview.4
 
@@ -11,7 +11,7 @@ preview.3에서는 Wi-Fi를 사용할 수 없으면 해당 항목을 숨깁니�
 닫히며, 팝업 내부 입력란과 하위 설정 창으로 이동할 때는 유지됩니다.
 
 GlazeWM 공식 배포판이 아닌 커뮤니티 구성입니다.
-이번 preview.4는 Windows 11 x64용입니다. ARM64는 preview.3을 사용합니다.
+preview.4는 Windows 11 x64와 ARM64용입니다. PC에 맞는 패키지를 사용하세요.
 
 설치
 1. ZIP 전체를 압축 해제합니다.
@@ -47,8 +47,8 @@ Alt+Shift+E: GlazeWM 종료
 
 배포 상태
 미리보기 버전이며 GlazeBar 및 스크립트에 코드 서명은 아직 없습니다.
-preview.4 x64 빌드는 실제 x64 Windows에서 검사했습니다. 이번 ARM64 빌드는 제공하지
-않으며, 새 Windows 환경의 MSI/UAC 설치 검증은 남아 있습니다.
+x64 빌드는 실제 x64 Windows에서 검사했습니다. ARM64는 교차 빌드 및 패키지 검사를 했으며
+실제 ARM64 실행 검증과 새 Windows 환경의 MSI/UAC 설치 검증은 남아 있습니다.
 밝기 조절은 모니터별 WMI 지원 여부를 확인하며, 미지원이면 조작을 비활성화합니다.
 외부 모니터 DDC/CI 제어는 포함하지 않습니다. 상주 프로세스 이름과 Windows 파일 설명은
 GlazeBar로 변경했습니다(GlazeBar.exe).
