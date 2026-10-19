@@ -14,7 +14,7 @@ Input controls and owned settings dialogs remain part of the popup.
 Independent community bundle. Not an official GlazeWM release.
 Windows 11 x64 (Intel / AMD).
 GlazeBar needs no .NET, Go, Rust or WebView2 installation.
-GlazeWM is included as its unchanged official standalone MSI.
+Modified GlazeWM is included alongside the unchanged official standalone MSI.
 GlazeBar statically links its C runtime. The official GlazeWM binary still
 requires Microsoft Visual C++ Runtime. If it is missing, Install.ps1 downloads
 Microsoft's installer, verifies its signature, and shows its license/install
@@ -62,8 +62,8 @@ Brightness is detected per display through WMI. Unsupported providers or
 missing brightness classes disable the control without terminating the bar.
 External-monitor DDC/CI control is not included. The resident process and
 Windows file description are now GlazeBar (GlazeBar.exe).
-The preview.3 x64 build is tested on physical x64 Windows. ARM64 is cross-built;
-this revision has not been run on ARM64. Clean-machine MSI/UAC validation remains pending.
+The preview.4 x64 build is tested on physical x64 Windows. No preview.4 ARM64
+build is provided. Clean-machine MSI/UAC validation remains pending.
 Preview binaries/scripts are not signed. Checksums detect accidental changes;
 they are not a substitute for publisher identity verification.
 

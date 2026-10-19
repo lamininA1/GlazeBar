@@ -47,8 +47,8 @@ Alt+Shift+E: GlazeWM 종료
 
 배포 상태
 미리보기 버전이며 GlazeBar 및 스크립트에 코드 서명은 아직 없습니다.
-preview.3의 x64 빌드는 실제 x64 Windows에서 검사했습니다. ARM64는 교차 빌드했으며
-이번 수정본의 ARM64 실행 검증과 새 Windows 환경의 MSI/UAC 설치 검증은 남아 있습니다.
+preview.4 x64 빌드는 실제 x64 Windows에서 검사했습니다. 이번 ARM64 빌드는 제공하지
+않으며, 새 Windows 환경의 MSI/UAC 설치 검증은 남아 있습니다.
 밝기 조절은 모니터별 WMI 지원 여부를 확인하며, 미지원이면 조작을 비활성화합니다.
 외부 모니터 DDC/CI 제어는 포함하지 않습니다. 상주 프로세스 이름과 Windows 파일 설명은
 GlazeBar로 변경했습니다(GlazeBar.exe).
