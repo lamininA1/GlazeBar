@@ -77,7 +77,8 @@ def main():
     }
     (folder / 'source/BUILD-PREVIEW4.json').write_text(json.dumps(provenance, indent=2), encoding='utf-8')
     (folder / 'source/BUILD-MODIFIED-WM.txt').write_text(
-        'Extract glazewm-modified-source.zip and glazewm-vendor.zip together.\n'
+        'Extract glazewm-modified-source.zip into a build folder.\n'
+        'Extract glazewm-vendor.zip INTO its vendor/ subfolder (beside Cargo.toml).\n'
         'Run in an x64 MSVC developer shell (Windows SDK required):\n'
         'set VERSION_NUMBER=3.10.1-glazebar.1\n'
         'cargo +nightly build --offline --locked --release -p wm --bin glazewm\n'
