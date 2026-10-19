@@ -141,7 +141,7 @@ window_rules:
       - window_process: { regex: '^(mstsc|msrdc|rdclientwpf)$' }
       # Ignores any Zebar windows.
       - window_process: { equals: 'zebar' }
-      - window_process: { equals: 'WorkspaceToggle' }
+      - window_process: { equals: 'GlazeBar' }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
@@ -242,7 +242,7 @@ keybindings:
   - commands: ['toggle-fullscreen']
     bindings: ['alt+f']
 
-  # Alt+M group minimize/restore is handled by WorkspaceToggle.exe.
+  # Alt+M group minimize/restore is handled by GlazeBar.exe.
 
   # Close focused window.
   - commands: ['close']

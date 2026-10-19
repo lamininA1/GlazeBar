@@ -21,10 +21,12 @@ GlazeWM이 창과 작업공간을 관리하고, GlazeBar에서 시스템 상태�
 
 | 사용하는 PC | 통합 설치 프로그램 |
 | --- | --- |
-| Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.1/GlazeBar-GlazeWM-Setup-0.1.0-preview.1-x64.exe) |
-| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.1/GlazeBar-GlazeWM-Setup-0.1.0-preview.1-arm64.exe) |
+| Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.2/GlazeBar-GlazeWM-Setup-0.1.0-preview.2-x64.exe) |
+| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.2/GlazeBar-GlazeWM-Setup-0.1.0-preview.2-arm64.exe) |
 
 ## 설치
+
+0.1.0-preview.2에서는 WMI 밝기 조절을 지원하지 않는 PC에서 바가 종료되는 문제를 수정했습니다. 상주 프로세스 이름은 `GlazeBar.exe`, Windows 파일 설명은 `GlazeBar`입니다. 노트북·데스크탑 구분 대신 모니터의 기능 지원 여부를 확인하며, 지원하지 않는 밝기 조작은 비활성화됩니다. 외부 모니터 DDC/CI 제어는 아직 포함되지 않습니다.
 
 1. PC에 맞는 설치 EXE를 다운로드합니다.
 2. 실행 중인 GlazeWM과 GlazeBar가 있다면 종료합니다.

@@ -4,7 +4,7 @@ param([switch]$StageOnly, [string]$ProfileRoot = $env:USERPROFILE)
 $ErrorActionPreference = 'Stop'
 if (!$StageOnly -and [IO.Path]::GetFullPath($ProfileRoot) -ne [IO.Path]::GetFullPath($env:USERPROFILE)) { throw 'Custom ProfileRoot is for StageOnly testing.' }
 if ($StageOnly -and [IO.Path]::GetFullPath($ProfileRoot) -eq [IO.Path]::GetFullPath($env:USERPROFILE)) { throw 'StageOnly requires an isolated ProfileRoot.' }
-if (!$StageOnly -and (Get-Process -Name glazewm,WorkspaceToggle -ErrorAction SilentlyContinue)) { throw 'Exit GlazeWM and GlazeBar before uninstalling.' }
+if (!$StageOnly -and (Get-Process -Name glazewm,GlazeBar,WorkspaceToggle -ErrorAction SilentlyContinue)) { throw 'Exit GlazeWM and GlazeBar before uninstalling.' }
 $target = [IO.Path]::GetFullPath((Join-Path $ProfileRoot '.glzr\glazewm'))
 $stateFile = Join-Path $target 'community-install.json'
 $state = Get-Content -LiteralPath $stateFile -Raw | ConvertFrom-Json

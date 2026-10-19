@@ -13,7 +13,7 @@ $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Force $OutputDirectory | Out-Null
 $architectures = if ($TestProfile) { @('arm64') } else { @('arm64','x64') }
 foreach ($arch in $architectures) {
-    $bundle = Join-Path $BundleRoot "GlazeBar-Community-0.1.0-preview.1-windows-$arch"
+    $bundle = Join-Path $BundleRoot "GlazeBar-Community-0.1.0-preview.2-windows-$arch"
     $manifest = Get-Content -LiteralPath (Join-Path $bundle 'manifest.json') -Raw | ConvertFrom-Json
     if ($manifest.architecture -ne $arch) { throw "Incorrect bundle architecture: $arch" }
     foreach ($file in $manifest.files) {

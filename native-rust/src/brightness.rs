@@ -34,9 +34,27 @@ pub struct Wmi {
     service: IWbemServices,
     _apartment: Apartment,
 }
+// windows::core::Error can own an IErrorInfo COM object. Convert failures to
+// owned text while the apartment is still alive, so callers may retain errors
+// after dropping Wmi (including the worker's reconnect path).
+fn detached_error(error: anyhow::Error) -> anyhow::Error {
+    anyhow::anyhow!("{error:#}")
+}
+fn brightness_unavailable(error: &anyhow::Error) -> bool {
+    error.downcast_ref::<windows::core::Error>().is_some_and(|e| {
+        matches!(e.code().0, code if code == WBEM_E_NOT_SUPPORTED.0 || code == WBEM_E_INVALID_CLASS.0)
+    })
+}
 impl Wmi {
     pub fn new() -> Result<Self> {
         let apartment = Apartment::new()?;
+        let service = Self::connect().map_err(detached_error)?;
+        Ok(Self {
+            service,
+            _apartment: apartment,
+        })
+    }
+    fn connect() -> Result<IWbemServices> {
         unsafe {
             let locator: IWbemLocator = CoCreateInstance(&WbemLocator, None, CLSCTX_INPROC_SERVER)?;
             let service = locator.ConnectServer(
@@ -58,13 +76,13 @@ impl Wmi {
                 None,
                 EOAC_NONE,
             )?;
-            Ok(Self {
-                service,
-                _apartment: apartment,
-            })
+            Ok(service)
         }
     }
     fn query(&self, class: &str) -> Result<Vec<IWbemClassObject>> {
+        self.query_inner(class).map_err(detached_error)
+    }
+    fn query_inner(&self, class: &str) -> Result<Vec<IWbemClassObject>> {
         unsafe {
             let rows = self.service.ExecQuery(
                 &BSTR::from("WQL"),
@@ -91,8 +109,18 @@ impl Wmi {
         }
     }
     pub fn values(&self) -> Result<Vec<(String, u8)>> {
+        self.values_inner().map_err(detached_error)
+    }
+    fn values_inner(&self) -> Result<Vec<(String, u8)>> {
         let mut out = vec![];
-        for row in self.query("WmiMonitorBrightness")? {
+        let rows = match self.query_inner("WmiMonitorBrightness") {
+            Ok(rows) => rows,
+            // Desktop/external displays may have no WMI brightness provider.
+            // This is a capability result, not a failed resident service.
+            Err(error) if brightness_unavailable(&error) => return Ok(out),
+            Err(error) => return Err(error),
+        };
+        for row in rows {
             let name = text(&row, "InstanceName")?;
             let value = u32::try_from(&get(&row, "CurrentBrightness")?)?;
             ensure!(value <= 100, "Invalid brightness value");
@@ -101,6 +129,9 @@ impl Wmi {
         Ok(out)
     }
     pub fn write(&self, instance: &str, value: u8) -> Result<()> {
+        self.write_inner(instance, value).map_err(detached_error)
+    }
+    fn write_inner(&self, instance: &str, value: u8) -> Result<()> {
         ensure!(value <= 100, "Invalid brightness");
         let row = self
             .query("WmiMonitorBrightnessMethods")?
@@ -227,6 +258,8 @@ impl Worker {
                 match rx.recv_timeout(deadline.saturating_duration_since(now)) {
                     Ok(Command::Stop) | Err(RecvTimeoutError::Disconnected) => break,
                     Ok(Command::Devices(names)) => {
+                        let changed = names.len() != devices.len()
+                            || names.iter().any(|name| !devices.contains_key(name));
                         devices.retain(|name, _| names.contains(name));
                         for name in names {
                             devices.entry(name.clone()).or_insert_with(|| Device {
@@ -236,7 +269,9 @@ impl Worker {
                                 last: None,
                             });
                         }
-                        next_read = Instant::now();
+                        if changed {
+                            next_read = Instant::now();
+                        }
                     }
                     Ok(Command::Set(name, value, revision)) => {
                         pending.insert(name, (value, revision));
@@ -291,6 +326,11 @@ impl Worker {
                     if let Some(wmi) = &service {
                         match wmi.values() {
                             Ok(rows) => {
+                                if rows.is_empty() {
+                                    // Recheck occasionally, or immediately after a monitor
+                                    // change, rather than querying unsupported hardware each second.
+                                    next_read = now + Duration::from_secs(60);
+                                }
                                 for (name, d) in &mut devices {
                                     if now < d.hold || pending.contains_key(name) {
                                         continue;
@@ -409,6 +449,34 @@ pub fn validate_worker(names: Vec<String>) -> Result<serde_json::Value> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn unsupported_brightness_is_not_a_connection_failure() {
+        for code in [WBEM_E_NOT_SUPPORTED.0, WBEM_E_INVALID_CLASS.0] {
+            let error = windows::core::Error::from_hresult(windows::core::HRESULT(code));
+            assert!(brightness_unavailable(&error.into()));
+        }
+        let denied =
+            windows::core::Error::from_hresult(windows::core::HRESULT(0x80070005u32 as i32));
+        assert!(!brightness_unavailable(&denied.into()));
+        assert!(!brightness_unavailable(&anyhow::anyhow!(
+            "unrelated failure"
+        )));
+    }
+    #[test]
+    fn query_error_outlives_com_apartment() {
+        // An invalid class exercises WMI's real IErrorInfo failure path,
+        // independent of whether this machine supports brightness control.
+        for _ in 0..3 {
+            let wmi = Wmi::new().expect("WMI connection");
+            let error = wmi
+                .query("GlazeBar_Nonexistent_Regression_Class")
+                .unwrap_err();
+            assert!(error.downcast_ref::<windows::core::Error>().is_none());
+            drop(wmi);
+            assert!(!error.to_string().is_empty());
+            drop(error);
+        }
+    }
     #[test]
     fn device_identity() {
         assert_eq!(

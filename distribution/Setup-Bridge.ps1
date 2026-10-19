@@ -1,4 +1,4 @@
-﻿#Requires -Version 5.1
+#Requires -Version 5.1
 param(
     [Parameter(Mandatory)][ValidateSet('Install','Uninstall','CheckUninstall')][string]$Action,
     [Parameter(Mandatory)][string]$Bundle,
@@ -16,7 +16,7 @@ $logAction = if ($Action -eq 'CheckUninstall') { 'uninstall' } else { $Action.To
 $log = Join-Path $logRoot ($logAction + '.log')
 try {
     if ($Action -eq 'CheckUninstall') {
-        if (!$TestProfile -and (Get-Process -Name glazewm,WorkspaceToggle -ErrorAction SilentlyContinue)) { throw 'Close GlazeWM and GlazeBar before uninstalling.' }
+        if (!$TestProfile -and (Get-Process -Name glazewm,GlazeBar,WorkspaceToggle -ErrorAction SilentlyContinue)) { throw 'Close GlazeWM and GlazeBar before uninstalling.' }
         $profile = if ($TestProfile) { $TestProfile } else { $env:USERPROFILE }
         $state = Get-Content -LiteralPath (Join-Path $profile '.glzr/glazewm/community-install.json') -Raw | ConvertFrom-Json
         foreach ($entry in $state.entries) {

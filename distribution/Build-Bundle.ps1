@@ -3,7 +3,7 @@
 param([switch]$SkipBuild, [string]$ReuseArchivesFrom)
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path $PSScriptRoot
-$version = '0.1.0-preview.1'
+$version = '0.1.0-preview.2'
 $out = Join-Path $PSScriptRoot ('output-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory $out | Out-Null
 if (!$SkipBuild) {
@@ -28,7 +28,7 @@ $source = Join-Path $out 'source-stage'
 New-Item -ItemType Directory -Force "$common/source", "$common/licenses", "$source/native-rust", "$source/native-rust/.cargo", "$source/distribution/templates" | Out-Null
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'standard-licenses') -Destination "$common/licenses/standard" -Recurse
 Write-Output 'Preparing source and dependency archives...'
-foreach ($name in @('src','fixtures','licenses','Cargo.toml','Cargo.lock','LICENSE')) {
+foreach ($name in @('src','fixtures','licenses','Cargo.toml','Cargo.lock','build.rs','glazebar.rc','LICENSE')) {
     Copy-Item -LiteralPath (Join-Path $repo "native-rust/$name") -Destination "$source/native-rust" -Recurse
 }
 if (!$ReuseArchivesFrom) {
@@ -47,7 +47,7 @@ cargo test --offline --locked
 cargo build --offline --locked --release --target aarch64-pc-windows-msvc
 cargo build --offline --locked --release --target x86_64-pc-windows-msvc
 Install the corresponding Rust target and MSVC/Windows SDK libraries first.
-Copy the target's glazebar-native.exe as BOTH WorkspaceToggle.exe and GlazeTheme.exe.
+Copy the target's glazebar-native.exe as BOTH GlazeBar.exe and GlazeTheme.exe.
 Runtime also needs icons/, config.yaml and cheatsheet.tsv; see distribution/.
 Distribution scripts generate the install configuration and preserve prior files.
 End-user install scripts support Windows PowerShell 5.1; bundle-building scripts
@@ -159,7 +159,7 @@ foreach ($arch in @('arm64','x64')) {
     $folder = Join-Path $out "GlazeBar-Community-$version-windows-$arch"
     Copy-Item -LiteralPath $common -Destination $folder -Recurse
     New-Item -ItemType Directory -Force "$folder/payload", "$folder/upstream" | Out-Null
-    Copy-Item -LiteralPath $exe -Destination "$folder/payload/WorkspaceToggle.exe"
+    Copy-Item -LiteralPath $exe -Destination "$folder/payload/GlazeBar.exe"
     Copy-Item -LiteralPath $exe -Destination "$folder/payload/GlazeTheme.exe"
     Copy-Item -LiteralPath (Join-Path $repo 'icons') -Destination "$folder/payload/icons" -Recurse
     Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'templates/config.yaml'),(Join-Path $PSScriptRoot 'templates/cheatsheet.tsv') -Destination "$folder/payload"

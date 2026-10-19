@@ -1,4 +1,4 @@
-GlazeBar Community Bundle 0.1.0-preview.1 / GlazeWM 3.10.1
+GlazeBar Community Bundle 0.1.0-preview.2 / GlazeWM 3.10.1
 
 Independent community bundle. Not an official GlazeWM release.
 Windows 11 ARM64 or x64. Choose the ZIP matching the Windows architecture.
@@ -47,10 +47,12 @@ redistributed; each image retains its own author's rights.
 Power menu uses existing %USERPROFILE%\PowerProfiles\profiles.json if present.
 Otherwise only available standard Windows power schemes can be selected;
 unavailable schemes show a dash. No power schemes are created or overwritten.
-Internal-screen brightness depends on the device's WMI support.
-ARM64 has been exercised on the development machine. x64 binaries are built
-and smoke-tested under Windows ARM emulation; physical Intel/AMD validation
-and clean-machine MSI/UAC validation remain release acceptance checks.
+Brightness is detected per display through WMI. Unsupported providers or
+missing brightness classes disable the control without terminating the bar.
+External-monitor DDC/CI control is not included. The resident process and
+Windows file description are now GlazeBar (GlazeBar.exe).
+The preview.2 x64 build is tested on physical x64 Windows. ARM64 is cross-built;
+this revision has not been run on ARM64. Clean-machine MSI/UAC validation remains pending.
 Preview binaries/scripts are not signed. Checksums detect accidental changes;
 they are not a substitute for publisher identity verification.
 

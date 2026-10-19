@@ -1,38 +1,81 @@
 {
-  "status": "preview-ready",
-  "rustTestsPassed": 72,
-  "installRestoreTestsPassed": true,
-  "windowsPowerShell51TestPassed": true,
-  "officialMsiSignatures": "Valid (both architectures)",
-  "licenses": {
-    "glazewmDependencies": 340,
-    "glazebarDependencies": 178
+  "version": "0.1.0-preview.2",
+  "date": "2026-10-19",
+  "rust": "1.93.0",
+  "tests": {
+    "passed": 74,
+    "failed": 0
   },
-  "remainingValidation": [
-    "Clean Windows MSI/UAC installation",
-    "Physical Intel/AMD PC",
-    "GlazeBar publisher signing"
+  "x64Runtime": {
+    "physicalWindows": true,
+    "brightnessUnsupportedDisplays": 2,
+    "probeExitCode": 0,
+    "shadowSeconds": 20,
+    "shadowExitCode": 0,
+    "residentProcess": "GlazeBar.exe",
+    "residentObservedSecondsAtLeast": 120
+  },
+  "arm64Runtime": "Not run; cross-compiled on x64 Windows",
+  "bundleTests": {
+    "x64": [
+      "hash verification",
+      "path substitution with spaces and Unicode",
+      "backup and restore",
+      "preserve user edits",
+      "preserve unrelated files",
+      "remove new files",
+      "reject corruption",
+      "rollback partial install",
+      "script parsing",
+      "GlazeBar.exe process filename and Windows version resource"
+    ],
+    "arm64": [
+      "hash verification",
+      "path substitution with spaces and Unicode",
+      "backup and restore",
+      "preserve user edits",
+      "preserve unrelated files",
+      "remove new files",
+      "reject corruption",
+      "rollback partial install",
+      "script parsing",
+      "GlazeBar.exe process filename and Windows version resource"
+    ]
+  },
+  "setupStartupCheck": {
+    "x64": "passed without installing",
+    "arm64": "not run"
+  },
+  "limitations": [
+    "Clean-machine MSI/UAC installation not tested",
+    "DDC/CI brightness not implemented",
+    "Binaries unsigned"
   ],
-  "packages": [
+  "artifacts": [
     {
-      "architecture": "arm64",
-      "file": "GlazeBar-Community-0.1.0-preview.1-windows-arm64.zip",
-      "bytes": 135601953,
-      "sha256": "1E5457C51E7B9AB2FF898213EDCD3E18960E47A7BD19291C526749A142984B65",
-      "verifiedFiles": 1554,
-      "nativeProbeExitCode": 0,
-      "externalVCRuntimeDependency": false,
-      "installedAppModified": false
+      "file": "GlazeBar-Community-0.1.0-preview.2-windows-arm64.zip",
+      "size": 135575661,
+      "sha256": "fc70fb365b3f852e1a92c63db369b2918c7bf032b5192f074408acaaa0bc7668"
     },
     {
-      "architecture": "x64",
-      "file": "GlazeBar-Community-0.1.0-preview.1-windows-x64.zip",
-      "bytes": 136131212,
-      "sha256": "0FC2B37C9D4A66FDDE78909A18F1267875534FB70DE24DA28EFED160F75C8097",
-      "verifiedFiles": 1554,
-      "nativeProbeExitCode": 0,
-      "externalVCRuntimeDependency": false,
-      "installedAppModified": false
+      "file": "GlazeBar-Community-0.1.0-preview.2-windows-x64.zip",
+      "size": 136144512,
+      "sha256": "8dc24d8669bcf37064e35deed20517a52a2f525799c401127998b165b0b8745c"
+    },
+    {
+      "file": "GlazeBar-GlazeWM-Setup-0.1.0-preview.2-arm64.exe",
+      "size": 137187126,
+      "sha256": "7d41c82e1569faf1b1241dfcce3007d6a2a4ff96dc4af0c146374b9f8a14891a"
+    },
+    {
+      "file": "GlazeBar-GlazeWM-Setup-0.1.0-preview.2-x64.exe",
+      "size": 137821615,
+      "sha256": "5a3d9195a02bddee40c0dedfcf1b35b08cfa75bafc24a12d81dea9a8c9e50fa0"
+    },
+    {
+      "file": "glazebar-source.zip",
+      "size": 40903845,
+      "sha256": "47dc787bec0b32eb784ca3dbf1a9bb6f45a9d6271828bcb9d9fc25aac9871c83"
     }
   ]
 }

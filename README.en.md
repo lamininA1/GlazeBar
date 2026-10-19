@@ -21,10 +21,12 @@ The font is Pretendard, color extraction comes from Aether, and the UI is based 
 
 | Your PC | Bundled installer |
 | --- | --- |
-| Intel / AMD Windows | [x64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.1/GlazeBar-GlazeWM-Setup-0.1.0-preview.1-x64.exe) |
-| Windows on ARM | [ARM64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.1/GlazeBar-GlazeWM-Setup-0.1.0-preview.1-arm64.exe) |
+| Intel / AMD Windows | [x64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.2/GlazeBar-GlazeWM-Setup-0.1.0-preview.2-x64.exe) |
+| Windows on ARM | [ARM64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.2/GlazeBar-GlazeWM-Setup-0.1.0-preview.2-arm64.exe) |
 
 ## Install
+
+Version 0.1.0-preview.2 fixes a startup crash on systems without WMI brightness support. The resident process is now `GlazeBar.exe`, with `GlazeBar` as its Windows file description. Brightness availability is detected per display; unsupported controls remain disabled without stopping the bar. External-monitor DDC/CI control is not included.
 
 1. Download the setup EXE for your PC.
 2. Close GlazeWM and GlazeBar if they're running.

@@ -1,4 +1,4 @@
-GlazeBar + GlazeWM 커뮤니티 번들 0.1.0-preview.1
+GlazeBar + GlazeWM 커뮤니티 번들 0.1.0-preview.2
 
 GlazeWM 공식 배포판이 아닌 커뮤니티 구성입니다.
 Windows 11 ARM64 / x64용 ZIP을 각각 제공합니다.
@@ -37,8 +37,11 @@ Alt+Shift+E: GlazeWM 종료
 
 배포 상태
 미리보기 버전이며 GlazeBar 및 스크립트에 코드 서명은 아직 없습니다.
-ARM64 개발 PC에서 검사했습니다. x64는 ARM Windows 에뮬레이션으로 검사하며,
-실제 Intel/AMD PC 및 새 Windows 환경에서의 MSI 설치 검증은 남아 있습니다.
+preview.2의 x64 빌드는 실제 x64 Windows에서 검사했습니다. ARM64는 교차 빌드했으며
+이번 수정본의 ARM64 실행 검증과 새 Windows 환경의 MSI/UAC 설치 검증은 남아 있습니다.
+밝기 조절은 모니터별 WMI 지원 여부를 확인하며, 미지원이면 조작을 비활성화합니다.
+외부 모니터 DDC/CI 제어는 포함하지 않습니다. 상주 프로세스 이름과 Windows 파일 설명은
+GlazeBar로 변경했습니다(GlazeBar.exe).
 전원 메뉴는 개인 프로필 파일이 없으면 해당 PC의 기본 전원 구성표를 사용합니다.
 없는 구성표는 선택할 수 없습니다. 밝기는 장치의 WMI 지원 여부에 따라 다릅니다.
 날씨는 기본적으로 서울입니다. Open-Meteo 출처와 서비스 조건은 README.txt에
