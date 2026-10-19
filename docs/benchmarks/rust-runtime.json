@@ -1,0 +1,156 @@
+{
+  "variant": "Rust",
+  "sha256": "F434A0D0B546B7F3525661D0351394FD4F9C5164410DD7D1BBBF68FEFCC18E47",
+  "warmupSeconds": 30,
+  "elapsedSeconds": 60.2476016,
+  "logicalProcessors": 10,
+  "cpuDeltaSeconds": 0.28125,
+  "cpuPercentMachine": 0.046682356231754124,
+  "workingMiBMean": 25.18359375,
+  "privateMiBMean": 5.046274038461538,
+  "samples": [
+    {
+      "utc": "2026-10-19T05:22:13.1377540Z",
+      "pid": 13000,
+      "workingMiB": 25.20703125,
+      "privateMiB": 5.1171875,
+      "cpuSeconds": 0.25,
+      "handles": 364,
+      "threads": 19,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:22:18.1574570Z",
+      "pid": 13000,
+      "workingMiB": 25.16796875,
+      "privateMiB": 5.05078125,
+      "cpuSeconds": 0.265625,
+      "handles": 363,
+      "threads": 18,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:22:23.1757268Z",
+      "pid": 13000,
+      "workingMiB": 25.171875,
+      "privateMiB": 5.0546875,
+      "cpuSeconds": 0.3125,
+      "handles": 363,
+      "threads": 18,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:22:28.1966292Z",
+      "pid": 13000,
+      "workingMiB": 25.18359375,
+      "privateMiB": 5.0625,
+      "cpuSeconds": 0.359375,
+      "handles": 363,
+      "threads": 18,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:22:33.2242279Z",
+      "pid": 13000,
+      "workingMiB": 25.19140625,
+      "privateMiB": 5.0625,
+      "cpuSeconds": 0.359375,
+      "handles": 363,
+      "threads": 18,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:22:38.2494533Z",
+      "pid": 13000,
+      "workingMiB": 25.2109375,
+      "privateMiB": 5.08203125,
+      "cpuSeconds": 0.359375,
+      "handles": 363,
+      "threads": 18,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:22:43.2642344Z",
+      "pid": 13000,
+      "workingMiB": 25.1796875,
+      "privateMiB": 5.03515625,
+      "cpuSeconds": 0.375,
+      "handles": 362,
+      "threads": 17,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:22:48.2900547Z",
+      "pid": 13000,
+      "workingMiB": 25.18359375,
+      "privateMiB": 5.03515625,
+      "cpuSeconds": 0.390625,
+      "handles": 364,
+      "threads": 17,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:22:53.3074024Z",
+      "pid": 13000,
+      "workingMiB": 25.16796875,
+      "privateMiB": 5.0078125,
+      "cpuSeconds": 0.40625,
+      "handles": 362,
+      "threads": 16,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:22:58.3220454Z",
+      "pid": 13000,
+      "workingMiB": 25.171875,
+      "privateMiB": 5.01171875,
+      "cpuSeconds": 0.421875,
+      "handles": 362,
+      "threads": 16,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:23:03.3375676Z",
+      "pid": 13000,
+      "workingMiB": 25.17578125,
+      "privateMiB": 5.015625,
+      "cpuSeconds": 0.5,
+      "handles": 362,
+      "threads": 16,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:23:08.3663827Z",
+      "pid": 13000,
+      "workingMiB": 25.18359375,
+      "privateMiB": 5.0234375,
+      "cpuSeconds": 0.515625,
+      "handles": 362,
+      "threads": 16,
+      "gdiObjects": 6,
+      "userObjects": 10
+    },
+    {
+      "utc": "2026-10-19T05:23:13.3853556Z",
+      "pid": 13000,
+      "workingMiB": 25.19140625,
+      "privateMiB": 5.04296875,
+      "cpuSeconds": 0.53125,
+      "handles": 362,
+      "threads": 17,
+      "gdiObjects": 6,
+      "userObjects": 10
+    }
+  ]
+}

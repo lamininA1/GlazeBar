@@ -1,90 +1,124 @@
-# GlazeBar
+# GlazeBar + GlazeWM
 
-Windows용 Rust 네이티브 상태 표시줄과 GlazeWM 커뮤니티 번들입니다.
-WebView2, .NET, Go 런타임을 설치하지 않고 GlazeBar를 실행할 수 있습니다.
-GlazeWM의 공식 프로젝트나 공식 배포판은 아닙니다.
+[한국어](README.md) · [English](README.en.md)
 
-## 다운로드 및 설치
+**본 저장소는 GlazeWM과 Topbar를 설치합니다.**
 
-[Releases](https://github.com/lamininA1/GlazeBar/releases)에서 Windows 아키텍처에 맞는 ZIP을 받으세요.
+Omarchy를 보고 Windows에서도 이런 환경을 써보고 싶어 GlazeWM을 사용하게 됐습니다. 그런데 함께 쓰던 Zebar가 WebView2 기반이라 제 환경에서는 꽤 무겁게 느껴지더라고요. 그래서 표시줄을 Rust로 새로 만들고, 쓰면서 필요했던 편의 기능도 하나씩 붙였습니다.
 
-- **ARM64**: Windows on ARM
-- **x64**: Intel / AMD Windows
+이 배포판에는 **Rust 상태 표시줄 GlazeBar와 GlazeWM 3.10.1이 모두 포함**되어 있습니다.
+GlazeWM이 창과 작업공간을 관리하고, GlazeBar에서 시스템 상태를 확인하거나 밝기·Wi-Fi·배터리 상태 기타 등등을 확인할 수 있습니다.
 
-ZIP에는 GlazeWM 3.10.1 공식 MSI, GlazeBar, 설정, 라이선스와 대응 소스가 포함됩니다.
-압축을 풀고 기존 GlazeWM과 GlazeBar를 종료한 다음 PowerShell에서 실행하세요.
+> GlazeWM 공식 배포판이 아닌 독립적인 커뮤니티 번들입니다! 저는 아무것도 몰라요
 
-```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1
-```
+글꼴은 Pretendard, 색상 추출은 Aether, UI는 Omarchy Quattro에서 가져왔습니다.
 
-로그인 시 자동 시작하려면 `-AutoStart`를 추가하세요. 설치 후 시작 메뉴에서 GlazeWM을 실행합니다.
-기존 파일은 먼저 백업합니다. 제거·복원은 앱을 종료한 뒤 `Uninstall.ps1`을 실행하면 됩니다.
-설치 후 수정한 파일도 따로 보관합니다.
+- **기본 글꼴:** [Pretendard](https://github.com/orioncactus/pretendard)
+- **색상 추출:** [Aether](https://github.com/omacom/aether)의 팔레트 추출 알고리즘을 가져와 Rust로 이식
+- **UI 디자인:** [Omarchy Quattro](https://github.com/omacom/omarchy/tree/quattro)의 UI를 바탕으로 Windows 네이티브 화면으로 구현
 
-[한국어 설치 안내](distribution/README.ko.txt) · [English instructions](distribution/README.txt)
+## 다운로드
 
-GlazeWM 공식 실행 파일에는 Microsoft Visual C++ Runtime이 필요합니다.
-없으면 설치 스크립트가 Microsoft에서 직접 내려받아 서명을 확인하고 설치 화면을 표시합니다.
-이 경우 인터넷과 사용자 승인이 필요합니다. GlazeBar 자체는 C 런타임을 정적으로 연결합니다.
+| 사용하는 PC | 통합 설치 프로그램 |
+| --- | --- |
+| Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.1/GlazeBar-GlazeWM-Setup-0.1.0-preview.1-x64.exe) |
+| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.1/GlazeBar-GlazeWM-Setup-0.1.0-preview.1-arm64.exe) |
+
+## 설치
+
+1. PC에 맞는 설치 EXE를 다운로드합니다.
+2. 실행 중인 GlazeWM과 GlazeBar가 있다면 종료합니다.
+3. EXE를 실행하고 설치 안내를 따라갑니다. 로그인 시 자동 시작 여부도 선택할 수 있습니다.
+4. 시작 메뉴의 **GlazeBar + GlazeWM**을 실행합니다.
+
+**명령어 입력이나 별도의 GlazeWM 다운로드는 필요하지 않습니다.** 기존 설정은 설치 전에 백업합니다.
+GlazeWM 3.10.1이 이미 있으면 그대로 사용합니다. 다른 버전이나 이전 커뮤니티 번들이 있으면 안내에 따라 먼저 정리해야 합니다.
+
+GlazeBar에는 .NET·Go·WebView2 설치가 필요 없습니다. GlazeWM에 필요한 Visual C++ 런타임이 없는 경우에만 Microsoft 설치 프로그램을 내려받도록 안내합니다.
+GlazeWM 및 런타임 설치 중 Windows 관리자 권한 확인이 나타날 수 있습니다.
 
 ## 주요 기능
 
-- GlazeWM 작업공간 표시, 창 관리 단축키, 전체 화면 대응
-- CPU·메모리·배터리·충방전 전력 표시
-- Wi-Fi, 밝기, 디스플레이 배율, 전원 구성표 메뉴
-- 배경화면 선택, 색상 추출과 테마 적용, Wallhaven 검색
-- 네이티브 팝업, DPI 배율 지원
+- **작업공간과 창 관리** — 작업공간 표시, 창 배치 단축키, 전체 화면 대응
+- **시스템 상태** — CPU·메모리·배터리 잔량·충방전 전력 표시
+- **빠른 설정** — Wi-Fi, 화면 밝기, 디스플레이 배율, 전원 구성표
+- **배경화면과 테마** — 배경화면 선택, 색상 추출, 테마 적용, Wallhaven 검색 (Omarchy처럼 각종 테마가 변경됩니다!)
 
-`Win+F1`: 단축키 안내 · `Win+Alt+Shift+B`: 바 표시/숨기기
+배경화면을 고르면 사진에 맞춰 테마도 바뀝니다!
 
-## 검증 범위
+![배경화면 선택과 테마 색상 변경 시연](docs/media/theme-change.gif)
 
-현재 릴리스는 **0.1.0-preview.1**입니다.
-Rust 테스트 72개, 격리된 폴더의 설치·제거·실패 복구, ZIP 체크섬 검사를 통과했습니다.
-ARM64 개발 PC 및 ARM Windows의 x64 에뮬레이션에서 조회 기능을 확인했습니다.
-실제 Intel/AMD PC와 새 Windows 환경의 MSI/UAC 설치 검증은 남아 있습니다.
-GlazeBar 실행 파일과 스크립트에는 아직 게시자 코드 서명이 없습니다.
+VS Code도 같이 바뀝니다. 영상은 Python이지만 Rust, JavaScript 등 다른 언어에도 적용돼요.
 
-날씨의 기본 지역은 서울입니다. Open-Meteo 무료 API의 비상업용 서비스 조건이 적용됩니다.
-장치에 따라 WMI 밝기 조절과 일부 전원 구성표를 지원하지 않을 수 있습니다.
+![VS Code 배경과 코드 문법 색상 변경 시연](docs/media/vscode-theme.gif)
 
-## 소스 빌드
+### 기존 Zebar 구성에서 추가한 기능
 
-Windows, Rust 1.93 이상, 해당 아키텍처의 MSVC C++ 도구와 Windows SDK가 필요합니다.
+제가 쓰던 Zebar 바에 아쉬웠던 것들을 이것저것 붙였습니다.
 
-```powershell
-cd native-rust
-rustup target add aarch64-pc-windows-msvc x86_64-pc-windows-msvc
-cargo test --locked
-cargo build --locked --release --target aarch64-pc-windows-msvc
-cargo build --locked --release --target x86_64-pc-windows-msvc
-```
+- **밝기·배율 직접 조절** — 표시줄의 밝기 슬라이더와 아이콘 아래 배율 메뉴
+- **Wi-Fi 연결 메뉴** — 주변 네트워크 검색, 선택 및 연결
+- **전원 구성표 전환** — 고성능·균형·절전을 표시줄에서 선택
+- **배경화면 선택기** — 로컬 사진 탐색과 Wallhaven 검색·다운로드
+- **사진 기반 테마 생성** — 색상 추출, 다크·라이트 전환, 6가지 스타일 비교와 미리보기
+- **앱·Windows 색상 연동** — 원하는 앱끼리 색상 맞추기
+- **색상 복원과 캐시** — 이전 색상으로 돌아가기, 뽑아둔 색상 재사용하기
 
-배포 패키지는 저장소 루트에서 PowerShell 7로 생성합니다.
+### 테마가 적용되는 범위
 
-```powershell
-.\distribution\Prepare-Upstream.ps1
-.\distribution\Build-Bundle.ps1
-```
+**색상 함께 적용**을 켜고 원하는 앱을 골라주면 됩니다. 배경화면만 바꾸는 것도 가능해요.
 
-실행 파일의 이름은 호환성을 위해 `WorkspaceToggle.exe`와 `GlazeTheme.exe`를 사용합니다.
-같은 바이너리가 실행 파일 이름에 따라 상태 표시줄 또는 테마 도우미로 동작합니다.
-실행에는 설정·아이콘도 필요하므로 처음 사용한다면 배포 ZIP의 설치 스크립트를 이용하세요.
+| 적용 대상 | 변경되는 부분 |
+| --- | --- |
+| GlazeBar + GlazeWM | 표시줄, 팝업, 활성 창 테두리 |
+| Windows Terminal | 배경, 글자, 커서와 터미널 색상 |
+| Codex CLI | 코드와 diff 색상 |
+| VS Code | 편집기, 사이드바, 탭, 상태 표시줄, 터미널, 코드 문법 색상 |
+| Windows | 다크·라이트 모드, 강조색, 제목 표시줄, 시작 메뉴·작업 표시줄, 투명 효과 |
 
-## 라이선스와 출처
+Windows 쪽은 바꾸고 싶은 항목만 따로 고를 수 있습니다. 작업 표시줄 강조색은 다크 모드에서 써주세요.
 
-직접 작성한 GlazeBar 코드와 번들 스크립트는 **GPL-3.0-only**입니다.
-GlazeWM의 GPLv3 및 각 의존성의 원래 저작권·라이선스는 유지합니다.
+### 메모리·CPU 사용량
 
-- [LICENSE](LICENSE)
-- [제삼자 고지](THIRD-PARTY-NOTICES.txt)
-- [의존성 목록과 라이선스](licenses/)
-- [GlazeWM](https://github.com/glzr-io/glazewm)
-- [Aether](https://github.com/omacom/aether)
-- [Lucide](https://github.com/lucide-icons/lucide)
+제 **Surface Pro 11 · Snapdragon X Plus X1P-64-100(10코어) · Windows 11 ARM64**에서 확인했습니다.
 
-릴리스 ZIP에는 GlazeBar·GlazeWM의 대응 소스, 의존성 소스와 빌드 안내를 동봉합니다.
-재배포할 때 이 자료와 라이선스 고지를 함께 유지하세요.
-일부 의존성은 전문 대신 SPDX 선언만 제공하며, 해당 선언·작성자 정보와 표준 약관 및 출처를 보존했습니다.
-사용자가 다운로드한 배경화면은 이 저장소나 배포 ZIP에 포함하지 않습니다.
+| 항목 | 기존 Zebar + WebView2 | Rust GlazeBar |
+| --- | ---: | ---: |
+| 메모리(작업 집합) | 799.7 MiB | 25.18 MiB |
+| 전용 메모리(Private Bytes) | 331.4 MiB | 5.05 MiB |
+| CPU 점유율(전체 CPU 기준) | 0.058% | 0.047% |
+| 상주 프로세스 | 13개 | 1개 |
+
+메모리는 꽤 가벼워졌습니다! 개발하면서 따로 측정한 값이라 CPU 차이는 참고 정도로 봐주세요. Zebar는 자식 프로세스 합계, Rust는 구간 평균이며 자세한 조건은 [측정 기록](docs/performance.md)에 남겨뒀습니다.
+
+| 단축키 | 동작 |
+| --- | --- |
+| `Win + F1` | 전체 단축키 안내 |
+| `Win + Alt + Shift + B` | 상태 표시줄 표시 / 숨기기 |
+| `Win + Ctrl + Alt + Space` | 배경화면 선택 |
+| `Alt + Shift + E` | GlazeWM 종료 |
+
+## 제거와 설정 복원
+
+GlazeWM과 GlazeBar를 종료한 뒤 **Windows 설정 → 앱 → GlazeBar + GlazeWM (community setup)**에서 제거합니다.
+설치 전 파일을 복원하고, 설치 후 수정한 파일은 별도로 보관합니다.
+
+GlazeWM까지 지우려면 앱 목록에서 **GlazeWM**도 제거해주세요. 적용해둔 Windows 테마와 배경화면은 그대로 남습니다.
+
+## 참고
+
+- Windows 11 ARM64 / x64
+- 아직 미리보기 버전이고 코드 서명은 없습니다.
+- ARM64와 x64 에뮬레이션에서 확인했습니다. Intel/AMD PC에서 잘 안 되면 꼭 알려주세요!
+- 밝기와 전원 설정은 기기에 따라 다를 수 있습니다.
+- 날씨는 일단 서울입니다. Open-Meteo 무료 API를 사용합니다([이용 조건](https://open-meteo.com/en/terms)).
+
+문제가 있거나 원하는 기능이 있으면 [Issues](https://github.com/lamininA1/GlazeBar/issues)에 남겨주세요!
+
+## 소스와 라이선스
+
+GlazeBar는 **GPL-3.0-only**입니다. 함께 사용한 프로젝트의 라이선스와 소스도 설치 프로그램에 넣어뒀습니다.
+
+[라이선스](LICENSE) · [제삼자 고지](THIRD-PARTY-NOTICES.txt) · [빌드 방법](distribution/BUILDING.md)
+
+함께 사용한 프로젝트: [GlazeWM](https://github.com/glzr-io/glazewm), [Aether](https://github.com/omacom/aether), [Lucide](https://github.com/lucide-icons/lucide), [Inno Setup](https://jrsoftware.org/isinfo.php).

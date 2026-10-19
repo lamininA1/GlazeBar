@@ -9,3 +9,5 @@ distribution/installer-trial/
 distribution/smoke-*/
 distribution/validation-*.json
 *.log
+distribution/setup-output/
+distribution/setup-test-output/

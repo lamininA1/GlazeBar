@@ -1,0 +1,89 @@
+{
+  "Label": "after-production",
+  "At": "2026-10-15T23:07:07.8853619+09:00",
+  "Seconds": 8.1,
+  "Processes": 13,
+  "CPUPercent": 0.058,
+  "WorkingSetSumMB": 799.7,
+  "PrivateMemoryMB": 331.4,
+  "Details": [
+    {
+      "Name": "zebar",
+      "PID": 5660,
+      "WorkingMB": 76.7,
+      "PrivateMB": 37.9
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 35404,
+      "WorkingMB": 143.9,
+      "PrivateMB": 42.8
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 33164,
+      "WorkingMB": 14.1,
+      "PrivateMB": 3.4
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 21424,
+      "WorkingMB": 78.9,
+      "PrivateMB": 51.7
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 9224,
+      "WorkingMB": 44.6,
+      "PrivateMB": 14.9
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 20152,
+      "WorkingMB": 22.4,
+      "PrivateMB": 9.3
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 20468,
+      "WorkingMB": 94.3,
+      "PrivateMB": 48.9
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 6804,
+      "WorkingMB": 137.7,
+      "PrivateMB": 40.9
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 25764,
+      "WorkingMB": 14.3,
+      "PrivateMB": 3.4
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 22692,
+      "WorkingMB": 61.0,
+      "PrivateMB": 35.8
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 3444,
+      "WorkingMB": 37.6,
+      "PrivateMB": 13.1
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 36288,
+      "WorkingMB": 21.4,
+      "PrivateMB": 9.1
+    },
+    {
+      "Name": "msedgewebview2",
+      "PID": 24996,
+      "WorkingMB": 52.8,
+      "PrivateMB": 20.3
+    }
+  ]
+}

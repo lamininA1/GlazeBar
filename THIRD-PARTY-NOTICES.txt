@@ -21,3 +21,7 @@ Open-Meteo weather: https://open-meteo.com/ ; data licensed CC BY 4.0:
 https://creativecommons.org/licenses/by/4.0/ . Display rounds temperature to C.
 Wallhaven images are downloaded on request and are not included in this bundle.
 All third-party copyrights and license terms remain with their respective owners.
+
+EXE installer: Inno Setup, Copyright (C) 1997-2026 Jordan Russell and contributors.
+License and acknowledgments: licenses/INNO-SETUP-LICENSE.txt.
+https://jrsoftware.org/isinfo.php
