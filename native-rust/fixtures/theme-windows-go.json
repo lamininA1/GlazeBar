@@ -1,0 +1,2522 @@
+[
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGqGuv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAALqGasQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAALqGasQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGqGuv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAL/f/wCgvvYAgZ/VAGqGugA6VIUAHjZkAAYcRwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAADpUhf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#80a0d0",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAE1pm/8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAJtpTcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAJtpTcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAE1pm/8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAL/f/wCgvvYAgZ/VAE1pmwA6VIUAHjZkAAYcRwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAADpUhf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#80a0d0",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAIaGhv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAIaGhsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAIaGhsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAIaGhv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAN7e3gC+vr4Anp6eAIaGhgBVVVUAODg4AB8fHwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAFVVVf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#000000",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGlpaf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAGlpacQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAGlpacQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGlpaf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAN7e3gC+vr4Anp6eAGlpaQBVVVUAODg4AB8fHwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAFVVVf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#000000",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAIaGhv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAIaGhsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAIaGhsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAIaGhv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAN7e3gC+vr4Anp6eAIaGhgBVVVUAODg4AB8fHwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAFVVVf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#ffffff",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGlpaf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAGlpacQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAGlpacQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGlpaf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAN7e3gC+vr4Anp6eAGlpaQBVVVUAODg4AB8fHwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAFVVVf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#ffffff",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAIaGhv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAIaGhsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAIaGhsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAIaGhv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAN7e3gC+vr4Anp6eAIaGhgBVVVUAODg4AB8fHwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAFVVVf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#888888",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGlpaf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAGlpacQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAGlpacQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGlpaf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAN7e3gC+vr4Anp6eAGlpaQBVVVUAODg4AB8fHwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAFVVVf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#888888",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAANVZSv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAEpZ1cQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAEpZ1cQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAANVZSv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAP+znwD/koAA8XJiANVZSgCbIBcAdgAAAFQAAAD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAJsgF/8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#ff0000",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAALM5Lf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAC05s8Q="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAC05s8Q="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAALM5Lf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAP+znwD/koAA8XJiALM5LQCbIBcAdgAAAFQAAAD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAJsgF/8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#ff0000",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAE2cNP8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAADScTcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAADScTcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAE2cNP8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAKX3jgCF1m4AZrVOAE2cNAATaAAAAEgAAAAtAAD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAABNoAP8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#00ff00",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAC19Cf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAAl9LcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAAl9LcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAC19Cf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAKX3jgCF1m4AZrVOAC19CQATaAAAAEgAAAAtAAD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAABNoAP8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#00ff00",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAFp/5v8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAOZ/WsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAOZ/WsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAFp/5v8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAK7a/wCPuf8AcZj/AFp/5gAtS60AEymJAAYBaQD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAC1Lrf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#0000ff",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAD9gxP8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAMRgP8Q="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAMRgP8Q="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAD9gxP8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAK7a/wCPuf8AcZj/AD9gxAAtS60AEymJAAYBaQD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAC1Lrf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#0000ff",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAJx7j/8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAI97nMQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAI97nMQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAJx7j/8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAGlKXv8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#927284",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAH1ecv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAHJefcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAHJefcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAH1ecv8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAPbS6ADVsscAtZOoAH1ecgBpSl4ASi1AAC8VJgD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAGlKXv8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#927284",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGaItP8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAALSIZsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAALSIZsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAGaItP8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAALzh/wCcwe8AfqHOAGaItAA3V38AGThfAAEeQwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAADdXf/8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#123456",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAEprlf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAJVrSsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAJVrSsQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAEprlf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAALzh/wCcwe8AfqHOAEprlQA3V38AGThfAAEeQwD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAADdXf/8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#123456",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAALljoP8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAKBjucQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAKBjucQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAALljoP8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAP+7+gD2m9kA1Hy5ALljoACDMW0AYA5NAEIAMgD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAIMxbf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": false,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#ffa5dd",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  },
+  {
+    "changes": [
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "AppsUseLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\AppsUseLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "SystemUsesLightTheme",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\SystemUsesLightTheme",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "AccentColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\AccentColor",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAJlGgf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationColor",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationColor",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAIFGmcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorizationAfterglow",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorizationAfterglow",
+        "Before": "BAAAAI97nMQ=",
+        "Existed": true,
+        "After": "BAAAAIFGmcQ="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentColorMenu",
+        "Before": "BAAAAJx7j/8=",
+        "Existed": true,
+        "After": "BAAAAJlGgf8="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "AccentPalette",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\AccentPalette",
+        "Before": "AwAAAPbS6ADVsscAtZOoAJx7jwBpSl4ASi1AAC8VJgD3YwwA",
+        "Existed": true,
+        "After": "AwAAAP+7+gD2m9kA1Hy5AJlGgQCDMW0AYA5NAEIAMgD3YwwA"
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent",
+        "RegistryName": "StartColorMenu",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent\\StartColorMenu",
+        "Before": "BAAAAGlKXv8=",
+        "Existed": true,
+        "After": "BAAAAIMxbf8="
+      },
+      {
+        "RegistryKey": "Control Panel\\Desktop",
+        "RegistryName": "AutoColorization",
+        "Path": "HKCU\\Control Panel\\Desktop\\AutoColorization",
+        "Before": "BAAAAAAAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\DWM",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\DWM\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "ColorPrevalence",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\ColorPrevalence",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAAAAAA="
+      },
+      {
+        "RegistryKey": "Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize",
+        "RegistryName": "EnableTransparency",
+        "Path": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\\EnableTransparency",
+        "Before": "BAAAAAEAAAA=",
+        "Existed": true,
+        "After": "BAAAAAEAAAA="
+      }
+    ],
+    "light": true,
+    "options": {
+      "mode": true,
+      "accent": true,
+      "titlebars": true,
+      "taskbar": false,
+      "transparency": true
+    },
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#ffa5dd",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ]
+  }
+]

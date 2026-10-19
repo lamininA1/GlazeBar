@@ -1,0 +1,6 @@
+{
+  "reason": "Upstream has no standalone license file. Original license declaration and authors preserved; standard terms are in licenses/standard.",
+  "repository": "https://github.com/lu-zero/simd_helpers",
+  "revision": "ca1a2f84aa386d758e98f8a609d990263932fb85",
+  "declarationOnly": true
+}

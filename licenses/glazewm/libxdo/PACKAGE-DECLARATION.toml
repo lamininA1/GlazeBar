@@ -1,0 +1,14 @@
+[package]
+
+name = "libxdo"
+version = "0.6.0"
+authors = ["Mika Attila <radiantstatue@gmail.com>"]
+license = "MIT"
+description = "Bindings to libxdo"
+readme = "README.md"
+repository = "https://github.com/crumblingstatue/rust-libxdo"
+documentation = "https://docs.rs/libxdo"
+keywords = ["X11", "automation", "xdotool", "libxdo", "xdo"]
+
+[dependencies]
+libxdo-sys = "0.11.0"

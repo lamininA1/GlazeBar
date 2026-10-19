@@ -1,0 +1,657 @@
+[
+  {
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#80a0d0",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ],
+    "source": "{}",
+    "terminal": {
+      "profiles": {
+        "defaults": {
+          "colorScheme": "GlazeBar Aether"
+        }
+      },
+      "schemes": [
+        {
+          "background": "#101820",
+          "black": "#101820",
+          "blue": "#80a0d0",
+          "brightBlack": "#808890",
+          "brightBlue": "#a0c0f0",
+          "brightCyan": "#a0e0e0",
+          "brightGreen": "#a0e0a0",
+          "brightPurple": "#d0b0e0",
+          "brightRed": "#f09090",
+          "brightWhite": "#f0f0f0",
+          "brightYellow": "#e8d090",
+          "cursorColor": "#80c0c0",
+          "cyan": "#80c0c0",
+          "foreground": "#f0f0f0",
+          "green": "#80c080",
+          "name": "GlazeBar Aether",
+          "purple": "#b090c0",
+          "red": "#d88080",
+          "selectionBackground": "#808890",
+          "white": "#c8c8c8",
+          "yellow": "#c8b080"
+        }
+      ]
+    },
+    "vscode": {
+      "editor.tokenColorCustomizations": {
+        "comments": "#808890",
+        "functions": "#80a0d0",
+        "keywords": "#b090c0",
+        "numbers": "#c8b080",
+        "strings": "#80c080",
+        "types": "#80c0c0",
+        "variables": "#f0f0f0"
+      },
+      "workbench.colorCustomizations": {
+        "activityBar.background": "#101820",
+        "activityBar.foreground": "#80c0c0",
+        "button.background": "#80a0d0",
+        "button.foreground": "#101820",
+        "editor.background": "#101820",
+        "editor.foreground": "#f0f0f0",
+        "editor.lineHighlightBackground": "#c8c8c80d",
+        "editor.selectionBackground": "#80889066",
+        "editorCursor.foreground": "#80c0c0",
+        "editorError.foreground": "#d88080",
+        "editorGroupHeader.tabsBackground": "#101820",
+        "editorLineNumber.activeForeground": "#f0f0f0",
+        "editorLineNumber.foreground": "#808890",
+        "editorWarning.foreground": "#c8b080",
+        "focusBorder": "#80c0c0",
+        "gitDecoration.addedResourceForeground": "#80c080",
+        "gitDecoration.deletedResourceForeground": "#d88080",
+        "input.background": "#101820",
+        "input.foreground": "#f0f0f0",
+        "panel.background": "#101820",
+        "sideBar.background": "#101820",
+        "sideBar.foreground": "#c8c8c8",
+        "sideBarTitle.foreground": "#f0f0f0",
+        "statusBar.background": "#101820",
+        "statusBar.foreground": "#c8c8c8",
+        "tab.activeBackground": "#101820",
+        "tab.activeForeground": "#f0f0f0",
+        "tab.inactiveBackground": "#101820",
+        "tab.inactiveForeground": "#c8c8c8",
+        "terminal.ansiBlack": "#101820",
+        "terminal.ansiBlue": "#80a0d0",
+        "terminal.ansiBrightBlack": "#808890",
+        "terminal.ansiBrightBlue": "#a0c0f0",
+        "terminal.ansiBrightCyan": "#a0e0e0",
+        "terminal.ansiBrightGreen": "#a0e0a0",
+        "terminal.ansiBrightMagenta": "#d0b0e0",
+        "terminal.ansiBrightRed": "#f09090",
+        "terminal.ansiBrightWhite": "#f0f0f0",
+        "terminal.ansiBrightYellow": "#e8d090",
+        "terminal.ansiCyan": "#80c0c0",
+        "terminal.ansiGreen": "#80c080",
+        "terminal.ansiMagenta": "#b090c0",
+        "terminal.ansiRed": "#d88080",
+        "terminal.ansiWhite": "#c8c8c8",
+        "terminal.ansiYellow": "#c8b080",
+        "terminal.background": "#101820",
+        "terminal.foreground": "#f0f0f0",
+        "titleBar.activeBackground": "#101820",
+        "titleBar.activeForeground": "#f0f0f0"
+      }
+    }
+  },
+  {
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#80a0d0",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ],
+    "source": "﻿{ // keep\n\"editor.fontSize\":15,\"workbench.colorCustomizations\":{\"custom.keep\":\"#123456\"},}",
+    "terminal": {
+      "editor.fontSize": 15,
+      "profiles": {
+        "defaults": {
+          "colorScheme": "GlazeBar Aether"
+        }
+      },
+      "schemes": [
+        {
+          "background": "#101820",
+          "black": "#101820",
+          "blue": "#80a0d0",
+          "brightBlack": "#808890",
+          "brightBlue": "#a0c0f0",
+          "brightCyan": "#a0e0e0",
+          "brightGreen": "#a0e0a0",
+          "brightPurple": "#d0b0e0",
+          "brightRed": "#f09090",
+          "brightWhite": "#f0f0f0",
+          "brightYellow": "#e8d090",
+          "cursorColor": "#80c0c0",
+          "cyan": "#80c0c0",
+          "foreground": "#f0f0f0",
+          "green": "#80c080",
+          "name": "GlazeBar Aether",
+          "purple": "#b090c0",
+          "red": "#d88080",
+          "selectionBackground": "#808890",
+          "white": "#c8c8c8",
+          "yellow": "#c8b080"
+        }
+      ],
+      "workbench.colorCustomizations": {
+        "custom.keep": "#123456"
+      }
+    },
+    "vscode": {
+      "editor.fontSize": 15,
+      "editor.tokenColorCustomizations": {
+        "comments": "#808890",
+        "functions": "#80a0d0",
+        "keywords": "#b090c0",
+        "numbers": "#c8b080",
+        "strings": "#80c080",
+        "types": "#80c0c0",
+        "variables": "#f0f0f0"
+      },
+      "workbench.colorCustomizations": {
+        "activityBar.background": "#101820",
+        "activityBar.foreground": "#80c0c0",
+        "button.background": "#80a0d0",
+        "button.foreground": "#101820",
+        "custom.keep": "#123456",
+        "editor.background": "#101820",
+        "editor.foreground": "#f0f0f0",
+        "editor.lineHighlightBackground": "#c8c8c80d",
+        "editor.selectionBackground": "#80889066",
+        "editorCursor.foreground": "#80c0c0",
+        "editorError.foreground": "#d88080",
+        "editorGroupHeader.tabsBackground": "#101820",
+        "editorLineNumber.activeForeground": "#f0f0f0",
+        "editorLineNumber.foreground": "#808890",
+        "editorWarning.foreground": "#c8b080",
+        "focusBorder": "#80c0c0",
+        "gitDecoration.addedResourceForeground": "#80c080",
+        "gitDecoration.deletedResourceForeground": "#d88080",
+        "input.background": "#101820",
+        "input.foreground": "#f0f0f0",
+        "panel.background": "#101820",
+        "sideBar.background": "#101820",
+        "sideBar.foreground": "#c8c8c8",
+        "sideBarTitle.foreground": "#f0f0f0",
+        "statusBar.background": "#101820",
+        "statusBar.foreground": "#c8c8c8",
+        "tab.activeBackground": "#101820",
+        "tab.activeForeground": "#f0f0f0",
+        "tab.inactiveBackground": "#101820",
+        "tab.inactiveForeground": "#c8c8c8",
+        "terminal.ansiBlack": "#101820",
+        "terminal.ansiBlue": "#80a0d0",
+        "terminal.ansiBrightBlack": "#808890",
+        "terminal.ansiBrightBlue": "#a0c0f0",
+        "terminal.ansiBrightCyan": "#a0e0e0",
+        "terminal.ansiBrightGreen": "#a0e0a0",
+        "terminal.ansiBrightMagenta": "#d0b0e0",
+        "terminal.ansiBrightRed": "#f09090",
+        "terminal.ansiBrightWhite": "#f0f0f0",
+        "terminal.ansiBrightYellow": "#e8d090",
+        "terminal.ansiCyan": "#80c0c0",
+        "terminal.ansiGreen": "#80c080",
+        "terminal.ansiMagenta": "#b090c0",
+        "terminal.ansiRed": "#d88080",
+        "terminal.ansiWhite": "#c8c8c8",
+        "terminal.ansiYellow": "#c8b080",
+        "terminal.background": "#101820",
+        "terminal.foreground": "#f0f0f0",
+        "titleBar.activeBackground": "#101820",
+        "titleBar.activeForeground": "#f0f0f0"
+      }
+    }
+  },
+  {
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#80a0d0",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ],
+    "source": "{\"profiles\":{\"list\":[{\"guid\":\"한글\",\"colorScheme\":\"old\"},null,42]},\"schemes\":[{\"name\":\"Existing\",\"red\":\"#f00\"}]}",
+    "terminal": {
+      "profiles": {
+        "defaults": {
+          "colorScheme": "GlazeBar Aether"
+        },
+        "list": [
+          {
+            "colorScheme": "GlazeBar Aether",
+            "guid": "한글"
+          },
+          null,
+          42
+        ]
+      },
+      "schemes": [
+        {
+          "name": "Existing",
+          "red": "#f00"
+        },
+        {
+          "background": "#101820",
+          "black": "#101820",
+          "blue": "#80a0d0",
+          "brightBlack": "#808890",
+          "brightBlue": "#a0c0f0",
+          "brightCyan": "#a0e0e0",
+          "brightGreen": "#a0e0a0",
+          "brightPurple": "#d0b0e0",
+          "brightRed": "#f09090",
+          "brightWhite": "#f0f0f0",
+          "brightYellow": "#e8d090",
+          "cursorColor": "#80c0c0",
+          "cyan": "#80c0c0",
+          "foreground": "#f0f0f0",
+          "green": "#80c080",
+          "name": "GlazeBar Aether",
+          "purple": "#b090c0",
+          "red": "#d88080",
+          "selectionBackground": "#808890",
+          "white": "#c8c8c8",
+          "yellow": "#c8b080"
+        }
+      ]
+    },
+    "vscode": {
+      "editor.tokenColorCustomizations": {
+        "comments": "#808890",
+        "functions": "#80a0d0",
+        "keywords": "#b090c0",
+        "numbers": "#c8b080",
+        "strings": "#80c080",
+        "types": "#80c0c0",
+        "variables": "#f0f0f0"
+      },
+      "profiles": {
+        "list": [
+          {
+            "colorScheme": "old",
+            "guid": "한글"
+          },
+          null,
+          42
+        ]
+      },
+      "schemes": [
+        {
+          "name": "Existing",
+          "red": "#f00"
+        }
+      ],
+      "workbench.colorCustomizations": {
+        "activityBar.background": "#101820",
+        "activityBar.foreground": "#80c0c0",
+        "button.background": "#80a0d0",
+        "button.foreground": "#101820",
+        "editor.background": "#101820",
+        "editor.foreground": "#f0f0f0",
+        "editor.lineHighlightBackground": "#c8c8c80d",
+        "editor.selectionBackground": "#80889066",
+        "editorCursor.foreground": "#80c0c0",
+        "editorError.foreground": "#d88080",
+        "editorGroupHeader.tabsBackground": "#101820",
+        "editorLineNumber.activeForeground": "#f0f0f0",
+        "editorLineNumber.foreground": "#808890",
+        "editorWarning.foreground": "#c8b080",
+        "focusBorder": "#80c0c0",
+        "gitDecoration.addedResourceForeground": "#80c080",
+        "gitDecoration.deletedResourceForeground": "#d88080",
+        "input.background": "#101820",
+        "input.foreground": "#f0f0f0",
+        "panel.background": "#101820",
+        "sideBar.background": "#101820",
+        "sideBar.foreground": "#c8c8c8",
+        "sideBarTitle.foreground": "#f0f0f0",
+        "statusBar.background": "#101820",
+        "statusBar.foreground": "#c8c8c8",
+        "tab.activeBackground": "#101820",
+        "tab.activeForeground": "#f0f0f0",
+        "tab.inactiveBackground": "#101820",
+        "tab.inactiveForeground": "#c8c8c8",
+        "terminal.ansiBlack": "#101820",
+        "terminal.ansiBlue": "#80a0d0",
+        "terminal.ansiBrightBlack": "#808890",
+        "terminal.ansiBrightBlue": "#a0c0f0",
+        "terminal.ansiBrightCyan": "#a0e0e0",
+        "terminal.ansiBrightGreen": "#a0e0a0",
+        "terminal.ansiBrightMagenta": "#d0b0e0",
+        "terminal.ansiBrightRed": "#f09090",
+        "terminal.ansiBrightWhite": "#f0f0f0",
+        "terminal.ansiBrightYellow": "#e8d090",
+        "terminal.ansiCyan": "#80c0c0",
+        "terminal.ansiGreen": "#80c080",
+        "terminal.ansiMagenta": "#b090c0",
+        "terminal.ansiRed": "#d88080",
+        "terminal.ansiWhite": "#c8c8c8",
+        "terminal.ansiYellow": "#c8b080",
+        "terminal.background": "#101820",
+        "terminal.foreground": "#f0f0f0",
+        "titleBar.activeBackground": "#101820",
+        "titleBar.activeForeground": "#f0f0f0"
+      }
+    }
+  },
+  {
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#80a0d0",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ],
+    "source": "{\"schemes\":[{\"name\":\"GlazeBar Aether\",\"red\":\"#f00\"},{\"name\":\"GlazeBar Aether\"}],\"editor.tokenColorCustomizations\":{\"textMateRules\":[{\"scope\":\"comment\"}]}}",
+    "terminal": {
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": "comment"
+          }
+        ]
+      },
+      "profiles": {
+        "defaults": {
+          "colorScheme": "GlazeBar Aether"
+        }
+      },
+      "schemes": [
+        {
+          "background": "#101820",
+          "black": "#101820",
+          "blue": "#80a0d0",
+          "brightBlack": "#808890",
+          "brightBlue": "#a0c0f0",
+          "brightCyan": "#a0e0e0",
+          "brightGreen": "#a0e0a0",
+          "brightPurple": "#d0b0e0",
+          "brightRed": "#f09090",
+          "brightWhite": "#f0f0f0",
+          "brightYellow": "#e8d090",
+          "cursorColor": "#80c0c0",
+          "cyan": "#80c0c0",
+          "foreground": "#f0f0f0",
+          "green": "#80c080",
+          "name": "GlazeBar Aether",
+          "purple": "#b090c0",
+          "red": "#d88080",
+          "selectionBackground": "#808890",
+          "white": "#c8c8c8",
+          "yellow": "#c8b080"
+        },
+        {
+          "background": "#101820",
+          "black": "#101820",
+          "blue": "#80a0d0",
+          "brightBlack": "#808890",
+          "brightBlue": "#a0c0f0",
+          "brightCyan": "#a0e0e0",
+          "brightGreen": "#a0e0a0",
+          "brightPurple": "#d0b0e0",
+          "brightRed": "#f09090",
+          "brightWhite": "#f0f0f0",
+          "brightYellow": "#e8d090",
+          "cursorColor": "#80c0c0",
+          "cyan": "#80c0c0",
+          "foreground": "#f0f0f0",
+          "green": "#80c080",
+          "name": "GlazeBar Aether",
+          "purple": "#b090c0",
+          "red": "#d88080",
+          "selectionBackground": "#808890",
+          "white": "#c8c8c8",
+          "yellow": "#c8b080"
+        }
+      ]
+    },
+    "vscode": {
+      "editor.tokenColorCustomizations": {
+        "comments": "#808890",
+        "functions": "#80a0d0",
+        "keywords": "#b090c0",
+        "numbers": "#c8b080",
+        "strings": "#80c080",
+        "textMateRules": [
+          {
+            "scope": "comment"
+          }
+        ],
+        "types": "#80c0c0",
+        "variables": "#f0f0f0"
+      },
+      "schemes": [
+        {
+          "name": "GlazeBar Aether",
+          "red": "#f00"
+        },
+        {
+          "name": "GlazeBar Aether"
+        }
+      ],
+      "workbench.colorCustomizations": {
+        "activityBar.background": "#101820",
+        "activityBar.foreground": "#80c0c0",
+        "button.background": "#80a0d0",
+        "button.foreground": "#101820",
+        "editor.background": "#101820",
+        "editor.foreground": "#f0f0f0",
+        "editor.lineHighlightBackground": "#c8c8c80d",
+        "editor.selectionBackground": "#80889066",
+        "editorCursor.foreground": "#80c0c0",
+        "editorError.foreground": "#d88080",
+        "editorGroupHeader.tabsBackground": "#101820",
+        "editorLineNumber.activeForeground": "#f0f0f0",
+        "editorLineNumber.foreground": "#808890",
+        "editorWarning.foreground": "#c8b080",
+        "focusBorder": "#80c0c0",
+        "gitDecoration.addedResourceForeground": "#80c080",
+        "gitDecoration.deletedResourceForeground": "#d88080",
+        "input.background": "#101820",
+        "input.foreground": "#f0f0f0",
+        "panel.background": "#101820",
+        "sideBar.background": "#101820",
+        "sideBar.foreground": "#c8c8c8",
+        "sideBarTitle.foreground": "#f0f0f0",
+        "statusBar.background": "#101820",
+        "statusBar.foreground": "#c8c8c8",
+        "tab.activeBackground": "#101820",
+        "tab.activeForeground": "#f0f0f0",
+        "tab.inactiveBackground": "#101820",
+        "tab.inactiveForeground": "#c8c8c8",
+        "terminal.ansiBlack": "#101820",
+        "terminal.ansiBlue": "#80a0d0",
+        "terminal.ansiBrightBlack": "#808890",
+        "terminal.ansiBrightBlue": "#a0c0f0",
+        "terminal.ansiBrightCyan": "#a0e0e0",
+        "terminal.ansiBrightGreen": "#a0e0a0",
+        "terminal.ansiBrightMagenta": "#d0b0e0",
+        "terminal.ansiBrightRed": "#f09090",
+        "terminal.ansiBrightWhite": "#f0f0f0",
+        "terminal.ansiBrightYellow": "#e8d090",
+        "terminal.ansiCyan": "#80c0c0",
+        "terminal.ansiGreen": "#80c080",
+        "terminal.ansiMagenta": "#b090c0",
+        "terminal.ansiRed": "#d88080",
+        "terminal.ansiWhite": "#c8c8c8",
+        "terminal.ansiYellow": "#c8b080",
+        "terminal.background": "#101820",
+        "terminal.foreground": "#f0f0f0",
+        "titleBar.activeBackground": "#101820",
+        "titleBar.activeForeground": "#f0f0f0"
+      }
+    }
+  },
+  {
+    "palette": [
+      "#101820",
+      "#d88080",
+      "#80c080",
+      "#c8b080",
+      "#80a0d0",
+      "#b090c0",
+      "#80c0c0",
+      "#c8c8c8",
+      "#808890",
+      "#f09090",
+      "#a0e0a0",
+      "#e8d090",
+      "#a0c0f0",
+      "#d0b0e0",
+      "#a0e0e0",
+      "#f0f0f0"
+    ],
+    "source": "{\"escaped\\\"key\":\"https://example.test/*comment*/\", // tail\n}",
+    "terminal": {
+      "escaped\"key": "https://example.test/*comment*/",
+      "profiles": {
+        "defaults": {
+          "colorScheme": "GlazeBar Aether"
+        }
+      },
+      "schemes": [
+        {
+          "background": "#101820",
+          "black": "#101820",
+          "blue": "#80a0d0",
+          "brightBlack": "#808890",
+          "brightBlue": "#a0c0f0",
+          "brightCyan": "#a0e0e0",
+          "brightGreen": "#a0e0a0",
+          "brightPurple": "#d0b0e0",
+          "brightRed": "#f09090",
+          "brightWhite": "#f0f0f0",
+          "brightYellow": "#e8d090",
+          "cursorColor": "#80c0c0",
+          "cyan": "#80c0c0",
+          "foreground": "#f0f0f0",
+          "green": "#80c080",
+          "name": "GlazeBar Aether",
+          "purple": "#b090c0",
+          "red": "#d88080",
+          "selectionBackground": "#808890",
+          "white": "#c8c8c8",
+          "yellow": "#c8b080"
+        }
+      ]
+    },
+    "vscode": {
+      "editor.tokenColorCustomizations": {
+        "comments": "#808890",
+        "functions": "#80a0d0",
+        "keywords": "#b090c0",
+        "numbers": "#c8b080",
+        "strings": "#80c080",
+        "types": "#80c0c0",
+        "variables": "#f0f0f0"
+      },
+      "escaped\"key": "https://example.test/*comment*/",
+      "workbench.colorCustomizations": {
+        "activityBar.background": "#101820",
+        "activityBar.foreground": "#80c0c0",
+        "button.background": "#80a0d0",
+        "button.foreground": "#101820",
+        "editor.background": "#101820",
+        "editor.foreground": "#f0f0f0",
+        "editor.lineHighlightBackground": "#c8c8c80d",
+        "editor.selectionBackground": "#80889066",
+        "editorCursor.foreground": "#80c0c0",
+        "editorError.foreground": "#d88080",
+        "editorGroupHeader.tabsBackground": "#101820",
+        "editorLineNumber.activeForeground": "#f0f0f0",
+        "editorLineNumber.foreground": "#808890",
+        "editorWarning.foreground": "#c8b080",
+        "focusBorder": "#80c0c0",
+        "gitDecoration.addedResourceForeground": "#80c080",
+        "gitDecoration.deletedResourceForeground": "#d88080",
+        "input.background": "#101820",
+        "input.foreground": "#f0f0f0",
+        "panel.background": "#101820",
+        "sideBar.background": "#101820",
+        "sideBar.foreground": "#c8c8c8",
+        "sideBarTitle.foreground": "#f0f0f0",
+        "statusBar.background": "#101820",
+        "statusBar.foreground": "#c8c8c8",
+        "tab.activeBackground": "#101820",
+        "tab.activeForeground": "#f0f0f0",
+        "tab.inactiveBackground": "#101820",
+        "tab.inactiveForeground": "#c8c8c8",
+        "terminal.ansiBlack": "#101820",
+        "terminal.ansiBlue": "#80a0d0",
+        "terminal.ansiBrightBlack": "#808890",
+        "terminal.ansiBrightBlue": "#a0c0f0",
+        "terminal.ansiBrightCyan": "#a0e0e0",
+        "terminal.ansiBrightGreen": "#a0e0a0",
+        "terminal.ansiBrightMagenta": "#d0b0e0",
+        "terminal.ansiBrightRed": "#f09090",
+        "terminal.ansiBrightWhite": "#f0f0f0",
+        "terminal.ansiBrightYellow": "#e8d090",
+        "terminal.ansiCyan": "#80c0c0",
+        "terminal.ansiGreen": "#80c080",
+        "terminal.ansiMagenta": "#b090c0",
+        "terminal.ansiRed": "#d88080",
+        "terminal.ansiWhite": "#c8c8c8",
+        "terminal.ansiYellow": "#c8b080",
+        "terminal.background": "#101820",
+        "terminal.foreground": "#f0f0f0",
+        "titleBar.activeBackground": "#101820",
+        "titleBar.activeForeground": "#f0f0f0"
+      }
+    }
+  }
+]

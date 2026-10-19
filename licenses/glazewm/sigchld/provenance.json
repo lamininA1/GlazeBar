@@ -1,0 +1,6 @@
+{
+  "reason": "Upstream has no standalone license file. Original license declaration and authors preserved; standard terms are in licenses/standard.",
+  "repository": "https://github.com/oconnor663/sigchld.rs",
+  "revision": "07b95e2fe38b18b376b0f635f2766bf2e641b80b",
+  "declarationOnly": true
+}

@@ -1,0 +1,23 @@
+GlazeBar Community Bundle - third-party notices
+Original GlazeBar code and bundle scripts: GPL-3.0-only.
+GlazeWM 3.10.1: GNU GPL v3; https://github.com/glzr-io/glazewm
+Go-derived sorting/Unicode code: BSD-3-Clause, The Go Authors; GO-LICENSE.txt.
+Aether palette algorithms: MIT, Bjarne Overli and contributors.
+https://github.com/omacom/aether/tree/29d07b1a8f474c77bf02aece948373f40abed105
+The upstream README declares MIT but supplies no standalone license text;
+AETHER-LICENSE.txt records that provenance and includes the MIT terms.
+Lucide icons: ISC / Feather-derived icons MIT. See LUCIDE-LICENSE.txt.
+https://github.com/lucide-icons/lucide/tree/d672fc43dbf60962d9d829e35bc3b3e5ed89a178
+Rust dependency declarations and original notice texts: licenses/dependencies.json
+and the component subdirectories. Full crate sources are in source/ archives.
+The inventory includes dependencies for other platforms as well as Windows.
+Where a crate omitted its license text, notices were retrieved from its pinned
+upstream revision. Where upstream supplies only an SPDX declaration, that
+declaration and author metadata are retained with supplemental standard terms.
+These provenance cases are recorded under licenses/*/*/provenance.json.
+Declarations and source notices govern each component; this inventory is not
+a representation that all upstream projects underwent a legal audit.
+Open-Meteo weather: https://open-meteo.com/ ; data licensed CC BY 4.0:
+https://creativecommons.org/licenses/by/4.0/ . Display rounds temperature to C.
+Wallhaven images are downloaded on request and are not included in this bundle.
+All third-party copyrights and license terms remain with their respective owners.

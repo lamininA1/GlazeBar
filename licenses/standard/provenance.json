@@ -1,0 +1,77 @@
+[
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/0BSD.txt",
+    "sha256": "E3F18C71E10D673590EB9856C1D79DD3B4B0D65404EFB5E8584DBEDE7EDD608B",
+    "license": "0BSD"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/Apache-2.0.txt",
+    "sha256": "074E6E32C86A4C0EF8B3ED25B721CA23ACA83DF277CD88106EF7177C354615FF",
+    "license": "Apache-2.0"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/BSD-2-Clause.txt",
+    "sha256": "F32FB3B417A194167CFAD068223FC975BA96C5960513A10F66A3C28720AEC1DF",
+    "license": "BSD-2-Clause"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/BSD-3-Clause.txt",
+    "sha256": "5A93D5831E1297AB10FE643E1A631E83BE392896DA14EE2951285A79012DF69D",
+    "license": "BSD-3-Clause"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/BSL-1.0.txt",
+    "sha256": "84C6EF3EA9E3254A54D0ACF5D3E0C61AE011B8FEF7DD6940591CF060E6380A8F",
+    "license": "BSL-1.0"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/CC0-1.0.txt",
+    "sha256": "A2010F343487D3F7618AFFE54F789F5487602331C0A8D03F49E9A7C547CF0499",
+    "license": "CC0-1.0"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/ISC.txt",
+    "sha256": "521C6F0ED8E64736684F89843D16A4DF6B4B7449ACBCFC6CA6630A3037CA8C53",
+    "license": "ISC"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/MIT.txt",
+    "sha256": "B05785F9F18E6716BAB63424B11454513B9943A222595B70411009202FC592B5",
+    "license": "MIT"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/MPL-2.0.txt",
+    "sha256": "66A3107D5AD6A058AAB753EAAC2047CCB2ED0E39465DD0FE5844DA3E300D5172",
+    "license": "MPL-2.0"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/NCSA.txt",
+    "sha256": "B31BBFD06E221B39E1A877FB3F91B32FE9E88C87C1B46D11CD2BD5C822EC71E3",
+    "license": "NCSA"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/Unicode-3.0.txt",
+    "sha256": "F7DB81051789B729FEA528A63EC4C938FDCB93D9D61D97DC8CC2E9DF6D47F2A1",
+    "license": "Unicode-3.0"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/Unlicense.txt",
+    "sha256": "0BDEBFEDA07D45DADA625AE1317C6F833186E798B171D0DB640BCF32E92A8240",
+    "license": "Unlicense"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/Zlib.txt",
+    "sha256": "BFB1112D49DB5B1DAECDFEF24BD7E2F3EA0BAFB33AA67AA0AB51E2BF8407C03D",
+    "license": "Zlib"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/LGPL-2.1-or-later.txt",
+    "sha256": "5749785C8BDEFAFCB5D798270ED0A967036FE2CA63DCEDADE1627565DFEF81D2",
+    "license": "LGPL-2.1-or-later"
+  },
+  {
+    "source": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/LLVM-exception.txt",
+    "sha256": "E34C58338BD89D43E709E226610D8F32B3E3C47F4AD9A99A8DC1D4AC7842488E",
+    "license": "LLVM-exception"
+  }
+]

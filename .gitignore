@@ -1,0 +1,11 @@
+native-rust/target/
+distribution/upstream/
+distribution/vendor-*/
+distribution/upstream-notices/
+distribution/standard-licenses/
+distribution/*vendor-config.toml
+distribution/output-*/
+distribution/installer-trial/
+distribution/smoke-*/
+distribution/validation-*.json
+*.log

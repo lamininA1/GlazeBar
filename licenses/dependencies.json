@@ -1,0 +1,4664 @@
+[
+  {
+    "component": "glazebar",
+    "name": "adler2",
+    "version": "2.0.1",
+    "license": "0BSD OR MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "android_system_properties",
+    "version": "0.1.5",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "anyhow",
+    "version": "1.0.102",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "arrayref",
+    "version": "0.3.9",
+    "license": "BSD-2-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "arrayvec",
+    "version": "0.7.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "autocfg",
+    "version": "1.5.1",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "base64",
+    "version": "0.22.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "bitflags",
+    "version": "2.13.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "block-buffer",
+    "version": "0.10.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "bumpalo",
+    "version": "3.20.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "bytemuck",
+    "version": "1.25.0",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "byteorder-lite",
+    "version": "0.1.0",
+    "license": "Unlicense OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "bytes",
+    "version": "1.11.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "cc",
+    "version": "1.2.64",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "cfg-if",
+    "version": "1.0.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "chrono",
+    "version": "0.4.45",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "color_quant",
+    "version": "1.1.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "core-foundation",
+    "version": "0.10.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "core-foundation-sys",
+    "version": "0.8.7",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "cpufeatures",
+    "version": "0.2.17",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "crc32fast",
+    "version": "1.5.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "crypto-common",
+    "version": "0.1.7",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "data-encoding",
+    "version": "2.11.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "data-url",
+    "version": "0.3.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "digest",
+    "version": "0.10.7",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "displaydoc",
+    "version": "0.2.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "errno",
+    "version": "0.3.14",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "euclid",
+    "version": "0.22.14",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "fastrand",
+    "version": "2.5.0",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "fdeflate",
+    "version": "0.3.7",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "find-msvc-tools",
+    "version": "0.1.9",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "flate2",
+    "version": "1.1.9",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "float-cmp",
+    "version": "0.9.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "foreign-types",
+    "version": "0.3.2",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "foreign-types-shared",
+    "version": "0.1.1",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "form_urlencoded",
+    "version": "1.2.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "futures-core",
+    "version": "0.3.32",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "futures-task",
+    "version": "0.3.32",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "futures-util",
+    "version": "0.3.32",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "generic-array",
+    "version": "0.14.7",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "getrandom",
+    "version": "0.3.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "gif",
+    "version": "0.14.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "http",
+    "version": "1.4.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "httparse",
+    "version": "1.10.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "iana-time-zone",
+    "version": "0.1.65",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "iana-time-zone-haiku",
+    "version": "0.1.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "icu_collections",
+    "version": "2.2.0",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "icu_locale_core",
+    "version": "2.2.0",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "icu_normalizer",
+    "version": "2.2.0",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "icu_normalizer_data",
+    "version": "2.2.0",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "icu_properties",
+    "version": "2.2.0",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "icu_properties_data",
+    "version": "2.2.0",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "icu_provider",
+    "version": "2.2.0",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "idna",
+    "version": "1.1.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "idna_adapter",
+    "version": "1.2.2",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "image",
+    "version": "0.25.10",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "image-webp",
+    "version": "0.2.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "imagesize",
+    "version": "0.14.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "itoa",
+    "version": "1.0.18",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "js-sys",
+    "version": "0.3.102",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "kurbo",
+    "version": "0.13.1",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "libc",
+    "version": "0.2.186",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "linux-raw-sys",
+    "version": "0.12.1",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 4,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "litemap",
+    "version": "0.8.2",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "log",
+    "version": "0.4.32",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "memchr",
+    "version": "2.8.2",
+    "license": "Unlicense OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "miniz_oxide",
+    "version": "0.8.9",
+    "license": "MIT OR Zlib OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 4,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "moxcms",
+    "version": "0.8.1",
+    "license": "BSD-3-Clause OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "native-tls",
+    "version": "0.2.18",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "num-traits",
+    "version": "0.2.19",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "once_cell",
+    "version": "1.21.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "openssl",
+    "version": "0.10.81",
+    "license": "Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "openssl-macros",
+    "version": "0.1.1",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "openssl-probe",
+    "version": "0.2.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "openssl-sys",
+    "version": "0.9.117",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "percent-encoding",
+    "version": "2.3.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "pico-args",
+    "version": "0.5.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "pin-project-lite",
+    "version": "0.2.17",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "pkg-config",
+    "version": "0.3.34",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "png",
+    "version": "0.18.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "polycool",
+    "version": "0.4.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "potential_utf",
+    "version": "0.1.5",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "ppv-lite86",
+    "version": "0.2.21",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "proc-macro2",
+    "version": "1.0.106",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "pxfm",
+    "version": "0.1.29",
+    "license": "BSD-3-Clause OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "quick-error",
+    "version": "2.0.1",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "quote",
+    "version": "1.0.45",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "r-efi",
+    "version": "5.3.0",
+    "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "rand",
+    "version": "0.9.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "rand_chacha",
+    "version": "0.9.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "rand_core",
+    "version": "0.9.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "resvg",
+    "version": "0.47.0",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "rgb",
+    "version": "0.8.53",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "roxmltree",
+    "version": "0.21.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "rustix",
+    "version": "1.1.5",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 4,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "rustversion",
+    "version": "1.0.22",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "schannel",
+    "version": "0.1.30",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "security-framework",
+    "version": "3.7.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "security-framework-sys",
+    "version": "2.17.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "serde",
+    "version": "1.0.228",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "serde_core",
+    "version": "1.0.228",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "serde_derive",
+    "version": "1.0.228",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "serde_json",
+    "version": "1.0.150",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "sha1",
+    "version": "0.10.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "shlex",
+    "version": "2.0.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "simd-adler32",
+    "version": "0.3.9",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "simplecss",
+    "version": "0.2.2",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "siphasher",
+    "version": "1.0.3",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "slab",
+    "version": "0.4.12",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "smallvec",
+    "version": "1.15.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "stable_deref_trait",
+    "version": "1.2.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "strict-num",
+    "version": "0.1.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "svgtypes",
+    "version": "0.16.1",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "syn",
+    "version": "2.0.117",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "synstructure",
+    "version": "0.13.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "tempfile",
+    "version": "3.27.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "thiserror",
+    "version": "2.0.18",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "thiserror-impl",
+    "version": "2.0.18",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "tiny-skia",
+    "version": "0.12.0",
+    "license": "BSD-3-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "tiny-skia-path",
+    "version": "0.12.0",
+    "license": "BSD-3-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "tinystr",
+    "version": "0.8.3",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "tungstenite",
+    "version": "0.28.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "typenum",
+    "version": "1.20.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "unicode-ident",
+    "version": "1.0.24",
+    "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "ureq",
+    "version": "2.12.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 4,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "url",
+    "version": "2.5.8",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "usvg",
+    "version": "0.47.0",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "utf-8",
+    "version": "0.7.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "utf8_iter",
+    "version": "1.0.4",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "vcpkg",
+    "version": "0.2.15",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "version_check",
+    "version": "0.9.5",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "wasip2",
+    "version": "1.0.4+wasi-0.2.12",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "wasm-bindgen",
+    "version": "0.2.125",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "wasm-bindgen-macro",
+    "version": "0.2.125",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "wasm-bindgen-macro-support",
+    "version": "0.2.125",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "wasm-bindgen-shared",
+    "version": "0.2.125",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "weezl",
+    "version": "0.1.12",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows",
+    "version": "0.61.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows_aarch64_gnullvm",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows_aarch64_msvc",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows_i686_gnu",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows_i686_gnullvm",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows_i686_msvc",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows_x86_64_gnu",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows_x86_64_gnullvm",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows_x86_64_msvc",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-collections",
+    "version": "0.2.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-core",
+    "version": "0.62.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-core-0.61.2",
+    "version": "0.61.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-future",
+    "version": "0.2.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-implement",
+    "version": "0.60.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-interface",
+    "version": "0.59.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-link",
+    "version": "0.2.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-link-0.1.3",
+    "version": "0.1.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-numerics",
+    "version": "0.2.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-result",
+    "version": "0.4.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-result-0.3.4",
+    "version": "0.3.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-strings",
+    "version": "0.5.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-strings-0.4.2",
+    "version": "0.4.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-sys",
+    "version": "0.61.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-sys-0.52.0",
+    "version": "0.52.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-targets",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "windows-threading",
+    "version": "0.1.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "wit-bindgen",
+    "version": "0.57.1",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "writeable",
+    "version": "0.6.3",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "xmlwriter",
+    "version": "0.1.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "yoke",
+    "version": "0.8.3",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "yoke-derive",
+    "version": "0.8.2",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zerocopy",
+    "version": "0.8.52",
+    "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zerocopy-derive",
+    "version": "0.8.52",
+    "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zerofrom",
+    "version": "0.1.8",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zerofrom-derive",
+    "version": "0.1.7",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zerotrie",
+    "version": "0.2.4",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zerovec",
+    "version": "0.11.6",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zerovec-derive",
+    "version": "0.11.3",
+    "license": "Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zmij",
+    "version": "1.0.21",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zune-core",
+    "version": "0.5.1",
+    "license": "MIT OR Apache-2.0 OR Zlib",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazebar",
+    "name": "zune-jpeg",
+    "version": "0.5.15",
+    "license": "MIT OR Apache-2.0 OR Zlib",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "addr2line",
+    "version": "0.24.2",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "adler2",
+    "version": "2.0.1",
+    "license": "0BSD OR MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "aho-corasick",
+    "version": "1.1.3",
+    "license": "Unlicense OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "aligned-vec",
+    "version": "0.6.4",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "ambassador",
+    "version": "0.4.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "anstream",
+    "version": "0.6.19",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "anstyle",
+    "version": "1.0.11",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "anstyle-parse",
+    "version": "0.2.7",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "anstyle-query",
+    "version": "1.1.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "anstyle-wincon",
+    "version": "3.0.9",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "anyhow",
+    "version": "1.0.98",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "arbitrary",
+    "version": "1.4.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "arg_enum_proc_macro",
+    "version": "0.3.4",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "arrayvec",
+    "version": "0.7.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "atk",
+    "version": "0.18.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "atk-sys",
+    "version": "0.18.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "auto-launch",
+    "version": "0.5.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "autocfg",
+    "version": "1.4.0",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "av1-grain",
+    "version": "0.2.4",
+    "license": "BSD-2-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "avif-serialize",
+    "version": "0.8.6",
+    "license": "BSD-3-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "backtrace",
+    "version": "0.3.75",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "bit_field",
+    "version": "0.10.3",
+    "license": "Apache-2.0/MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "bitflags",
+    "version": "2.9.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "bitflags-1.3.2",
+    "version": "1.3.2",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "bitstream-io",
+    "version": "2.6.0",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "block-buffer",
+    "version": "0.10.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "block2",
+    "version": "0.6.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "built",
+    "version": "0.7.7",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "bumpalo",
+    "version": "3.18.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "bytemuck",
+    "version": "1.23.2",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "byteorder-lite",
+    "version": "0.1.0",
+    "license": "Unlicense OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "bytes",
+    "version": "1.10.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "cairo-rs",
+    "version": "0.18.5",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "cairo-sys-rs",
+    "version": "0.18.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "cc",
+    "version": "1.2.26",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "cfg-expr",
+    "version": "0.15.8",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "cfg-if",
+    "version": "1.0.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "clap",
+    "version": "4.5.40",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "clap_builder",
+    "version": "4.5.40",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "clap_derive",
+    "version": "4.5.40",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "clap_lex",
+    "version": "0.7.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "color_quant",
+    "version": "1.1.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "colorchoice",
+    "version": "1.0.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "cpufeatures",
+    "version": "0.2.17",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "crc32fast",
+    "version": "1.4.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "crossbeam-channel",
+    "version": "0.5.15",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "crossbeam-deque",
+    "version": "0.8.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "crossbeam-epoch",
+    "version": "0.9.18",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "crossbeam-utils",
+    "version": "0.8.21",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "crunchy",
+    "version": "0.2.4",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "crypto-common",
+    "version": "0.1.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "ctor",
+    "version": "0.2.9",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "data-encoding",
+    "version": "2.9.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "deranged",
+    "version": "0.4.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "digest",
+    "version": "0.10.7",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "dirs",
+    "version": "6.0.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "dirs-4.0.0",
+    "version": "4.0.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "dirs-sys",
+    "version": "0.5.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "dirs-sys-0.3.7",
+    "version": "0.3.7",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "dispatch2",
+    "version": "0.3.0",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "dpi",
+    "version": "0.1.2",
+    "license": "Apache-2.0 AND MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "either",
+    "version": "1.15.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "embed-resource",
+    "version": "2.5.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "encoding_rs",
+    "version": "0.8.35",
+    "license": "(Apache-2.0 OR MIT) AND BSD-3-Clause",
+    "licenseFile": "",
+    "bundledNotices": 4,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "enum-as-inner",
+    "version": "0.6.1",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "equator",
+    "version": "0.4.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "equator-macro",
+    "version": "0.4.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "equivalent",
+    "version": "1.0.2",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "escape8259",
+    "version": "0.5.3",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "exr",
+    "version": "1.73.0",
+    "license": "BSD-3-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "fax",
+    "version": "0.2.6",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "fax_derive",
+    "version": "0.2.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "fdeflate",
+    "version": "0.3.7",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "field-offset",
+    "version": "0.3.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "flate2",
+    "version": "1.1.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "fnv",
+    "version": "1.0.7",
+    "license": "Apache-2.0 / MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "futures-channel",
+    "version": "0.3.31",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "futures-core",
+    "version": "0.3.31",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "futures-executor",
+    "version": "0.3.31",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "futures-io",
+    "version": "0.3.31",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "futures-macro",
+    "version": "0.3.31",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "futures-sink",
+    "version": "0.3.31",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "futures-task",
+    "version": "0.3.31",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "futures-util",
+    "version": "0.3.31",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gdk",
+    "version": "0.18.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gdk-pixbuf",
+    "version": "0.18.5",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gdk-pixbuf-sys",
+    "version": "0.18.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gdk-sys",
+    "version": "0.18.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "generic-array",
+    "version": "0.14.7",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "getrandom",
+    "version": "0.3.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "getrandom-0.2.16",
+    "version": "0.2.16",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gif",
+    "version": "0.13.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gimli",
+    "version": "0.31.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gio",
+    "version": "0.18.4",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gio-sys",
+    "version": "0.18.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "glib",
+    "version": "0.18.5",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "glib-macros",
+    "version": "0.18.5",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "glib-sys",
+    "version": "0.18.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gobject-sys",
+    "version": "0.18.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gtk",
+    "version": "0.18.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gtk-sys",
+    "version": "0.18.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "gtk3-macros",
+    "version": "0.18.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "half",
+    "version": "2.6.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "hashbrown",
+    "version": "0.15.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "heck",
+    "version": "0.5.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "heck-0.4.1",
+    "version": "0.4.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "home",
+    "version": "0.5.11",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "http",
+    "version": "1.3.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "httparse",
+    "version": "1.10.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "image",
+    "version": "0.25.8",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "image-webp",
+    "version": "0.2.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "imgref",
+    "version": "1.11.0",
+    "license": "CC0-1.0 OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "indexmap",
+    "version": "2.9.0",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "interpolate_name",
+    "version": "0.2.4",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "is_terminal_polyfill",
+    "version": "1.70.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "itertools",
+    "version": "0.12.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "itertools-0.10.5",
+    "version": "0.10.5",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "itoa",
+    "version": "1.0.15",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "jobserver",
+    "version": "0.1.34",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "js-sys",
+    "version": "0.3.77",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "keyboard-types",
+    "version": "0.7.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "lazy_static",
+    "version": "1.5.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "lebe",
+    "version": "0.5.3",
+    "license": "BSD-3-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libappindicator",
+    "version": "0.9.0",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libappindicator-sys",
+    "version": "0.9.0",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "libc",
+    "version": "0.2.172",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libfuzzer-sys",
+    "version": "0.4.10",
+    "license": "(MIT OR Apache-2.0) AND NCSA",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libloading",
+    "version": "0.7.4",
+    "license": "ISC",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libredox",
+    "version": "0.1.3",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libtest-mimic",
+    "version": "0.8.1",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libtest-mimic-collect",
+    "version": "0.3.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libtest-mimic-collect-macro",
+    "version": "0.3.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libxdo",
+    "version": "0.6.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "libxdo-sys",
+    "version": "0.11.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "lock_api",
+    "version": "0.4.13",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "log",
+    "version": "0.4.27",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "loop9",
+    "version": "0.1.5",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "matchers",
+    "version": "0.1.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "maybe-rayon",
+    "version": "0.1.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "memchr",
+    "version": "2.7.5",
+    "license": "Unlicense OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "memoffset",
+    "version": "0.9.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "minimal-lexical",
+    "version": "0.2.1",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "miniz_oxide",
+    "version": "0.8.9",
+    "license": "MIT OR Zlib OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 4,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "mio",
+    "version": "1.0.4",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "moxcms",
+    "version": "0.7.5",
+    "license": "BSD-3-Clause OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "muda",
+    "version": "0.17.1",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "new_debug_unreachable",
+    "version": "1.0.6",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "nom",
+    "version": "7.1.3",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "noop_proc_macro",
+    "version": "0.3.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "nu-ansi-term",
+    "version": "0.46.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "num-bigint",
+    "version": "0.4.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "num-conv",
+    "version": "0.1.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "num-derive",
+    "version": "0.4.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "num-integer",
+    "version": "0.1.46",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "num-rational",
+    "version": "0.4.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "num-traits",
+    "version": "0.2.19",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2",
+    "version": "0.6.4",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-app-kit",
+    "version": "0.3.2",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-application-services",
+    "version": "0.3.2",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-core-foundation",
+    "version": "0.3.2",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-core-graphics",
+    "version": "0.3.2",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-core-services",
+    "version": "0.3.2",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-encode",
+    "version": "4.1.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-foundation",
+    "version": "0.3.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-io-surface",
+    "version": "0.3.2",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-metal",
+    "version": "0.3.2",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "objc2-security",
+    "version": "0.3.2",
+    "license": "Zlib OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "object",
+    "version": "0.36.7",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "once_cell",
+    "version": "1.21.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "once_cell_polyfill",
+    "version": "1.70.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "option-ext",
+    "version": "0.2.0",
+    "license": "MPL-2.0",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "os_pipe",
+    "version": "1.2.3",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "overload",
+    "version": "0.1.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "pango",
+    "version": "0.18.3",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "pango-sys",
+    "version": "0.18.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "parking_lot",
+    "version": "0.12.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "parking_lot_core",
+    "version": "0.9.11",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "paste",
+    "version": "1.0.15",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "pin-project-lite",
+    "version": "0.2.16",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "pin-utils",
+    "version": "0.1.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "pkg-config",
+    "version": "0.3.32",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "png",
+    "version": "0.18.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "png-0.17.16",
+    "version": "0.17.16",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "powerfmt",
+    "version": "0.2.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "ppv-lite86",
+    "version": "0.2.21",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "proc-macro-crate",
+    "version": "2.0.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "proc-macro-crate-1.3.1",
+    "version": "1.3.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "proc-macro-error",
+    "version": "1.0.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "proc-macro-error-attr",
+    "version": "1.0.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "proc-macro2",
+    "version": "1.0.95",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "profiling",
+    "version": "1.0.17",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "profiling-procmacros",
+    "version": "1.0.17",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "pxfm",
+    "version": "0.1.24",
+    "license": "BSD-3-Clause OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "qoi",
+    "version": "0.4.1",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "quick-error",
+    "version": "2.0.1",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "quote",
+    "version": "1.0.40",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "r-efi",
+    "version": "5.2.0",
+    "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rand",
+    "version": "0.9.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rand_chacha",
+    "version": "0.9.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rand_chacha-0.3.1",
+    "version": "0.3.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rand_core",
+    "version": "0.9.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rand_core-0.6.4",
+    "version": "0.6.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rand-0.8.5",
+    "version": "0.8.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rav1e",
+    "version": "0.7.1",
+    "license": "BSD-2-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "ravif",
+    "version": "0.11.20",
+    "license": "BSD-3-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rayon",
+    "version": "1.11.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rayon-core",
+    "version": "1.13.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "redox_syscall",
+    "version": "0.5.13",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "redox_users",
+    "version": "0.5.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "redox_users-0.4.6",
+    "version": "0.4.6",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "regex",
+    "version": "1.11.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "regex-automata",
+    "version": "0.4.9",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "regex-automata-0.1.10",
+    "version": "0.1.10",
+    "license": "Unlicense/MIT",
+    "licenseFile": "",
+    "bundledNotices": 4,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "regex-syntax",
+    "version": "0.8.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "regex-syntax-0.6.29",
+    "version": "0.6.29",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rgb",
+    "version": "0.8.52",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rustc_version",
+    "version": "0.4.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rustc-demangle",
+    "version": "0.1.25",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "rustversion",
+    "version": "1.0.21",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "ryu",
+    "version": "1.0.20",
+    "license": "Apache-2.0 OR BSL-1.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "scopeguard",
+    "version": "1.2.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "semver",
+    "version": "1.0.26",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "serde",
+    "version": "1.0.219",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "serde_derive",
+    "version": "1.0.219",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "serde_json",
+    "version": "1.0.140",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "serde_spanned",
+    "version": "0.6.9",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "serde_yaml",
+    "version": "0.9.34+deprecated",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "sha1",
+    "version": "0.10.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "sharded-slab",
+    "version": "0.1.7",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "shared_child",
+    "version": "1.1.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "shell-util",
+    "version": "0.0.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "shlex",
+    "version": "1.3.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "sigchld",
+    "version": "0.2.4",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "signal-hook",
+    "version": "0.3.18",
+    "license": "Apache-2.0/MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "signal-hook-registry",
+    "version": "1.4.5",
+    "license": "Apache-2.0/MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "simd_helpers",
+    "version": "0.1.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "simd-adler32",
+    "version": "0.3.7",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "slab",
+    "version": "0.4.9",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "smallvec",
+    "version": "1.15.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "socket2",
+    "version": "0.5.10",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "strsim",
+    "version": "0.11.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "syn",
+    "version": "2.0.103",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "syn-1.0.109",
+    "version": "1.0.109",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "system-deps",
+    "version": "6.2.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "target-lexicon",
+    "version": "0.12.16",
+    "license": "Apache-2.0 WITH LLVM-exception",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tauri-winres",
+    "version": "0.1.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "thiserror",
+    "version": "2.0.12",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "thiserror-1.0.69",
+    "version": "1.0.69",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "thiserror-impl",
+    "version": "2.0.12",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "thiserror-impl-1.0.69",
+    "version": "1.0.69",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "thread_local",
+    "version": "1.1.9",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tiff",
+    "version": "0.10.3",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "time",
+    "version": "0.3.41",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "time-core",
+    "version": "0.1.4",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "time-macros",
+    "version": "0.2.22",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tokio",
+    "version": "1.45.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tokio-macros",
+    "version": "2.5.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tokio-tungstenite",
+    "version": "0.26.2",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "toml",
+    "version": "0.8.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "toml_datetime",
+    "version": "0.6.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "toml_edit",
+    "version": "0.20.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "toml_edit-0.19.15",
+    "version": "0.19.15",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "toml-0.7.8",
+    "version": "0.7.8",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tracing",
+    "version": "0.1.41",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tracing-appender",
+    "version": "0.2.3",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tracing-attributes",
+    "version": "0.1.29",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tracing-core",
+    "version": "0.1.34",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tracing-log",
+    "version": "0.2.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tracing-subscriber",
+    "version": "0.3.19",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tray-icon",
+    "version": "0.21.1",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "tungstenite",
+    "version": "0.26.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "typenum",
+    "version": "1.18.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "unicode-ident",
+    "version": "1.0.18",
+    "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "unicode-segmentation",
+    "version": "1.12.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "unsafe-libyaml",
+    "version": "0.2.11",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "utf-8",
+    "version": "0.7.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "utf8parse",
+    "version": "0.2.2",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "uuid",
+    "version": "1.17.0",
+    "license": "Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "v_frame",
+    "version": "0.3.9",
+    "license": "BSD-2-Clause",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "valuable",
+    "version": "0.1.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "version_check",
+    "version": "0.9.5",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "version-compare",
+    "version": "0.2.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "vswhom",
+    "version": "0.1.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "vswhom-sys",
+    "version": "0.1.3",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "wasi",
+    "version": "0.14.2+wasi-0.2.4",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "wasi-0.11.1+wasi-snapshot-preview1",
+    "version": "0.11.1+wasi-snapshot-preview1",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "wasm-bindgen",
+    "version": "0.2.100",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "wasm-bindgen-backend",
+    "version": "0.2.100",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "wasm-bindgen-macro",
+    "version": "0.2.100",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "wasm-bindgen-macro-support",
+    "version": "0.2.100",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "wasm-bindgen-shared",
+    "version": "0.2.100",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "weezl",
+    "version": "0.1.10",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "winapi",
+    "version": "0.3.9",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "winapi-i686-pc-windows-gnu",
+    "version": "0.4.0",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "winapi-x86_64-pc-windows-gnu",
+    "version": "0.4.0",
+    "license": "MIT/Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "windows",
+    "version": "0.52.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_aarch64_gnullvm",
+    "version": "0.53.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_aarch64_gnullvm-0.48.5",
+    "version": "0.48.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_aarch64_gnullvm-0.52.6",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_aarch64_msvc",
+    "version": "0.53.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_aarch64_msvc-0.48.5",
+    "version": "0.48.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_aarch64_msvc-0.52.6",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_i686_gnu",
+    "version": "0.53.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_i686_gnu-0.48.5",
+    "version": "0.48.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_i686_gnu-0.52.6",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_i686_gnullvm",
+    "version": "0.53.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_i686_gnullvm-0.52.6",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_i686_msvc",
+    "version": "0.53.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_i686_msvc-0.48.5",
+    "version": "0.48.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_i686_msvc-0.52.6",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_x86_64_gnu",
+    "version": "0.53.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_x86_64_gnu-0.48.5",
+    "version": "0.48.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_x86_64_gnu-0.52.6",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_x86_64_gnullvm",
+    "version": "0.53.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_x86_64_gnullvm-0.48.5",
+    "version": "0.48.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_x86_64_gnullvm-0.52.6",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_x86_64_msvc",
+    "version": "0.53.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_x86_64_msvc-0.48.5",
+    "version": "0.48.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows_x86_64_msvc-0.52.6",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-core",
+    "version": "0.52.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-implement",
+    "version": "0.52.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-interface",
+    "version": "0.52.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-link",
+    "version": "0.1.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-sys",
+    "version": "0.60.2",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-sys-0.48.0",
+    "version": "0.48.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-sys-0.52.0",
+    "version": "0.52.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-sys-0.59.0",
+    "version": "0.59.0",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-targets",
+    "version": "0.53.3",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-targets-0.48.5",
+    "version": "0.48.5",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "windows-targets-0.52.6",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "licenseFile": "",
+    "bundledNotices": 2,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "winnow",
+    "version": "0.5.40",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "winreg",
+    "version": "0.52.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "winreg-0.10.1",
+    "version": "0.10.1",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "wit-bindgen-rt",
+    "version": "0.39.0",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "x11",
+    "version": "2.21.0",
+    "license": "MIT",
+    "licenseFile": "",
+    "bundledNotices": 1,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "zerocopy",
+    "version": "0.8.25",
+    "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "zerocopy-derive",
+    "version": "0.8.25",
+    "license": "BSD-2-Clause OR Apache-2.0 OR MIT",
+    "licenseFile": "",
+    "bundledNotices": 3,
+    "recoveredNotices": false
+  },
+  {
+    "component": "glazewm",
+    "name": "zune-core",
+    "version": "0.4.12",
+    "license": "MIT OR Apache-2.0 OR Zlib",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "zune-inflate",
+    "version": "0.2.54",
+    "license": "MIT OR Apache-2.0 OR Zlib",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  },
+  {
+    "component": "glazewm",
+    "name": "zune-jpeg",
+    "version": "0.4.21",
+    "license": "MIT OR Apache-2.0 OR Zlib",
+    "licenseFile": "",
+    "bundledNotices": 0,
+    "recoveredNotices": true
+  }
+]

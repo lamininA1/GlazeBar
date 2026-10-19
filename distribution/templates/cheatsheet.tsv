@@ -1,0 +1,28 @@
+분류	단축키	동작
+실행	Win + Enter / Alt + Enter	Windows Terminal 열기
+실행	Alt + Shift + Enter	기본 브라우저 열기 (Google)
+실행	Win + F1	이 치트 시트 표시 / 숨기기
+창 관리	Alt + M	현재 작업공간 전체 최소화 / 그룹 복원
+창 관리	Alt + W	현재 창 닫기
+창 관리	Alt + 방향키	해당 방향 창 선택 (H/J/K/L도 가능)
+창 관리	Win + 방향키 / Alt + Shift + 방향키	GlazeWM 타일 위치 이동 (H/J/K/L도 가능)
+창 관리	Alt + V	다음 창의 가로 / 세로 분할 방향 전환
+창 관리	Alt + F	현재 창 전체 화면 전환
+창 관리	Alt + Shift + Space	현재 창 자유 배치 전환
+창 관리	Alt + T	현재 창 타일링 전환
+창 관리	Alt + Space	타일링 / 자유 배치 / 전체 화면 간 포커스 이동
+크기 조절	Win + R → 방향키	크기 조절 모드 (Win + R / Esc / Enter로 종료)
+크기 조절	Alt + U / Alt + P	너비 줄이기 / 늘리기
+크기 조절	Alt + I / Alt + O	높이 줄이기 / 늘리기
+작업공간	Alt + 1 ~ 9	작업공간 전환
+작업공간	Alt + Shift + 1 ~ 9	창을 다른 작업공간으로 보내고 따라가기
+작업공간	Alt + D	직전 작업공간으로 돌아가기
+작업공간	Alt + A / Alt + S	이전 / 다음 활성 작업공간
+모니터	Alt + Shift + A / F	작업공간을 왼쪽 / 오른쪽 모니터로 이동
+모니터	Alt + Shift + D / S	작업공간을 위쪽 / 아래쪽 모니터로 이동
+제어	Alt + Shift + P	GlazeWM 일시 중지 / 재개
+제어	Alt + Shift + R	설정 다시 읽기
+제어	Alt + Shift + W	타일링 배치 다시 그리기
+제어	Alt + Shift + E	GlazeWM 종료
+제어	Win + Alt + Shift + B	GlazeBar 숨기기 / 표시 (상단 여백 포함)
+배경화면	Win + Ctrl + Alt + Space	배경화면 미리보기 / 선택

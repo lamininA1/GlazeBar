@@ -1,0 +1,38 @@
+{
+  "status": "preview-ready",
+  "rustTestsPassed": 72,
+  "installRestoreTestsPassed": true,
+  "windowsPowerShell51TestPassed": true,
+  "officialMsiSignatures": "Valid (both architectures)",
+  "licenses": {
+    "glazewmDependencies": 340,
+    "glazebarDependencies": 178
+  },
+  "remainingValidation": [
+    "Clean Windows MSI/UAC installation",
+    "Physical Intel/AMD PC",
+    "GlazeBar publisher signing"
+  ],
+  "packages": [
+    {
+      "architecture": "arm64",
+      "file": "GlazeBar-Community-0.1.0-preview.1-windows-arm64.zip",
+      "bytes": 135601953,
+      "sha256": "1E5457C51E7B9AB2FF898213EDCD3E18960E47A7BD19291C526749A142984B65",
+      "verifiedFiles": 1554,
+      "nativeProbeExitCode": 0,
+      "externalVCRuntimeDependency": false,
+      "installedAppModified": false
+    },
+    {
+      "architecture": "x64",
+      "file": "GlazeBar-Community-0.1.0-preview.1-windows-x64.zip",
+      "bytes": 136131212,
+      "sha256": "0FC2B37C9D4A66FDDE78909A18F1267875534FB70DE24DA28EFED160F75C8097",
+      "verifiedFiles": 1554,
+      "nativeProbeExitCode": 0,
+      "externalVCRuntimeDependency": false,
+      "installedAppModified": false
+    }
+  ]
+}

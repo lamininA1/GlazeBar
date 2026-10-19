@@ -1,0 +1,17 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/bytecodealliance/wit-bindgen/f2393e6e98fa5f9236cac580db8a3fc9de6a4b70/LICENSE-APACHE",
+    "file": "LICENSE-APACHE",
+    "sha256": "A60EEA817514531668D7E00765731449FE14D059D3249E0BC93B36DE45F759F2"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/bytecodealliance/wit-bindgen/f2393e6e98fa5f9236cac580db8a3fc9de6a4b70/LICENSE-Apache-2.0_WITH_LLVM-exception",
+    "file": "LICENSE-Apache-2.0_WITH_LLVM-exception",
+    "sha256": "268872B9816F90FD8E85DB5A28D33F8150EBB8DD016653FB39EF1F94F2686BC5"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/bytecodealliance/wit-bindgen/f2393e6e98fa5f9236cac580db8a3fc9de6a4b70/LICENSE-MIT",
+    "file": "LICENSE-MIT",
+    "sha256": "23F18E03DC49DF91622FE2A76176497404E46CED8A715D9D2B67A7446571CCA3"
+  }
+]

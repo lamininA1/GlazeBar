@@ -1,0 +1,5 @@
+licenses/** -text -whitespace
+native-rust/licenses/** -text -whitespace
+native-rust/LICENSE -text -whitespace
+LICENSE -text -whitespace
+icons/lucide/LICENSE -text -whitespace

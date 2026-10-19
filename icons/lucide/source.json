@@ -1,0 +1,25 @@
+{
+  "Repository": "https://github.com/lucide-icons/lucide",
+  "Commit": "d672fc43dbf60962d9d829e35bc3b3e5ed89a178",
+  "Icons": [
+    "wifi",
+    "wifi-off",
+    "cpu",
+    "memory-stick",
+    "battery",
+    "battery-low",
+    "battery-medium",
+    "battery-full",
+    "arrow-left-right",
+    "arrow-up-down",
+    "sun",
+    "moon",
+    "cloud",
+    "cloud-rain",
+    "cloud-snow",
+    "cloud-lightning",
+    "cloud-fog",
+    "zap",
+    "scaling"
+  ]
+}

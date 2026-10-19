@@ -1,0 +1,482 @@
+[
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "normal",
+    "paletteKey": "bc9ff89fc25afc36359584a2abc660978993c07ae493d877fade4736078ee311",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "normal",
+    "paletteKey": "dc6a1eab71e5691564c562726acbcb8e3c5d596fb21c652b86da7d71a5856c95",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "muted",
+    "paletteKey": "7d8e6e8340384bd2bc6ac7c835723414e5a27a7319f8d98e260fb17c74f41de8",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "muted",
+    "paletteKey": "29ec0966fd80b44b4fa3dc691f46dad58363ffbabd46d5ae78b1b4456c19f33c",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "pastel",
+    "paletteKey": "72bc0739625ca78000de4da8c6c34995e618d1e98bc02d6e1a4b43a77c3af749",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "pastel",
+    "paletteKey": "4414ecb2cf0456e7af0630ccf249ead3a68f56a4014e3816d08008b3b46a88e9",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "material",
+    "paletteKey": "d07e252fc6d4950265cb74249e976dea5b89d1ad6d7463f9fce81d2ebfa5fcc4",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "material",
+    "paletteKey": "c3c8f1e6a5d074904eb1172e95e347d7ae266c6d35ec9beaaef9772b3d0b32bc",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "colorful",
+    "paletteKey": "21d7394e56d013ef0fcb4862f639993f7a66ddc55b3a6d5faa27c68768a7dfcc",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "colorful",
+    "paletteKey": "77f4fd12912e1d56bcdcea80799ad5443821ba7210accd8eb60acd8911115629",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "high-contrast",
+    "paletteKey": "0fb07fa66726df1b5d0528ba03746bc8343913c668ce08bfc221c8bca2a1b2ee",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\001\\SAMPLE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "high-contrast",
+    "paletteKey": "a3b15207fe68ade77338ad038d87a679bf673b143d430956b79b8faadd8c0204",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\001\\sample.png",
+    "size": 6,
+    "thumbnailKey": "fde62f8ef09be35c6a1917a304c75f8fe3c55ac055197fa5b6345019d751a290",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "normal",
+    "paletteKey": "2bb962a90b57028bc32bdba218a773f9c3bc6f1af5bb1bbf2ed5c6561dc45974",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "normal",
+    "paletteKey": "c6ee13a69914604a8086ba22082c062d992d2a8c6d3064abde2ac9f02f4bb521",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "muted",
+    "paletteKey": "a8e75b5430471dc68738f0a7c6f4431e592515ee1d68cfb7fd80fe708a328974",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "muted",
+    "paletteKey": "f52b0c5fc5d3caf12e403bb5612e0c797d2fba3a8fffbede8d625cb43311a7a4",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "pastel",
+    "paletteKey": "a3dc249273e6261432543330a34799b0b0ebafcb69cf1a8b4a11ee26f9a5d09e",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "pastel",
+    "paletteKey": "336876ba2369e4652b70a8a08bcd9a5a557eeabcf9d18886ac0c864e6ee5910b",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "material",
+    "paletteKey": "77dc0ea5548b069b39d4f3440e6b8c44269748a9bde929b587fd1dacfc1b34c0",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "material",
+    "paletteKey": "467b258b2a672bf50347428811394921038c2d3aad8d83b83c1949a6de8574eb",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "colorful",
+    "paletteKey": "36857008b47a74a226cf7bf8f084624a36443a907794131258ed5a505b8c19c8",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "colorful",
+    "paletteKey": "39b0278c1be63a7355372950c551971014d37219e7aea9bb06f7ebd4e00f329b",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "high-contrast",
+    "paletteKey": "ca08db3d7474e8bcf7fb1b197a44af65397eb33db1575904fdee24e536d5c9ff",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\002\\한글 사진.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "high-contrast",
+    "paletteKey": "3964c0267ee6c9f11e43ddd9eb363579ab57a36c044719eb262112ef5b0f3d3a",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\002\\한글 사진.png",
+    "size": 6,
+    "thumbnailKey": "a8d6a6a4c6ddb1a97774314e10c0e436b95919b8d336f84c0a7955749fed703f",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "normal",
+    "paletteKey": "6fa309122b4309e7a0886427af31fa61627174c68d89de1cb28a75c4bb9f99d5",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "normal",
+    "paletteKey": "56233c62a45c7b94e2765089df1750ad007bdf32c6da9d7b14ef302830b62127",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "muted",
+    "paletteKey": "46335f3862fbb65c14c44302278e3afd8bd4e98d5f14a49eabfa8118d73aba49",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "muted",
+    "paletteKey": "1a66e0108f741a3dbe1bfb85a731dbfeeb9b415973379bc737ec6361bde0a7b8",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "pastel",
+    "paletteKey": "7079a9d3d26c1ebf324728ba58346c6cc51747fd35cff23771969e105a556846",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "pastel",
+    "paletteKey": "d4bd73b9b9adab188a5501b7468024ffc3f219bde147d0282405065623928b9a",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "material",
+    "paletteKey": "f461d6d7e2a4b58c851084fa37877e39c4a7adac9f414840fc72125a6f21aae1",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "material",
+    "paletteKey": "2dd31989b349c738c3902eab58fad85dc13fbfcaab378bab49fbb92a77af9ee6",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "colorful",
+    "paletteKey": "216f05cbd746c49c5adbccb8a05a3ebc64c053b76c3056a2ae6084919a30e5c6",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "colorful",
+    "paletteKey": "335d528f7195bb641463055aaef95142df8fac26d8ef9f66a8e04a1970425fb2",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "high-contrast",
+    "paletteKey": "0ba295cdf2c480d48438fd5569c0353a5ffcc8ba770e88524b0be5e80e2a2743",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\003\\STRAßE.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "high-contrast",
+    "paletteKey": "7da4cf4dc215fed382ec35fb5f0e51bb1ac9c43d8e1a6f65c8843d23159a7e6b",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\003\\straße.png",
+    "size": 6,
+    "thumbnailKey": "65fed808ce8a20e389ece90254ef69d21e2d481ab3a3882747364481a9560d16",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "normal",
+    "paletteKey": "7b61cb20bb26dbb67a26b0df5f8b7f0d0fdf881b60b63e6deb3a87c6600c3e8d",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "normal",
+    "paletteKey": "ae3bfd480155a561dbd6dc48d131d365e47cfbef0fb6d3150254668475bd0bac",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "muted",
+    "paletteKey": "b89a303349db7a97585561bf473286698eda8d0a5e8ec3992f07ba26c93ed733",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "muted",
+    "paletteKey": "1a9e7211d1c827940ea07a091706f908940662ff871938b7c385750a3fc0a254",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "pastel",
+    "paletteKey": "91e4e3dc75b279e19fabd692908964da9ecb22a472f7ea9b0bcba661186741ac",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "pastel",
+    "paletteKey": "29b534b8d5e05f5773629ecff241a2837ec38a96adcf66495b0b1635a2635c9d",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "material",
+    "paletteKey": "b700a6d50955f2a29b63bbba1d8067ab63960be8d99e6aeb4ae7225250abd08a",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "material",
+    "paletteKey": "54ef4460bb6d8ec888868a0ce5c1c9f9418033b0c7f269f725e952efa3f3e2c7",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "colorful",
+    "paletteKey": "f8e8311c8ddf271a6a72e4a3be3c78c3b5f3d04ca63dc30c280040f74d5e9b41",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "colorful",
+    "paletteKey": "b0aa71ef7a7be7a7a7b56b172ee079adc3362a52fac6cdfa20a7a3a258f69e7b",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": false,
+    "mode": "high-contrast",
+    "paletteKey": "800620814d987bfb67db2bbc2fcf299a620b6b6b4150c616a50314e467b43d8c",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  },
+  {
+    "identity": "C:\\USERS\\EXAMPLE\\APPDATA\\LOCAL\\TEMP\\TESTRUSTUICACHEREFERENCE482927719\\004\\ᾈΐ.PNG|6|638355968001234567",
+    "light": true,
+    "mode": "high-contrast",
+    "paletteKey": "059774916ab422982ce0183272e8a3b3b2fae07d5637456fc59a4ed5363ae2eb",
+    "path": "C:\\Users\\example\\AppData\\Local\\Temp\\TestRustUICacheReference482927719\\004\\ᾀΐ.png",
+    "size": 6,
+    "thumbnailKey": "d10af69409b2bcf2ca65f203119715ed3f8d4f91aba32f484f97d2daa2df1cb7",
+    "ticks": 638355968001234567
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/hobofan/ambassador/c7fda9003824355b707c87e8ff9befaebcf229ad/LICENSE-APACHE",
+    "file": "LICENSE-APACHE",
+    "sha256": "A6CBA85BC92E0CFF7A450B1D873C0EAA2E9FC96BF472DF0247A26BEC77BF3FF9"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/hobofan/ambassador/c7fda9003824355b707c87e8ff9befaebcf229ad/LICENSE-MIT",
+    "file": "LICENSE-MIT",
+    "sha256": "1A1210DBAB68D78DF0677382FB6BD1C6311577A2FE6177DDE3F053870CDC915F"
+  }
+]
