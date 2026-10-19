@@ -33,7 +33,7 @@ def main():
         data = binary.read_bytes()
         assert struct.unpack_from('<H', data, struct.unpack_from('<I', data, 60)[0] + 4)[0] == 0x8664, binary
     source = out / 'glazebar-source.zip'
-    with zipfile.ZipFile(args.base / 'source/glazebar-source.zip') as old, zipfile.ZipFile(source, 'w', zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(args.base / 'source/glazebar-source.zip') as old, zipfile.ZipFile(source, 'w', zipfile.ZIP_DEFLATED, strict_timestamps=False) as z:
         written = set()
         for item in old.infolist():
             if item.is_dir():
@@ -49,7 +49,7 @@ def main():
             if name not in written and (repo / name).is_file():
                 z.write(repo / name, name)
     wm_source = out / 'glazewm-modified-source.zip'
-    with zipfile.ZipFile(wm_source, 'w', zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(wm_source, 'w', zipfile.ZIP_DEFLATED, strict_timestamps=False) as z:
         for name in sorted(set(tracked(args.wm_source) + ['.cargo/config.toml'])):
             if (args.wm_source / name).is_file():
                 z.write(args.wm_source / name, name)
@@ -88,7 +88,7 @@ def main():
                 'files': [{'path': p.relative_to(folder).as_posix(), 'sha256': sha(p)}
                           for p in sorted(folder.rglob('*')) if p.is_file() and p.name != 'manifest.json']}
     (folder / 'manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
-    with zipfile.ZipFile(str(folder) + '.zip', 'w', zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(str(folder) + '.zip', 'w', zipfile.ZIP_DEFLATED, strict_timestamps=False) as z:
         for p in sorted(folder.rglob('*')):
             if p.is_file():
                 z.write(p, p.relative_to(folder).as_posix())
