@@ -33,6 +33,14 @@ Inno Setup 6.7 이상을 설치한 뒤 실행합니다.
 기본 출력은 `distribution/setup-output`입니다. Inno Setup 설치 위치가 다르면 `-Compiler`로 ISCC.exe 경로를 지정합니다.
 `-TestProfile`은 별도 테스트 설치 프로그램을 만드는 개발자 옵션입니다. 실제 MSI나 사용자 설정을 변경하지 않고 격리된 프로필에서 설치·복원을 시험하며, 이 실행 파일은 배포하면 안 됩니다.
 
+배포용 EXE의 사용자 프로필 경로 처리는 해당 아키텍처의 Windows에서 아래처럼 확인합니다. `/CHECKSTARTUP`으로 시작 검사만 수행하고 설치 전에 종료합니다.
+
+```powershell
+.\distribution\Test-SetupStartup.ps1 -SetupExe .\distribution\setup-output\GlazeBar-GlazeWM-Setup-0.1.0-preview.1-arm64.exe
+```
+
+x64 Windows에서는 파일 이름의 `arm64`를 `x64`로 바꿉니다. 이 검사는 MSI 설치·권한 확인을 포함한 전체 설치 테스트와는 별개입니다.
+
 설치 프로그램은 현재 사용자 권한으로 실행하고, GlazeWM의 공식 MSI 및 필요한 Microsoft 런타임 설치 프로그램만 자체 권한 확인 절차를 거칩니다.
 제거 과정에서 설정 복원에 실패하면 복구에 필요한 파일을 유지합니다.
 

@@ -69,6 +69,7 @@ Source: "Setup-Bridge.ps1"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Setup-Info.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "GlazeBar-Setup.iss"; DestDir: "{app}\setup-source"; Flags: ignoreversion
 Source: "Build-Setup.ps1"; DestDir: "{app}\setup-source"; Flags: ignoreversion
+Source: "Test-SetupStartup.ps1"; DestDir: "{app}\setup-source"; Flags: ignoreversion
 Source: "Setup-Bridge.ps1"; DestDir: "{app}\setup-source"; Flags: ignoreversion
 Source: "Setup-Info.txt"; DestDir: "{app}\setup-source"; Flags: ignoreversion
 Source: "BUILDING.md"; DestDir: "{app}\setup-source"; Flags: ignoreversion
@@ -90,12 +91,24 @@ procedure ExitProcess(ExitCode: Cardinal);
   external 'ExitProcess@kernel32.dll stdcall';
 function InitializeSetup: Boolean;
 var
-  StatePath: String;
+  StatePath, ProfileRoot: String;
+  I: Integer;
 begin
+  Result := False;
+  ProfileRoot := GetEnv('USERPROFILE');
+  if (ProfileRoot = '') or not DirExists(ProfileRoot) then begin
+    SuppressibleMsgBox('Windows user profile could not be found.', mbError, MB_OK, IDOK);
+    exit;
+  end;
+  StatePath := AddBackslash(ProfileRoot) + '.glzr\glazewm\community-install.json';
+  { Exercise the production startup path without installing anything. }
+  for I := 1 to ParamCount do
+    if CompareText(ParamStr(I), '/CHECKSTARTUP') = 0 then begin
+      Log('GlazeBar startup check passed: ' + StatePath);
+      exit;
+    end;
 #if TestProfile != ""
   StatePath := '{#TestProfile}\.glzr\glazewm\community-install.json';
-#else
-  StatePath := ExpandConstant('{userprofile}\.glzr\glazewm\community-install.json');
 #endif
   Result := not FileExists(StatePath);
   if not Result then

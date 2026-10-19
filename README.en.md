@@ -77,6 +77,7 @@ Turn on **색상 함께 적용** (apply colors too) in the wallpaper picker and 
 | Windows | Dark/light mode, accent color, title bars, Start menu/taskbar, and transparency |
 
 You can choose which Windows settings to change separately. Use dark mode for taskbar accent colors.
+App integration currently targets Windows installations. Codex settings inside WSL still need to be themed separately.
 
 ### Memory and CPU usage
 
