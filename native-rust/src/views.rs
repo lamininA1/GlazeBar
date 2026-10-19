@@ -32,6 +32,61 @@ pub struct Hit {
     pub rect: Rect,
     pub action: Action,
 }
+
+#[cfg(test)]
+mod wifi_visibility_tests {
+    use super::*;
+
+    #[test]
+    fn missing_wifi_has_no_hit_target_but_disconnected_wifi_does() {
+        let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap();
+        let output = tempfile::tempdir().unwrap();
+        let mut wifi_positions = Vec::new();
+        for (available, ssid) in [(false, ""), (true, ""), (true, "Sample Wi-Fi"), (false, "")] {
+            let sensors = Sensors {
+                wifi_available: available,
+                network: ssid.into(),
+                ..Default::default()
+            };
+            let mut hits = Vec::new();
+            crate::graphics::render_png(
+                root,
+                &output.path().join("bar.png"),
+                1645,
+                40,
+                1.,
+                crate::graphics::Palette::load(root),
+                |canvas| {
+                    hits = bar(
+                        canvas,
+                        &Monitor::default(),
+                        &sensors,
+                        false,
+                        false,
+                        false,
+                        "12:00",
+                        None,
+                        None,
+                    );
+                },
+            )
+            .unwrap();
+            assert_eq!(hits.iter().any(|hit| hit.action == Action::Wifi), available);
+            wifi_positions.push(
+                hits.iter()
+                    .find(|hit| hit.action == Action::Command("toggle-tiling-direction".into()))
+                    .unwrap()
+                    .rect
+                    .x,
+            );
+        }
+        // The missing item releases its layout space, including after removal.
+        assert!(wifi_positions[0] > wifi_positions[1]);
+        assert_eq!(wifi_positions[0], wifi_positions[3]);
+    }
+}
 fn hit(hits: &mut Vec<Hit>, rect: Rect, action: Action) {
     hits.push(Hit { rect, action });
 }
@@ -203,22 +258,24 @@ pub fn bar(
         ui.text,
         None,
     );
-    let network = if s.network.is_empty() {
-        "Wi-Fi".to_string()
-    } else if s.network.chars().count() > 24 {
-        format!("{}…", s.network.chars().take(23).collect::<String>())
-    } else {
-        s.network.clone()
-    };
-    metric(
-        c,
-        &mut right,
-        &mut hits,
-        "wifi",
-        &network,
-        ui.muted,
-        Some(Action::Wifi),
-    );
+    if s.wifi_available {
+        let network = if s.network.is_empty() {
+            "Wi-Fi".to_string()
+        } else if s.network.chars().count() > 24 {
+            format!("{}…", s.network.chars().take(23).collect::<String>())
+        } else {
+            s.network.clone()
+        };
+        metric(
+            c,
+            &mut right,
+            &mut hits,
+            "wifi",
+            &network,
+            ui.muted,
+            Some(Action::Wifi),
+        );
+    }
     let r = Rect::new(right - c.p(30.), c.p(8.), c.p(30.), h - c.p(16.));
     c.fill(r, ui.hover);
     c.icon(

@@ -165,7 +165,7 @@ fn request_refresh(tx: &SyncSender<Work>, pending: &AtomicBool) {
 }
 fn visible_sensor_key(s: &Sensors) -> String {
     format!(
-        "{:.0}/{:.0}/{:.0}/{:.1}/{}/{}/{}/{}/{}/{:.1}/{:.1}",
+        "{:.0}/{:.0}/{:.0}/{:.1}/{}/{}/{}/{}/{}/{:.1}/{:.1}/{}",
         s.cpu,
         s.memory,
         s.percent,
@@ -176,8 +176,24 @@ fn visible_sensor_key(s: &Sensors) -> String {
         s.known,
         s.network,
         s.full,
-        s.remaining
+        s.remaining,
+        s.wifi_available
     )
+}
+
+#[cfg(test)]
+mod wifi_refresh_tests {
+    use super::*;
+
+    #[test]
+    fn adapter_changes_refresh_a_disconnected_bar() {
+        let mut sensors = Sensors::default();
+        let missing = visible_sensor_key(&sensors);
+        sensors.wifi_available = true;
+        assert_ne!(visible_sensor_key(&sensors), missing);
+        sensors.wifi_available = false;
+        assert_eq!(visible_sensor_key(&sensors), missing);
+    }
 }
 fn make_state(
     root: &std::path::Path,
@@ -578,7 +594,22 @@ pub fn run_with_popup(
             }
         }
         for event in hook_rx.try_iter() {
+            // Observe outside interaction from the moment a popup is shown, even
+            // if Windows did not grant it foreground activation. Do not swallow
+            // the click: the destination application must still receive it.
+            let outside = match &event {
+                crate::hooks::Event::Foreground => Some(unsafe { GetForegroundWindow() }),
+                crate::hooks::Event::PointerDown(point) => Some(unsafe { WindowFromPoint(*point) }),
+                _ => None,
+            };
+            if outside.is_some_and(|target| popup.as_ref().is_some_and(|w| !w.owns_focus(target))) {
+                child_popup = None;
+                preview_popup = None;
+                wallpaper_worker.cancel();
+                popup = None;
+            }
             match event {
+                crate::hooks::Event::PointerDown(_) => {}
                 crate::hooks::Event::Control(command) => {
                     send(&tx, thread, Update::Control(command.into()))
                 }
@@ -985,6 +1016,13 @@ pub fn run_with_popup(
                 }
                 Update::Sensors(s) => {
                     sensors = s;
+                    if !sensors.wifi_available
+                        && popup
+                            .as_ref()
+                            .is_some_and(|w| matches!(w.state.borrow().scene, Scene::Wifi(_)))
+                    {
+                        popup = None;
+                    }
                     if let Some(w) = &battery_popup {
                         w.state.borrow_mut().scene = Scene::Battery(sensors.clone());
                         let mut bounds = w.rect();
@@ -1100,6 +1138,18 @@ pub fn run_with_popup(
         }
         for event in nrx.try_iter() {
             match event {
+                NativeEvent::Dismiss(hwnd) => {
+                    // Losing focus closes the popup family. Explicit Back/Escape
+                    // still uses Action::Close and may reactivate its parent.
+                    if popup.as_ref().is_some_and(|w| w.hwnd as usize == hwnd)
+                        || child_popup.as_ref().is_some_and(|w| w.hwnd as usize == hwnd)
+                    {
+                        child_popup = None;
+                        preview_popup = None;
+                        wallpaper_worker.cancel();
+                        popup = None;
+                    }
+                }
                 NativeEvent::TaskbarCreated(hwnd) => {
                     if let Some((name, bar)) = bars
                         .iter_mut()
@@ -1572,7 +1622,7 @@ pub fn run_with_popup(
                         }
                     }
                     Action::Sheet => send(&tx, thread, Update::Control("Sheet".into())),
-                    Action::Wifi => {
+                    Action::Wifi if sensors.wifi_available => {
                         if let Some(bar) = bars.values().find(|b| b.window.hwnd as usize == hwnd) {
                             let factor = bar.window.state.borrow().scale;
                             let br = bar.window.rect();
@@ -1610,6 +1660,7 @@ pub fn run_with_popup(
                             }
                         }
                     }
+                    Action::Wifi => {}
                     Action::WifiSelect(index) => {
                         if let Some(w) = popup.as_ref().filter(|w| w.hwnd as usize == hwnd) {
                             if let Scene::Wifi(v) = &mut w.state.borrow_mut().scene {

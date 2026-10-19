@@ -59,6 +59,7 @@ pub fn render(root: &Path) -> anyhow::Result<()> {
                 discharging: true,
                 known: true,
                 network: "Sample Wi-Fi".into(),
+                wifi_available: true,
                 signal: 70,
                 ..Default::default()
             };

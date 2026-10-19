@@ -28,6 +28,7 @@ pub struct Sensors {
     pub known: bool,
     pub network: String,
     pub signal: u32,
+    pub wifi_available: bool,
 }
 struct Device {
     handle: HANDLE,
@@ -207,7 +208,7 @@ impl Reader {
                 if GlobalMemoryStatusEx(&mut m) != 0 {
                     s.memory = m.dwMemoryLoad as f64;
                 }
-                (s.network, s.signal) = connected_network();
+                (s.wifi_available, s.network, s.signal) = connected_network();
             }
         }
     }
@@ -227,7 +228,7 @@ fn ioctl(h: HANDLE, code: u32, input: &[u8], output: &mut [u8]) -> bool {
         ) != 0
     }
 }
-pub fn connected_network() -> (String, u32) {
+pub fn connected_network() -> (bool, String, u32) {
     unsafe {
         let mut h = null_mut();
         let mut version = 0;
@@ -235,8 +236,11 @@ pub fn connected_network() -> (String, u32) {
             return Default::default();
         }
         let mut list = null_mut();
-        let mut result = Default::default();
-        if WlanEnumInterfaces(h, null(), &mut list) == 0 {
+        let mut result: (bool, String, u32) = Default::default();
+        if WlanEnumInterfaces(h, null(), &mut list) == 0 && !list.is_null() {
+            // A disconnected (or radio-off) adapter still supports Wi-Fi.
+            // Only missing interfaces or an unavailable WLAN service hide it.
+            result.0 = (*list).dwNumberOfItems > 0;
             for interface in std::slice::from_raw_parts(
                 (*list).InterfaceInfo.as_ptr(),
                 (*list).dwNumberOfItems as usize,
@@ -261,6 +265,7 @@ pub fn connected_network() -> (String, u32) {
                         let a = &(*(data as *const WLAN_CONNECTION_ATTRIBUTES))
                             .wlanAssociationAttributes;
                         result = (
+                            true,
                             String::from_utf8_lossy(
                                 &a.dot11Ssid.ucSSID[..(a.dot11Ssid.uSSIDLength as usize).min(32)],
                             )

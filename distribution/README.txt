@@ -1,4 +1,9 @@
-GlazeBar Community Bundle 0.1.0-preview.2 / GlazeWM 3.10.1
+GlazeBar Community Bundle 0.1.0-preview.3 / GlazeWM 3.10.1
+
+preview.3 hides Wi-Fi when no usable WLAN interface is available. Disconnected
+Wi-Fi adapters remain visible. Popups dismiss on outside clicks, including the
+bar, or foreground switches without requiring a prior click inside the popup.
+Input controls and owned settings dialogs remain part of the popup.
 
 Independent community bundle. Not an official GlazeWM release.
 Windows 11 ARM64 or x64. Choose the ZIP matching the Windows architecture.
@@ -51,7 +56,7 @@ Brightness is detected per display through WMI. Unsupported providers or
 missing brightness classes disable the control without terminating the bar.
 External-monitor DDC/CI control is not included. The resident process and
 Windows file description are now GlazeBar (GlazeBar.exe).
-The preview.2 x64 build is tested on physical x64 Windows. ARM64 is cross-built;
+The preview.3 x64 build is tested on physical x64 Windows. ARM64 is cross-built;
 this revision has not been run on ARM64. Clean-machine MSI/UAC validation remains pending.
 Preview binaries/scripts are not signed. Checksums detect accidental changes;
 they are not a substitute for publisher identity verification.

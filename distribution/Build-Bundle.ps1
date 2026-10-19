@@ -3,7 +3,7 @@
 param([switch]$SkipBuild, [string]$ReuseArchivesFrom)
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path $PSScriptRoot
-$version = '0.1.0-preview.2'
+$version = '0.1.0-preview.3'
 $out = Join-Path $PSScriptRoot ('output-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory $out | Out-Null
 if (!$SkipBuild) {

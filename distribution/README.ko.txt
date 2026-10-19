@@ -1,4 +1,8 @@
-GlazeBar + GlazeWM 커뮤니티 번들 0.1.0-preview.2
+GlazeBar + GlazeWM 커뮤니티 번들 0.1.0-preview.3
+
+preview.3에서는 Wi-Fi를 사용할 수 없으면 해당 항목을 숨깁니다. 연결만 끊긴
+어댑터는 계속 표시합니다. 팝업은 내부 클릭 없이도 외부 창 전환이나 Bar 클릭으로
+닫히며, 팝업 내부 입력란과 하위 설정 창으로 이동할 때는 유지됩니다.
 
 GlazeWM 공식 배포판이 아닌 커뮤니티 구성입니다.
 Windows 11 ARM64 / x64용 ZIP을 각각 제공합니다.
@@ -37,7 +41,7 @@ Alt+Shift+E: GlazeWM 종료
 
 배포 상태
 미리보기 버전이며 GlazeBar 및 스크립트에 코드 서명은 아직 없습니다.
-preview.2의 x64 빌드는 실제 x64 Windows에서 검사했습니다. ARM64는 교차 빌드했으며
+preview.3의 x64 빌드는 실제 x64 Windows에서 검사했습니다. ARM64는 교차 빌드했으며
 이번 수정본의 ARM64 실행 검증과 새 Windows 환경의 MSI/UAC 설치 검증은 남아 있습니다.
 밝기 조절은 모니터별 WMI 지원 여부를 확인하며, 미지원이면 조작을 비활성화합니다.
 외부 모니터 DDC/CI 제어는 포함하지 않습니다. 상주 프로세스 이름과 Windows 파일 설명은

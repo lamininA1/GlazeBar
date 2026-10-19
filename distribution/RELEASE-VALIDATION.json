@@ -1,19 +1,19 @@
 {
-  "version": "0.1.0-preview.2",
+  "version": "0.1.0-preview.3",
   "date": "2026-10-19",
   "rust": "1.93.0",
   "tests": {
-    "passed": 74,
+    "passed": 76,
     "failed": 0
   },
   "x64Runtime": {
     "physicalWindows": true,
-    "brightnessUnsupportedDisplays": 2,
-    "probeExitCode": 0,
-    "shadowSeconds": 20,
-    "shadowExitCode": 0,
     "residentProcess": "GlazeBar.exe",
-    "residentObservedSecondsAtLeast": 120
+    "nativeValidation": "passed",
+    "hooksValidation": "passed",
+    "popupAltTab": "passed without clicking popup",
+    "popupBarClick": "passed on owned scale popup",
+    "unavailableWifi": "hidden on both monitors"
   },
   "arm64Runtime": "Not run; cross-compiled on x64 Windows",
   "bundleTests": {
@@ -53,29 +53,29 @@
   ],
   "artifacts": [
     {
-      "file": "GlazeBar-Community-0.1.0-preview.2-windows-arm64.zip",
-      "size": 135575661,
-      "sha256": "fc70fb365b3f852e1a92c63db369b2918c7bf032b5192f074408acaaa0bc7668"
+      "file": "GlazeBar-Community-0.1.0-preview.3-windows-arm64.zip",
+      "size": 135579659,
+      "sha256": "fae253c5a0e8b85842a2df4b48e30b861f61f687651bb6a7b74cb6ac2a372ccc"
     },
     {
-      "file": "GlazeBar-Community-0.1.0-preview.2-windows-x64.zip",
-      "size": 136144512,
-      "sha256": "8dc24d8669bcf37064e35deed20517a52a2f525799c401127998b165b0b8745c"
+      "file": "GlazeBar-Community-0.1.0-preview.3-windows-x64.zip",
+      "size": 136150057,
+      "sha256": "028e9b8f37f8a7fd2e881ee395dcf21ce33166f18ce0837ccd8fe2337c099f0a"
     },
     {
-      "file": "GlazeBar-GlazeWM-Setup-0.1.0-preview.2-arm64.exe",
-      "size": 137187126,
-      "sha256": "7d41c82e1569faf1b1241dfcce3007d6a2a4ff96dc4af0c146374b9f8a14891a"
+      "file": "GlazeBar-GlazeWM-Setup-0.1.0-preview.3-arm64.exe",
+      "size": 137191174,
+      "sha256": "b46c66a38365d4396efac3830b443220aad3fcd4a6e5dd5e1627d0ebe5612a66"
     },
     {
-      "file": "GlazeBar-GlazeWM-Setup-0.1.0-preview.2-x64.exe",
-      "size": 137821615,
-      "sha256": "5a3d9195a02bddee40c0dedfcf1b35b08cfa75bafc24a12d81dea9a8c9e50fa0"
+      "file": "GlazeBar-GlazeWM-Setup-0.1.0-preview.3-x64.exe",
+      "size": 137826915,
+      "sha256": "36e959800278e56f22e096bc3e8092488e7e866e20b0aac101cdb51365255955"
     },
     {
       "file": "glazebar-source.zip",
-      "size": 40903845,
-      "sha256": "47dc787bec0b32eb784ca3dbf1a9bb6f45a9d6271828bcb9d9fc25aac9871c83"
+      "size": 40905931,
+      "sha256": "71712bc3883241220a19e96c44e5aa208dcdd1a389fec38815d54e237b02c1de"
     }
   ]
 }

@@ -80,6 +80,7 @@ impl Keyboard {
 pub enum Event {
     Control(&'static str),
     Foreground,
+    PointerDown(POINT),
 }
 struct Context {
     tx: Sender<Event>,
@@ -155,6 +156,16 @@ unsafe extern "system" fn foreground(
         }
     });
 }
+unsafe extern "system" fn mouse(code: i32, wp: WPARAM, lp: LPARAM) -> LRESULT {
+    if code >= 0 && matches!(wp as u32, WM_LBUTTONDOWN | WM_RBUTTONDOWN | WM_MBUTTONDOWN | WM_XBUTTONDOWN) {
+        CONTEXT.with(|slot| {
+            if let Some(c) = slot.borrow().as_ref() {
+                c.emit(Event::PointerDown(unsafe { (*(lp as *const MSLLHOOKSTRUCT)).pt }));
+            }
+        });
+    }
+    unsafe { CallNextHookEx(null_mut(), code, wp, lp) }
+}
 fn remote_name(path: &str) -> bool {
     matches!(
         path.rsplit(['\\', '/'])
@@ -182,6 +193,7 @@ fn is_remote(hwnd: HWND) -> bool {
 }
 pub struct Hooks {
     keyboard: HHOOK,
+    mouse: HHOOK,
     foreground: HWINEVENTHOOK,
     hotkeys: bool,
 }
@@ -204,6 +216,7 @@ impl Hooks {
             });
             let mut hooks = Self {
                 keyboard: null_mut(),
+                mouse: null_mut(),
                 foreground: null_mut(),
                 hotkeys: intercept,
             };
@@ -218,6 +231,8 @@ impl Hooks {
                 "Cannot install keyboard hook: {}",
                 GetLastError()
             );
+            hooks.mouse = SetWindowsHookExW(WH_MOUSE_LL, Some(mouse), GetModuleHandleW(std::ptr::null()), 0);
+            ensure!(!hooks.mouse.is_null(), "Cannot install mouse hook: {}", GetLastError());
             hooks.foreground = SetWinEventHook(
                 EVENT_SYSTEM_FOREGROUND,
                 EVENT_SYSTEM_FOREGROUND,
@@ -262,6 +277,9 @@ impl Drop for Hooks {
         unsafe {
             if !self.keyboard.is_null() {
                 UnhookWindowsHookEx(self.keyboard);
+            }
+            if !self.mouse.is_null() {
+                UnhookWindowsHookEx(self.mouse);
             }
             if !self.foreground.is_null() {
                 UnhookWinEvent(self.foreground);

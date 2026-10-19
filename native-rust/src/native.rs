@@ -49,6 +49,7 @@ pub enum Scene {
     Online(crate::online_ui::Online),
 }
 pub enum NativeEvent {
+    Dismiss(usize),
     Action(usize, Action),
     ScaleCommit(usize, display::Scale, usize),
     Closed(usize),
@@ -226,6 +227,20 @@ impl Window {
     pub fn invalidate(&self) {
         unsafe {
             InvalidateRect(self.hwnd, null(), 0);
+        }
+    }
+    pub fn owns_focus(&self, target: HWND) -> bool {
+        unsafe {
+            // Include this popup's controls and owned dialogs, but not its
+            // owner (the bar) or sibling popups owned by the same bar.
+            let mut window = GetAncestor(target, GA_ROOT);
+            while !window.is_null() {
+                if window == self.hwnd {
+                    return true;
+                }
+                window = GetWindow(window, GW_OWNER);
+            }
+            false
         }
     }
     pub fn bounds(&self, r: Rect) {
@@ -767,7 +782,7 @@ unsafe extern "system" fn wndproc(h: HWND, m: u32, wp: usize, lp: isize) -> isiz
                 let next = lp as HWND;
                 if next.is_null() || GetAncestor(next, GA_ROOTOWNER) != GetAncestor(h, GA_ROOTOWNER)
                 {
-                    s.send(NativeEvent::Action(h as usize, Action::Close));
+                    s.send(NativeEvent::Dismiss(h as usize));
                 }
                 return 0;
             }
@@ -875,7 +890,7 @@ pub fn preview(root: PathBuf, seconds: u64) -> anyhow::Result<()> {
         }
         for e in rx.try_iter() {
             match e {
-                NativeEvent::Action(_, Action::Close) | NativeEvent::Closed(_) => return Ok(()),
+                NativeEvent::Action(_, Action::Close) | NativeEvent::Dismiss(_) | NativeEvent::Closed(_) => return Ok(()),
                 NativeEvent::ScaleCommit(_, state, selected) => {
                     match display::write(state, selected) {
                         Ok(()) => return Ok(()),
@@ -1073,6 +1088,17 @@ pub fn validate(root: PathBuf) -> anyhow::Result<()> {
         handle,
     )?;
     unsafe {
+        anyhow::ensure!(window.owns_focus(options.hwnd), "Owned popup is outside its family");
+        anyhow::ensure!(options.owns_focus(options.hwnd), "Popup excludes itself");
+        anyhow::ensure!(!options.owns_focus(handle), "Popup includes its owner bar in its click area");
+        anyhow::ensure!(!window.owns_focus(GetDesktopWindow()), "Desktop belongs to popup family");
+        // Neither window has been shown or clicked: dismissal must not need
+        // an earlier activation or pointer event inside the popup.
+        SendMessageW(options.hwnd, WM_ACTIVATE, WA_INACTIVE as usize, GetDesktopWindow() as isize);
+        anyhow::ensure!(
+            rx.try_iter().any(|e| matches!(e, NativeEvent::Dismiss(h) if h == options.hwnd as usize)),
+            "Unclicked popup did not dismiss on outside activation"
+        );
         SendMessageW(
             handle,
             WM_ACTIVATE,
@@ -1081,7 +1107,7 @@ pub fn validate(root: PathBuf) -> anyhow::Result<()> {
         );
         anyhow::ensure!(
             !rx.try_iter()
-                .any(|e| matches!(e, NativeEvent::Action(_, Action::Close))),
+                .any(|e| matches!(e, NativeEvent::Action(_, Action::Close) | NativeEvent::Dismiss(_))),
             "Owned dialog closes its picker"
         );
         let dc = GetDC(options.hwnd);
@@ -1136,6 +1162,7 @@ pub fn validate(root: PathBuf) -> anyhow::Result<()> {
     unsafe {
         let edit = GetDlgItem(handle, 101);
         anyhow::ensure!(!edit.is_null(), "Online native edit missing");
+        anyhow::ensure!(window.owns_focus(edit), "Popup excludes its input control");
         SetWindowTextW(edit, wide("landscape 한글").as_ptr());
         anyhow::ensure!(
             window.edit_text(101) == "landscape 한글",
