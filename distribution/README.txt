@@ -1,4 +1,10 @@
-GlazeBar Community Bundle 0.1.0-preview.3 / GlazeWM 3.10.1
+﻿preview.4 x64: GlazeWM 3.10.1-glazebar.1 (modified from https://github.com/glzr-io/glazewm).
+Alt+M preserves the layout while minimizing/restoring real windows. Corrective placement is retained.
+Use GlazeBar + GlazeWM in the Start menu, or run %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe.
+The unchanged upstream MSI is retained for CLI compatibility and rollback; community shortcuts run the modified build.
+This release is x64 only. ARM64 stays on preview.3. No IME fix is claimed.
+
+GlazeBar Community Bundle 0.1.0-preview.4 / GlazeWM 3.10.1
 
 preview.3 hides Wi-Fi when no usable WLAN interface is available. Disconnected
 Wi-Fi adapters remain visible. Popups dismiss on outside clicks, including the
@@ -6,7 +12,7 @@ bar, or foreground switches without requiring a prior click inside the popup.
 Input controls and owned settings dialogs remain part of the popup.
 
 Independent community bundle. Not an official GlazeWM release.
-Windows 11 ARM64 or x64. Choose the ZIP matching the Windows architecture.
+Windows 11 x64 (Intel / AMD).
 GlazeBar needs no .NET, Go, Rust or WebView2 installation.
 GlazeWM is included as its unchanged official standalone MSI.
 GlazeBar statically links its C runtime. The official GlazeWM binary still
@@ -23,7 +29,7 @@ INSTALL
 3. In PowerShell, run:
    powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1
    Add -AutoStart to create a per-user startup shortcut.
-4. Start GlazeWM from the Start menu.
+4. Run %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe (or the community setup shortcut).
 The script backs up every existing file it replaces in
 %USERPROFILE%\.glzr\community-backups, then installs GlazeBar and the
 bundle configuration under %USERPROFILE%\.glzr\glazewm.

@@ -1,5 +1,7 @@
 # GlazeBar + GlazeWM
 
+> **preview.4 x64 includes modified GlazeWM.** Based on [upstream GlazeWM](https://github.com/glzr-io/glazewm) v3.10.1, with real group minimize/restore preserving layout, empty-split cleanup and focus changes. ARM64 remains on preview.3. The user isolated the Korean input symptom to an existing Codex session; this release does not claim an IME fix. See [changes and validation](docs/glazewm-modifications.md).
+
 [한국어](README.md) · [English](README.en.md)
 
 **This bundle installs GlazeWM and a native top bar.**
@@ -21,8 +23,8 @@ The font is Pretendard, color extraction comes from Aether, and the UI is based 
 
 | Your PC | Bundled installer |
 | --- | --- |
-| Intel / AMD Windows | [x64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.2/GlazeBar-GlazeWM-Setup-0.1.0-preview.2-x64.exe) |
-| Windows on ARM | [ARM64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.2/GlazeBar-GlazeWM-Setup-0.1.0-preview.2-arm64.exe) |
+| Intel / AMD Windows | [x64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.4/GlazeBar-GlazeWM-Setup-0.1.0-preview.4-x64.exe) |
+| Windows on ARM (preview.3) | [ARM64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.3/GlazeBar-GlazeWM-Setup-0.1.0-preview.3-arm64.exe) |
 
 ## Install
 
@@ -34,7 +36,7 @@ Version 0.1.0-preview.2 fixes a startup crash on systems without WMI brightness 
 4. Open **GlazeBar + GlazeWM** from the Start menu.
 
 **No commands to type, and no separate GlazeWM download needed.** Your existing settings are backed up before installation.
-If GlazeWM 3.10.1 is already installed, the installer uses it. For another version or an older community bundle, follow the installer's instructions to remove it first.
+The x64 bundle runs modified GlazeWM 3.10.1-glazebar.1 from the user profile; official 3.10.1 remains available for CLI compatibility and rollback. For another version or an older community bundle, follow the installer's instructions to remove it first.
 
 GlazeBar doesn't need .NET, Go, or WebView2 installed. If the Visual C++ runtime needed by GlazeWM is missing, the installer downloads Microsoft's setup program for you.
 Windows may ask for administrator approval while installing GlazeWM or the runtime.

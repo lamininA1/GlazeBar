@@ -4,16 +4,17 @@ param(
     [Parameter(Mandatory)][string]$BundleRoot,
     [string]$OutputDirectory = (Join-Path $PSScriptRoot 'setup-output'),
     [string]$Compiler = (Join-Path $env:LOCALAPPDATA 'Programs/Inno Setup 6/ISCC.exe'),
-    [string]$TestProfile
+    [string]$TestProfile,
+    [string]$Version = '0.1.0-preview.4',
+    [string[]]$Architectures = @('x64')
 )
 $ErrorActionPreference = 'Stop'
 if (!(Test-Path -LiteralPath $Compiler)) { throw 'Install Inno Setup 6.7+ or pass -Compiler with the path to ISCC.exe.' }
 $BundleRoot = (Resolve-Path -LiteralPath $BundleRoot).Path
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Force $OutputDirectory | Out-Null
-$architectures = if ($TestProfile) { @('arm64') } else { @('arm64','x64') }
-foreach ($arch in $architectures) {
-    $bundle = Join-Path $BundleRoot "GlazeBar-Community-0.1.0-preview.3-windows-$arch"
+foreach ($arch in $Architectures) {
+    $bundle = Join-Path $BundleRoot "GlazeBar-Community-$Version-windows-$arch"
     $manifest = Get-Content -LiteralPath (Join-Path $bundle 'manifest.json') -Raw | ConvertFrom-Json
     if ($manifest.architecture -ne $arch) { throw "Incorrect bundle architecture: $arch" }
     foreach ($file in $manifest.files) {

@@ -8,12 +8,14 @@ use tungstenite::{Message, WebSocket};
 pub struct Client {
     socket: Option<WebSocket<TcpStream>>,
     auto_signature: String,
+    group_settle_until: Option<std::time::Instant>,
 }
 impl Client {
     pub fn new() -> Self {
         Self {
             socket: None,
             auto_signature: String::new(),
+            group_settle_until: None,
         }
     }
     fn connect() -> Result<WebSocket<TcpStream>> {
@@ -21,6 +23,7 @@ impl Client {
             TcpStream::connect_timeout(&"127.0.0.1:6123".parse()?, Duration::from_secs(2))?;
         stream.set_read_timeout(Some(Duration::from_secs(3)))?;
         stream.set_write_timeout(Some(Duration::from_secs(3)))?;
+        stream.set_nodelay(true)?;
         let (socket, _) = tungstenite::client("ws://127.0.0.1:6123", stream)?;
         Ok(socket)
     }
@@ -107,6 +110,12 @@ impl Client {
             return Ok(());
         }
         let sig = format!("{}:{}:{}", string(f, "id"), f["width"], f["height"]);
+        // Native minimize/restore animations can deliver intermediate focus
+        // events. Do not turn those transient targets into new split nodes.
+        if self.group_settle_until.is_some_and(|until| std::time::Instant::now() < until) {
+            self.auto_signature = sig;
+            return Ok(());
+        }
         if sig != self.auto_signature {
             let direction =
                 if f["height"].as_f64().unwrap_or(0.) > f["width"].as_f64().unwrap_or(0.) {
@@ -136,6 +145,13 @@ impl Client {
         bail!("Window state timed out: {id}")
     }
     pub fn restore_group(&mut self, root: &std::path::Path) -> Result<()> {
+        if self.request("query app-metadata")?["version"].as_str().is_some_and(|v| v.contains("-glazebar.")) {
+            self.request("command wm-restore-minimized-group")?;
+            self.group_settle_until = Some(std::time::Instant::now() + Duration::from_secs(2));
+            let data = self.request("query focused")?;
+            let f = &data["focused"];
+            self.auto_signature = format!("{}:{}:{}", string(f, "id"), f["width"], f["height"]);
+        }
         let path = root.join("resident-minimized.json");
         if !path.exists() {
             return Ok(());
@@ -163,6 +179,14 @@ impl Client {
     }
     pub fn toggle_group(&mut self, root: &std::path::Path) -> Result<()> {
         if self.request("query paused")? == true {
+            return Ok(());
+        }
+        if self.request("query app-metadata")?["version"].as_str().is_some_and(|v| v.contains("-glazebar.")) {
+            self.request("command wm-toggle-minimized-group")?;
+            self.group_settle_until = Some(std::time::Instant::now() + Duration::from_secs(2));
+            let data = self.request("query focused")?;
+            let f = &data["focused"];
+            self.auto_signature = format!("{}:{}:{}", string(f, "id"), f["width"], f["height"]);
             return Ok(());
         }
         let path = root.join("resident-minimized.json");

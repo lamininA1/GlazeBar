@@ -67,9 +67,9 @@ try {
             $shortcutPath = Join-Path ([Environment]::GetFolderPath('Startup')) 'GlazeBar Community.lnk'
             if (Test-Path -LiteralPath $shortcutPath) { throw 'Startup shortcut already exists; it was not overwritten.' }
             $link = (New-Object -ComObject WScript.Shell).CreateShortcut($shortcutPath)
-            $link.TargetPath = $cli
+            $link.TargetPath = Join-Path $target 'wm\glazewm.exe'
             $link.Arguments = 'start'
-            $link.WorkingDirectory = Split-Path $cli
+            $link.WorkingDirectory = Join-Path $target 'wm'
             $link.Save()
             $shortcutCreated = $true
         }

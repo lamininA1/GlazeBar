@@ -1,11 +1,17 @@
-GlazeBar + GlazeWM 커뮤니티 번들 0.1.0-preview.3
+﻿preview.4 x64: GlazeWM 3.10.1-glazebar.1 (modified from https://github.com/glzr-io/glazewm).
+Alt+M preserves the layout while minimizing/restoring real windows. Corrective placement is retained.
+Use GlazeBar + GlazeWM in the Start menu, or run %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe.
+The unchanged upstream MSI is retained for CLI compatibility and rollback; community shortcuts run the modified build.
+This release is x64 only. ARM64 stays on preview.3. No IME fix is claimed.
+
+GlazeBar + GlazeWM 커뮤니티 번들 0.1.0-preview.4
 
 preview.3에서는 Wi-Fi를 사용할 수 없으면 해당 항목을 숨깁니다. 연결만 끊긴
 어댑터는 계속 표시합니다. 팝업은 내부 클릭 없이도 외부 창 전환이나 Bar 클릭으로
 닫히며, 팝업 내부 입력란과 하위 설정 창으로 이동할 때는 유지됩니다.
 
 GlazeWM 공식 배포판이 아닌 커뮤니티 구성입니다.
-Windows 11 ARM64 / x64용 ZIP을 각각 제공합니다.
+이번 preview.4는 Windows 11 x64용입니다. ARM64는 preview.3을 사용합니다.
 
 설치
 1. ZIP 전체를 압축 해제합니다.
@@ -13,7 +19,7 @@ Windows 11 ARM64 / x64용 ZIP을 각각 제공합니다.
 3. 압축을 푼 폴더에서 PowerShell로 실행합니다.
    powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1
    로그인할 때 자동 시작하려면 명령 끝에 -AutoStart를 추가합니다.
-4. 시작 메뉴에서 GlazeWM을 실행합니다.
+4. %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe를 실행합니다. EXE 설치 시 시작 메뉴의 GlazeBar + GlazeWM을 사용합니다.
 
 기존 설정과 덮어쓰는 파일은 먼저 백업됩니다.
 설치 위치: %USERPROFILE%\.glzr\glazewm

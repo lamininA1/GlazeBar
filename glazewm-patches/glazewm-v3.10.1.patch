@@ -1,0 +1,635 @@
+diff --git a/.gitignore b/.gitignore
+index 63c13a6..38eced2 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -3,6 +3,7 @@
+ # Build outputs
+ target/
+ out/
++vendor/
+ 
+ # Misc
+ .DS_Store
+diff --git a/packages/wm-common/src/app_command.rs b/packages/wm-common/src/app_command.rs
+index fbbd7a2..9230563 100644
+--- a/packages/wm-common/src/app_command.rs
++++ b/packages/wm-common/src/app_command.rs
+@@ -258,6 +258,8 @@ pub enum InvokeCommand {
+   },
+   WmExit,
+   WmRedraw,
++  WmToggleMinimizedGroup,
++  WmRestoreMinimizedGroup,
+   WmReloadConfig,
+   WmTogglePause,
+ }
+diff --git a/packages/wm-platform/src/native_window.rs b/packages/wm-platform/src/native_window.rs
+index 7f916a2..cbe1800 100644
+--- a/packages/wm-platform/src/native_window.rs
++++ b/packages/wm-platform/src/native_window.rs
+@@ -238,6 +238,9 @@ pub trait NativeWindowWindowsExt {
+   /// This method is only available on Windows.
+   fn restore(&self, outer_frame: Option<&Rect>) -> crate::Result<()>;
+ 
++  /// Restores to the final frame without activating each member of a group.
++  fn restore_inactive(&self, outer_frame: &Rect) -> crate::Result<()>;
++
+   /// Cloaks or uncloaks the window.
+   ///
+   /// # Platform-specific
+@@ -380,6 +383,10 @@ impl NativeWindowWindowsExt for NativeWindow {
+     self.inner.restore(outer_frame)
+   }
+ 
++  fn restore_inactive(&self, outer_frame: &Rect) -> crate::Result<()> {
++    self.inner.restore_inactive(outer_frame)
++  }
++
+   fn set_cloaked(&self, cloaked: bool) -> crate::Result<()> {
+     self.inner.set_cloaked(cloaked)
+   }
+diff --git a/packages/wm-platform/src/platform_impl/windows/native_window.rs b/packages/wm-platform/src/platform_impl/windows/native_window.rs
+index b375c49..bfefb32 100644
+--- a/packages/wm-platform/src/platform_impl/windows/native_window.rs
++++ b/packages/wm-platform/src/platform_impl/windows/native_window.rs
+@@ -34,7 +34,7 @@ use windows::{
+         SWP_FRAMECHANGED, SWP_NOACTIVATE, SWP_NOCOPYBITS, SWP_NOMOVE,
+         SWP_NOOWNERZORDER, SWP_NOSENDCHANGING, SWP_NOSIZE, SWP_NOZORDER,
+         SWP_SHOWWINDOW, SW_HIDE, SW_MAXIMIZE, SW_MINIMIZE, SW_RESTORE,
+-        SW_SHOWNA, WINDOWPLACEMENT, WINDOW_EX_STYLE, WINDOW_STYLE,
++        SW_SHOWNA, SW_SHOWNOACTIVATE, WINDOWPLACEMENT, WINDOW_EX_STYLE, WINDOW_STYLE,
+         WM_CLOSE, WPF_ASYNCWINDOWPLACEMENT, WS_DLGFRAME, WS_EX_LAYERED,
+         WS_THICKFRAME,
+       },
+@@ -283,6 +283,11 @@ impl NativeWindow {
+ 
+   /// Implements [`NativeWindow::focus`].
+   pub(crate) fn focus(&self) -> crate::Result<()> {
++    // Do not inject another input when this window already owns foreground.
++    // In particular, redraw/reorder requests must not disturb ongoing IME input.
++    if unsafe { GetForegroundWindow() } == self.hwnd() {
++      return Ok(());
++    }
+     let input = [INPUT {
+       r#type: INPUT_MOUSE,
+       Anonymous: INPUT_0 {
+@@ -303,6 +308,9 @@ impl NativeWindow {
+     // Set as the foreground window.
+     unsafe { SetForegroundWindow(self.hwnd()) }.ok()?;
+ 
++    // Activation completion is observed through foreground events. Never wait
++    // synchronously here: restoring several windows can queue many such events.
++
+     Ok(())
+   }
+ 
+@@ -436,6 +444,14 @@ impl NativeWindow {
+     &self,
+     outer_frame: Option<&Rect>,
+   ) -> crate::Result<()> {
++    self.restore_with_activation(outer_frame, true)
++  }
++
++  pub(crate) fn restore_inactive(&self, outer_frame: &Rect) -> crate::Result<()> {
++    self.restore_with_activation(Some(outer_frame), false)
++  }
++
++  fn restore_with_activation(&self, outer_frame: Option<&Rect>, activate: bool) -> crate::Result<()> {
+     match outer_frame {
+       None => {
+         unsafe { ShowWindowAsync(self.hwnd(), SW_RESTORE) }.ok()?;
+@@ -446,7 +462,7 @@ impl NativeWindow {
+           #[allow(clippy::cast_possible_truncation)]
+           length: std::mem::size_of::<WINDOWPLACEMENT>() as u32,
+           flags: WPF_ASYNCWINDOWPLACEMENT,
+-          showCmd: SW_RESTORE.0 as u32,
++            showCmd: if activate { SW_RESTORE.0 } else { SW_SHOWNOACTIVATE.0 } as u32,
+           rcNormalPosition: RECT {
+             left: rect.left,
+             top: rect.top,
+@@ -464,6 +480,11 @@ impl NativeWindow {
+ 
+   /// Implements [`NativeWindowWindowsExt::set_cloaked`].
+   pub(crate) fn set_cloaked(&self, cloaked: bool) -> crate::Result<()> {
++    // Ordinary layout updates do not change workspace visibility. Avoid a
++    // synchronous shell COM call for every window when the state already matches.
++    if self.is_cloaked()? == cloaked {
++      return Ok(());
++    }
+     COM_INIT.with(|com_init| -> crate::Result<()> {
+       com_init.borrow_mut().with_retry(|com| {
+         let view_collection = com.application_view_collection()?;
+diff --git a/packages/wm/build.rs b/packages/wm/build.rs
+index 0b68158..4c3ab75 100644
+--- a/packages/wm/build.rs
++++ b/packages/wm/build.rs
+@@ -60,10 +60,10 @@ fn main() {
+ 
+   res.set("OriginalFilename", "glazewm.exe");
+   res.set("ProductName", "GlazeWM");
+-  res.set("FileDescription", "GlazeWM");
++  res.set("FileDescription", "GlazeWM (GlazeBar modifications)");
+ 
+   let version_parts = env!("VERSION_NUMBER")
+-    .split('.')
++    .split(['.', '-'])
+     .take(3)
+     .map(|part| part.parse().unwrap_or(0))
+     .collect::<Vec<u16>>();
+diff --git a/packages/wm/src/commands/container/detach_container.rs b/packages/wm/src/commands/container/detach_container.rs
+index 5c173c7..e4e7791 100644
+--- a/packages/wm/src/commands/container/detach_container.rs
++++ b/packages/wm/src/commands/container/detach_container.rs
+@@ -55,5 +55,10 @@ pub fn detach_container(child_to_remove: Container) -> anyhow::Result<()> {
+     }
+   }
+ 
++  // Removing the last window can also empty a chain of ancestor splits.
++  // The one-level flatten above does not remove those grandparents.
++  if parent.is_split() && !parent.has_children() {
++    detach_container(parent)?;
++  }
+   Ok(())
+ }
+diff --git a/packages/wm/src/commands/general/minimize_group.rs b/packages/wm/src/commands/general/minimize_group.rs
+new file mode 100644
+index 0000000..1dead85
+--- /dev/null
++++ b/packages/wm/src/commands/general/minimize_group.rs
+@@ -0,0 +1,252 @@
++use std::collections::{HashMap, VecDeque};
++
++use anyhow::Context;
++use uuid::Uuid;
++use wm_common::{TilingDirection, WindowState};
++
++use crate::{
++  commands::{container::set_focused_descendant, window::update_window_state},
++  models::{Container, WindowContainer},
++  traits::{CommonGetters, TilingDirectionGetters, TilingSizeGetters, WindowGetters},
++  user_config::UserConfig,
++  wm_state::WmState,
++};
++
++/// Owned snapshot of topology and proportions, independent of subsequent detaches.
++#[derive(Clone)]
++pub struct LayoutNode {
++  container: Container,
++  size: Option<f32>,
++  direction: Option<TilingDirection>,
++  focus: VecDeque<Uuid>,
++  children: Vec<LayoutNode>,
++}
++
++/// A real minimized group. Workspace identity never changes.
++pub struct MinimizedGroup {
++  layout: LayoutNode,
++  focused: Uuid,
++  windows: Vec<(Uuid, WindowState)>,
++}
++
++impl LayoutNode {
++  /// Capture values instead of relying on mutable container references alone.
++  fn capture(container: &Container) -> Self {
++    Self {
++      container: container.clone(),
++      size: container.as_tiling_container().ok().map(|c| c.tiling_size()),
++      direction: container.as_direction_container().ok().map(|c| c.tiling_direction()),
++      focus: container.borrow_child_focus_order().clone(),
++      children: container.children().iter().map(Self::capture).collect(),
++    }
++  }
++
++  /// Rebuild surviving windows and prune branches whose windows were closed/moved.
++  fn rebuild(&self, windows: &mut HashMap<Uuid, WindowContainer>) -> Option<Container> {
++    if self.container.as_window_container().is_ok() {
++      let window: Container = windows.remove(&self.container.id())?.into();
++      if let (Some(size), Ok(tiling)) = (self.size, window.as_tiling_container()) {
++        tiling.set_tiling_size(size);
++      }
++      return Some(window);
++    }
++    let children: Vec<_> = self.children.iter().filter_map(|c| c.rebuild(windows)).collect();
++    if self.container.is_split() && children.is_empty() { return None; }
++    let parent = self.container.clone();
++    *parent.borrow_children_mut() = children.iter().cloned().collect();
++    *parent.borrow_child_focus_order_mut() = self.focus.iter().copied()
++      .filter(|id| children.iter().any(|c| c.id() == *id)).collect();
++    for child in &children { *child.borrow_parent_mut() = Some(parent.clone()); }
++    if let (Some(size), Ok(tiling)) = (self.size, parent.as_tiling_container()) {
++      tiling.set_tiling_size(size);
++    }
++    if let (Some(direction), Ok(container)) = (&self.direction, parent.as_direction_container()) {
++      container.set_tiling_direction(direction.clone());
++    }
++    normalize_children(&parent);
++    Some(parent)
++  }
++}
++
++/// Normalize remaining shares after a window or an empty branch is removed.
++pub fn normalize_children(parent: &Container) {
++  let children: Vec<_> = parent.tiling_children().collect();
++  let total: f32 = children.iter().map(TilingSizeGetters::tiling_size).sum();
++  if total > 0.0 && (total - 1.0).abs() > 0.000001 {
++    for child in children { child.set_tiling_size(child.tiling_size() / total); }
++  }
++}
++
++/// Remove empty split branches without flattening intentional populated groups.
++pub fn prune_empty_splits(parent: &Container) -> usize {
++  let mut removed = 0;
++  for child in parent.children() {
++    removed += prune_empty_splits(&child);
++    if child.is_split() && !child.has_children() {
++      parent.borrow_children_mut().retain(|c| c.id() != child.id());
++      parent.borrow_child_focus_order_mut().retain(|id| *id != child.id());
++      *child.borrow_parent_mut() = None;
++      removed += 1;
++    }
++  }
++  if removed > 0 { normalize_children(parent); }
++  removed
++}
++
++/// Queue all native minimizes in one IPC operation, preserving the original layout.
++pub fn toggle_minimized_group(state: &mut WmState, config: &UserConfig) -> anyhow::Result<()> {
++  if state.minimized_group.is_some() { return restore_minimized_group(state, config); }
++  let focused = state.focused_container().context("No focused container")?;
++  let workspace = focused.workspace().context("No focused workspace")?;
++  let root: Container = workspace.clone().into();
++  prune_empty_splits(&root);
++  let layout = LayoutNode::capture(&root);
++  let windows: Vec<_> = workspace.descendants().filter_map(|c| c.as_window_container().ok())
++    .filter(|w| w.state() != WindowState::Minimized).collect();
++  if windows.is_empty() { return Ok(()); }
++  let mut saved = Vec::new();
++  for window in windows {
++    state.group_restore_pending.remove(&window.id());
++    // ShowWindowAsync queues the request; no per-window sleep or IPC polling.
++    if let Err(error) = window.native().minimize() {
++      tracing::warn!("Group minimize failed for {}: {error}", window.id());
++      continue;
++    }
++    saved.push((window.id(), window.state()));
++    // Record the accepted desired state before queued OS notifications arrive.
++    window.update_native_properties(|p| p.is_minimized = true);
++    update_window_state(window, WindowState::Minimized, state, config)?;
++  }
++  if saved.is_empty() { return Ok(()); }
++  state.minimized_group = Some(MinimizedGroup { layout, focused: focused.id(), windows: saved });
++  set_focused_descendant(&root, None);
++  state.unmanaged_or_minimized_timestamp = Some(std::time::Instant::now());
++  state.pending_sync.queue_focus_change().queue_workspace_to_reorder(workspace);
++  Ok(())
++}
++
++#[cfg(all(test, target_os = "windows"))]
++mod tests {
++  use super::*;
++  use crate::models::{NativeWindowProperties, SplitContainer, TilingWindow};
++  use wm_common::GapsConfig;
++  use wm_platform::{NativeWindow, NativeWindowWindowsExt, Rect, RectDelta};
++
++  fn split() -> Container {
++    SplitContainer::new(TilingDirection::Horizontal, GapsConfig::default()).into()
++  }
++
++  fn window() -> WindowContainer {
++    let rect = Rect::from_ltrb(0, 0, 800, 600);
++    TilingWindow::new(None, NativeWindow::from_handle(0), NativeWindowProperties {
++      title: String::new(), class_name: String::new(), process_name: String::new(),
++      frame: rect.clone(), is_minimized: false, is_maximized: false,
++      is_resizable: true, shadow_borders: RectDelta::zero(),
++    }, None, RectDelta::zero(), rect, false, GapsConfig::default(), Vec::new(), None).into()
++  }
++
++  fn attach(parent: &Container, child: Container) {
++    *child.borrow_parent_mut() = Some(parent.clone());
++    parent.borrow_child_focus_order_mut().push_back(child.id());
++    parent.borrow_children_mut().push_back(child);
++  }
++
++  #[test]
++  fn redraw_prunes_nested_empty_splits_and_reclaims_space() {
++    let root = split();
++    let empty = split();
++    attach(&empty, split());
++    attach(&root, empty);
++    let live = window();
++    live.as_container().as_tiling_container().unwrap().set_tiling_size(0.6);
++    attach(&root, live.as_container());
++    assert_eq!(prune_empty_splits(&root), 2);
++    assert_eq!(root.child_count(), 1);
++    assert_eq!(root.borrow_child_focus_order().len(), 1);
++    assert_eq!(live.as_container().as_tiling_container().unwrap().tiling_size(), 1.0);
++  }
++
++  #[test]
++  fn snapshot_restores_nested_ids_proportions_and_focus_order() {
++    let root = split();
++    let branch = split();
++    let a = window();
++    let b = window();
++    attach(&root, branch.clone());
++    attach(&branch, a.as_container());
++    attach(&branch, b.as_container());
++    a.as_container().as_tiling_container().unwrap().set_tiling_size(0.3);
++    b.as_container().as_tiling_container().unwrap().set_tiling_size(0.7);
++    let saved = LayoutNode::capture(&root);
++    branch.borrow_children_mut().clear();
++    root.borrow_children_mut().clear();
++    let mut windows = HashMap::from([(a.id(), a.clone()), (b.id(), b.clone())]);
++    saved.rebuild(&mut windows).unwrap();
++    assert!(windows.is_empty());
++    assert_eq!(root.children()[0].id(), branch.id());
++    assert_eq!(branch.children()[0].id(), a.id());
++    assert_eq!(branch.children()[1].id(), b.id());
++    assert_eq!(a.as_container().as_tiling_container().unwrap().tiling_size(), 0.3);
++    assert_eq!(b.as_container().as_tiling_container().unwrap().tiling_size(), 0.7);
++    assert_eq!(*branch.borrow_child_focus_order(), VecDeque::from([a.id(), b.id()]));
++    // A closed window must not leave a ghost branch or lost space.
++    let mut remaining = HashMap::from([(b.id(), b.clone())]);
++    saved.rebuild(&mut remaining).unwrap();
++    assert_eq!(branch.child_count(), 1);
++    assert_eq!(b.as_container().as_tiling_container().unwrap().tiling_size(), 1.0);
++  }
++}
++
++/// Restore states and the exact surviving split tree in a single WM transaction.
++pub fn restore_minimized_group(state: &mut WmState, config: &UserConfig) -> anyhow::Result<()> {
++  let Some(saved) = state.minimized_group.take() else { return Ok(()); };
++  let workspace_id = saved.layout.container.id();
++  let Some(workspace) = state.workspaces().into_iter().find(|w| w.id() == workspace_id) else {
++    return Ok(());
++  };
++  let root: Container = workspace.clone().into();
++  let current: Vec<_> = root.descendants().collect();
++  let mut windows: HashMap<_, _> = current.iter().filter_map(|c| c.as_window_container().ok())
++    .map(|w| (w.id(), w)).collect();
++  for (id, original) in &saved.windows {
++    let window = windows.get(id).cloned();
++    let Some(window) = window else { continue; };
++    if window.state() == WindowState::Minimized {
++      state.group_restore_pending.insert(*id, std::time::Instant::now());
++      // The saved tree supplies insertion positions and sizes. Do not run
++      // ordinary per-window detach/reinsert/resize heuristics only to discard
++      // their results immediately afterwards.
++      if *original == WindowState::Tiling {
++        let non_tiling = window.as_non_tiling_window().context("Invalid minimized window")?;
++        windows.insert(*id, non_tiling.to_tiling(config.value.gaps.clone()).into());
++      } else {
++        window.set_prev_state(WindowState::Minimized);
++        window.set_state(original.clone());
++      }
++    }
++  }
++  // Detach the current tree without the ordinary resize/reinsertion heuristics.
++  for child in current.iter().rev() {
++    *child.borrow_parent_mut() = None;
++    child.borrow_children_mut().clear();
++    child.borrow_child_focus_order_mut().clear();
++  }
++  root.borrow_children_mut().clear();
++  root.borrow_child_focus_order_mut().clear();
++  saved.layout.rebuild(&mut windows);
++  // Windows opened while the group was minimized remain managed and visible.
++  for window in windows.into_values() {
++    let child: Container = window.into();
++    *child.borrow_parent_mut() = Some(root.clone());
++    root.borrow_child_focus_order_mut().push_back(child.id());
++    root.borrow_children_mut().push_back(child);
++  }
++  normalize_children(&root);
++  // platform_sync restores directly to the final rectangle once. In particular,
++  // do not issue SW_RESTORE here before the final placement is available.
++  let focus = root.descendants().find(|c| c.id() == saved.focused).unwrap_or(root.clone());
++  set_focused_descendant(&focus, None);
++  state.unmanaged_or_minimized_timestamp = Some(std::time::Instant::now());
++  state.pending_sync.queue_container_to_redraw(root).queue_workspace_to_reorder(workspace).queue_focus_change();
++  Ok(())
++}
+diff --git a/packages/wm/src/commands/general/mod.rs b/packages/wm/src/commands/general/mod.rs
+index 30cf629..1475be0 100644
+--- a/packages/wm/src/commands/general/mod.rs
++++ b/packages/wm/src/commands/general/mod.rs
+@@ -1,4 +1,5 @@
+ mod cycle_focus;
++mod minimize_group;
+ mod disable_binding_mode;
+ mod enable_binding_mode;
+ mod platform_sync;
+@@ -7,6 +8,7 @@ mod shell_exec;
+ mod toggle_pause;
+ 
+ pub use cycle_focus::*;
++pub use minimize_group::*;
+ pub use disable_binding_mode::*;
+ pub use enable_binding_mode::*;
+ pub use platform_sync::*;
+diff --git a/packages/wm/src/commands/general/platform_sync.rs b/packages/wm/src/commands/general/platform_sync.rs
+index 6f4a9da..5d8e302 100644
+--- a/packages/wm/src/commands/general/platform_sync.rs
++++ b/packages/wm/src/commands/general/platform_sync.rs
+@@ -22,10 +22,12 @@ pub fn platform_sync(
+   state: &mut WmState,
+   config: &UserConfig,
+ ) -> anyhow::Result<()> {
++  state.group_restore_pending.retain(|_, started| started.elapsed() < std::time::Duration::from_secs(2));
+   let focused_container =
+     state.focused_container().context("No focused container.")?;
+ 
+-  if state.pending_sync.needs_focus_update() {
++  let restoring_group = !state.group_restore_pending.is_empty();
++  if state.pending_sync.needs_focus_update() && !restoring_group {
+     sync_focus(&focused_container, state)?;
+   }
+ 
+@@ -35,6 +37,10 @@ pub fn platform_sync(
+     redraw_containers(&focused_container, state, config)?;
+   }
+ 
++  if state.pending_sync.needs_focus_update() && restoring_group {
++    sync_focus(&focused_container, state)?;
++  }
++
+   if state.pending_sync.needs_cursor_jump()
+     && config.value.general.cursor_jump.enabled
+   {
+@@ -103,6 +109,16 @@ fn sync_focus(
+     tracing::warn!("Failed to set focus: {}", err);
+   }
+ 
++  // Confirm actual OS focus instead of allowing hover events to race an
++  // outstanding cross-thread activation. This also handles an already-active
++  // target, for which Windows need not send another foreground event.
++  if let Ok(actual) = state.dispatcher.focused_window() {
++    state.is_focus_synced = match focused_container.as_window_container() {
++      Ok(window) => *window.native() == actual,
++      _ => actual.is_desktop_window().unwrap_or(false),
++    };
++  }
++
+   state.emit_event(WmEvent::FocusChanged {
+     focused_container: focused_container.to_dto()?,
+   });
+@@ -286,7 +302,8 @@ fn redraw_containers(
+     );
+ 
+     if let Err(err) =
+-      reposition_window(window, *hide_corner, &z_order, is_visible, config)
++      reposition_window(window, *hide_corner, &z_order, is_visible,
++        state.group_restore_pending.contains_key(&window.id()) && window.native_properties().is_minimized, config)
+     {
+       tracing::warn!("Failed to set window position: {}", err);
+     }
+@@ -342,6 +359,7 @@ fn reposition_window(
+   #[cfg_attr(not(target_os = "windows"), allow(unused_variables))]
+   z_order: &WindowZOrder,
+   is_visible: bool,
++  force_group_restore: bool,
+   config: &UserConfig,
+ ) -> anyhow::Result<()> {
+   let rect = window
+@@ -415,10 +433,15 @@ fn reposition_window(
+         }
+       };
+ 
+-      if should_restore {
++      if should_restore || force_group_restore {
+         // Restoring to position has the same effect as `ShowWindow` with
+         // `SW_RESTORE`, but doesn't cause a flicker.
+-        window.native().restore(Some(&rect))?;
++        if force_group_restore {
++          window.native().restore_inactive(&rect)?;
++        } else {
++          window.native().restore(Some(&rect))?;
++        }
++        window.update_native_properties(|p| p.is_minimized = false);
+       }
+ 
+       let mut swp_flags = SWP_NOACTIVATE
+@@ -443,8 +466,9 @@ fn reposition_window(
+           window.native().set_window_pos(z_order, &rect, swp_flags)?;
+         }
+         _ => {
++          // Keep the corrective screen-coordinate placement after restore.
++          // Some applications otherwise overlap or retain an incorrect frame.
+           swp_flags |= SWP_FRAMECHANGED;
+-
+           window.native().set_window_pos(z_order, &rect, swp_flags)?;
+ 
+           // When there's a mismatch between the DPI of the monitor and the
+diff --git a/packages/wm/src/events/handle_window_minimize_ended.rs b/packages/wm/src/events/handle_window_minimize_ended.rs
+index 3315f75..982d246 100644
+--- a/packages/wm/src/events/handle_window_minimize_ended.rs
++++ b/packages/wm/src/events/handle_window_minimize_ended.rs
+@@ -16,6 +16,8 @@ pub fn handle_window_minimize_ended(
+ 
+   // Update the window's state to not be minimized.
+   if let Some(window) = found_window {
++    // An end event can belong to an earlier toggle while a newer minimize
++    // is still queued. Keep the bounded restore guard until it expires.
+     let is_minimized = try_warn!(window.native().is_minimized());
+ 
+     window.update_native_properties(|properties| {
+diff --git a/packages/wm/src/events/handle_window_minimized.rs b/packages/wm/src/events/handle_window_minimized.rs
+index 4f0303c..a791a9b 100644
+--- a/packages/wm/src/events/handle_window_minimized.rs
++++ b/packages/wm/src/events/handle_window_minimized.rs
+@@ -6,7 +6,7 @@ use crate::{
+   commands::{
+     container::set_focused_descendant, window::update_window_state,
+   },
+-  traits::WindowGetters,
++  traits::{CommonGetters, WindowGetters},
+   user_config::UserConfig,
+   wm_state::WmState,
+ };
+@@ -20,6 +20,17 @@ pub fn handle_window_minimized(
+ 
+   // Update the window's state to be minimized.
+   if let Some(window) = found_window {
++    state.group_restore_pending.retain(|_, started| started.elapsed() < std::time::Duration::from_secs(2));
++    if state.group_restore_pending.contains_key(&window.id()) {
++      #[cfg(target_os = "windows")]
++      if window.state() != WindowState::Minimized && window.native().is_minimized().unwrap_or(false) {
++        use wm_platform::NativeWindowWindowsExt;
++        use crate::traits::PositionGetters;
++        let rect = window.to_rect()?.apply_delta(&window.total_border_delta()?, None);
++        window.native().restore_inactive(&rect)?;
++      }
++      return Ok(());
++    }
+     let is_minimized = try_warn!(window.native().is_minimized());
+ 
+     window.update_native_properties(|properties| {
+diff --git a/packages/wm/src/events/handle_window_moved_or_resized.rs b/packages/wm/src/events/handle_window_moved_or_resized.rs
+index 412d425..e0080e0 100644
+--- a/packages/wm/src/events/handle_window_moved_or_resized.rs
++++ b/packages/wm/src/events/handle_window_moved_or_resized.rs
+@@ -552,7 +552,8 @@ mod tests {
+     let frame_in_right_corner = Rect::from_xy(1919, 1050, 600, 600);
+     assert!(is_in_corner(&frame_in_right_corner, &monitor));
+ 
+-    let frame_in_left_corner = Rect::from_xy(1, 1050, 600, 600);
++    // Only one pixel of the window remains visible at the left edge.
++    let frame_in_left_corner = Rect::from_xy(-599, 1050, 600, 600);
+     assert!(is_in_corner(&frame_in_left_corner, &monitor));
+   }
+ 
+diff --git a/packages/wm/src/wm.rs b/packages/wm/src/wm.rs
+index 7e58d8d..68e7dc7 100644
+--- a/packages/wm/src/wm.rs
++++ b/packages/wm/src/wm.rs
+@@ -765,6 +765,7 @@ impl WindowManager {
+       }
+       InvokeCommand::WmExit => state.emit_exit(),
+       InvokeCommand::WmRedraw => {
++        crate::commands::general::prune_empty_splits(&state.root_container.clone().into());
+         state
+           .pending_sync
+           .queue_container_to_redraw(state.root_container.clone());
+@@ -772,6 +773,8 @@ impl WindowManager {
+         Ok(())
+       }
+       InvokeCommand::WmReloadConfig => reload_config(state, config),
++      InvokeCommand::WmToggleMinimizedGroup => crate::commands::general::toggle_minimized_group(state, config),
++      InvokeCommand::WmRestoreMinimizedGroup => crate::commands::general::restore_minimized_group(state, config),
+       InvokeCommand::WmTogglePause => {
+         toggle_pause(state);
+         Ok(())
+@@ -785,6 +788,9 @@ impl WindowManager {
+     config: &mut UserConfig,
+     ipc_server: &mut IpcServer,
+   ) {
++    if let Err(error) = crate::commands::general::restore_minimized_group(&mut self.state, config) {
++      tracing::warn!("Failed to restore minimized group at shutdown: {error}");
++    }
+     self.state.emit_event(WmEvent::ApplicationExiting);
+ 
+     // Ensure that the WM is unpaused, otherwise, shutdown commands won't
+diff --git a/packages/wm/src/wm_state.rs b/packages/wm/src/wm_state.rs
+index 81c63f6..9a6ebfa 100644
+--- a/packages/wm/src/wm_state.rs
++++ b/packages/wm/src/wm_state.rs
+@@ -28,6 +28,10 @@ use crate::{
+ };
+ 
+ pub struct WmState {
++  /// Native group minimization snapshot, owned by the WM rather than a helper.
++  pub minimized_group: Option<crate::commands::general::MinimizedGroup>,
++  /// Ignore late minimize events after a rapid group restore request.
++  pub group_restore_pending: std::collections::HashMap<Uuid, Instant>,
+   /// Root node of the container tree. Monitors are the children of the
+   /// root node, followed by workspaces, then split containers/windows.
+   pub root_container: RootContainer,
+@@ -84,6 +88,8 @@ impl WmState {
+     exit_tx: mpsc::UnboundedSender<()>,
+   ) -> Self {
+     Self {
++      minimized_group: None,
++      group_restore_pending: std::collections::HashMap::new(),
+       root_container: RootContainer::new(),
+       dispatcher,
+       pending_sync: PendingSync::default(),

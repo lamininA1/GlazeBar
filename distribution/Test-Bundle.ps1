@@ -14,6 +14,9 @@ $original = 'previous configuration - preserve these exact bytes'
 [IO.File]::WriteAllText("$target/config.yaml", $original)
 [IO.File]::WriteAllText("$target/unrelated.txt", 'untouched')
 & "$Bundle/Install.ps1" -StageOnly -ProfileRoot $profile
+$wm = Join-Path $target 'wm/glazewm.exe'
+if (!(Test-Path -LiteralPath $wm) -or !(Test-Path -LiteralPath (Join-Path $target 'wm/glazewm-watcher.exe'))) { throw 'Modified WM payload missing' }
+if ((Get-FileHash -LiteralPath $wm).Hash -ne (Get-FileHash -LiteralPath (Join-Path $Bundle 'payload/wm/glazewm.exe')).Hash) { throw 'Modified WM installation mismatch' }
 $config = [IO.File]::ReadAllText("$target/config.yaml")
 if ($config.Contains('__GLAZEBAR_EXE__') -or !$config.Contains((Join-Path $target 'GlazeBar.exe').Replace("'", "''"))) { throw 'Install path substitution failed' }
 if ($config -match 'launch-vscode.lnk|code-server|shell:AppsFolder') { throw 'Personal configuration leaked' }
@@ -29,6 +32,7 @@ $state = Get-Content "$target/community-install.json" -Raw | ConvertFrom-Json
 if ([IO.File]::ReadAllText("$target/config.yaml") -cne $original) { throw 'Original configuration was not restored' }
 if (!(Test-Path -LiteralPath (Join-Path $state.backup 'edits-at-uninstall/config.yaml'))) { throw 'User edits were not preserved' }
 if (Test-Path -LiteralPath "$target/GlazeBar.exe") { throw 'New executable not removed' }
+if (Test-Path -LiteralPath $wm) { throw 'Modified WM was not removed' }
 if ([IO.File]::ReadAllText("$target/unrelated.txt") -cne 'untouched') { throw 'Unrelated file changed' }
 # Tampering must be rejected before any payload writes.
 $manifestPath = Join-Path $Bundle 'manifest.json'

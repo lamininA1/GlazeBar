@@ -21,7 +21,7 @@
 [Setup]
 AppId={#ProductId}
 AppName=GlazeBar + GlazeWM
-AppVersion=0.1.0-preview.3
+AppVersion=0.1.0-preview.4
 AppPublisher=lamininA1
 AppPublisherURL=https://github.com/lamininA1/GlazeBar
 AppSupportURL=https://github.com/lamininA1/GlazeBar/issues
@@ -42,7 +42,7 @@ DisableWelcomePage=no
 LicenseFile={#BundleDir}\LICENSE
 InfoBeforeFile=Setup-Info.txt
 OutputDir={#OutputDir}
-OutputBaseFilename=GlazeBar-GlazeWM-Setup-0.1.0-preview.3-{#Arch}{#FileSuffix}
+OutputBaseFilename=GlazeBar-GlazeWM-Setup-0.1.0-preview.4-{#Arch}{#FileSuffix}
 Compression=lzma2/fast
 SolidCompression=no
 WizardStyle=modern
@@ -77,7 +77,7 @@ Source: "..\licenses\INNO-SETUP-LICENSE.txt"; DestDir: "{app}\setup-source"; Fla
 
 [Icons]
 #if TestProfile == ""
-Name: "{group}\GlazeBar + GlazeWM"; Filename: "{commonpf}\glzr.io\GlazeWM\cli\glazewm.exe"; Parameters: "start"
+Name: "{group}\GlazeBar + GlazeWM"; Filename: "{code:GetProfileRoot}\.glzr\glazewm\wm\glazewm.exe"; Parameters: "start"; WorkingDir: "{code:GetProfileRoot}\.glzr\glazewm\wm"
 Name: "{group}\Installation and licenses"; Filename: "{app}\Setup-Info.txt"
 Name: "{group}\Uninstall GlazeBar bundle"; Filename: "{uninstallexe}"
 #endif
@@ -89,13 +89,18 @@ var
 
 procedure ExitProcess(ExitCode: Cardinal);
   external 'ExitProcess@kernel32.dll stdcall';
+function GetProfileRoot(Param: String): String;
+begin
+  Result := GetEnv('USERPROFILE');
+end;
+
 function InitializeSetup: Boolean;
 var
   StatePath, ProfileRoot: String;
   I: Integer;
 begin
   Result := False;
-  ProfileRoot := GetEnv('USERPROFILE');
+  ProfileRoot := GetProfileRoot('');
   if (ProfileRoot = '') or not DirExists(ProfileRoot) then begin
     SuppressibleMsgBox('Windows user profile could not be found.', mbError, MB_OK, IDOK);
     exit;
