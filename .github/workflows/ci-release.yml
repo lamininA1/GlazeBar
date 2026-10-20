@@ -1,0 +1,139 @@
+name: CI & Release
+
+on:
+  push:
+    branches:
+      - main
+      - 'feat/**'
+      - 'fix/**'
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    name: Test (${{ matrix.target }})
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - x86_64-pc-windows-msvc
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Cache Cargo dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            native-rust/target/
+          key: ${{ runner.os }}-cargo-test-${{ matrix.target }}-${{ hashFiles('native-rust/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-test-${{ matrix.target }}-
+
+      - name: Run Tests
+        working-directory: native-rust
+        run: |
+          cargo test --locked --target ${{ matrix.target }}
+
+  build:
+    name: Build (${{ matrix.target }})
+    needs: test
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: x86_64-pc-windows-msvc
+            arch: x64
+          - target: aarch64-pc-windows-msvc
+            arch: arm64
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Cache Cargo build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            native-rust/target/
+          key: ${{ runner.os }}-cargo-build-${{ matrix.target }}-${{ hashFiles('native-rust/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-build-${{ matrix.target }}-
+
+      - name: Build Binary
+        working-directory: native-rust
+        run: |
+          cargo build --locked --release --target ${{ matrix.target }}
+
+      - name: Prepare Artifacts
+        shell: pwsh
+        run: |
+          $binDir = "native-rust/target/${{ matrix.target }}/release"
+          $outDir = "dist-${{ matrix.arch }}"
+          New-Item -ItemType Directory -Force -Path $outDir | Out-Null
+          
+          # Copy main binary and create alias if needed
+          Copy-Item "$binDir/glazebar-native.exe" "$outDir/GlazeBar.exe"
+          Copy-Item "$binDir/glazebar-native.exe" "$outDir/GlazeTheme.exe"
+          
+          # Archive binary folder
+          Compress-Archive -Path "$outDir/*" -DestinationPath "GlazeBar-windows-${{ matrix.arch }}.zip" -Force
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GlazeBar-windows-${{ matrix.arch }}
+          path: GlazeBar-windows-${{ matrix.arch }}.zip
+
+  release:
+    name: Create GitHub Release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: release-artifacts
+
+      - name: Prepare Release Assets
+        run: |
+          mkdir -p release-files
+          find release-artifacts -name "*.zip" -exec cp {} release-files/ \;
+          ls -la release-files
+
+      - name: Release on GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release-files/*
+          draft: false
+          prerelease: false
+          generate_release_notes: true
