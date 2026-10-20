@@ -74,6 +74,9 @@ pub fn load(dir: &Path, path: &Path, mode: &str, light: bool) -> Option<Palette>
     }
 }
 pub fn extract(path: &Path, light: bool, mode: &str) -> Result<Palette> {
+    if let Some(p) = crate::color_schemes::palette(mode, light) {
+        return Ok(p);
+    }
     Ok(extract_modes(
         path,
         light,

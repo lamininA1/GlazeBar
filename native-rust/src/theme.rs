@@ -231,6 +231,126 @@ pub fn export_preview(colors: &[String], light: bool) -> Result<Value> {
         json!({"palette":p,"accent":accent(&p,light),"terminal":terminal(&p),"codeColors":code_colors(&p),"codeTokens":code_tokens(&p),"textMate":textmate(&p),"glazebar":{"name":NAME,"palette":p,"light":light}}),
     )
 }
+pub fn zed_theme(p: &Palette, light: bool) -> Value {
+    let acc = accent(p, light);
+    let appearance = if light { "light" } else { "dark" };
+    json!({
+        "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+        "name": NAME,
+        "author": "GlazeBar",
+        "themes": [{
+            "name": NAME,
+            "appearance": appearance,
+            "style": {
+                "background": p[0],
+                "surface.background": p[0],
+                "elevated_surface.background": p[0],
+                "editor.background": p[0],
+                "editor.gutter.background": p[0],
+                "editor.foreground": p[15],
+                "editor.line_number": p[8],
+                "editor.active_line_number": p[15],
+                "tab_bar.background": p[0],
+                "tab.active_background": p[0],
+                "tab.inactive_background": p[0],
+                "toolbar.background": p[0],
+                "status_bar.background": p[0],
+                "title_bar.background": p[0],
+                "panel.background": p[0],
+                "border": format!("{}40", p[8]),
+                "border.variant": format!("{}26", p[8]),
+                "border.focused": acc,
+                "text": p[15],
+                "text.muted": p[7],
+                "text.accent": acc,
+                "icon": p[15],
+                "icon.muted": p[7],
+                "icon.accent": acc,
+                "terminal.background": p[0],
+                "terminal.foreground": p[15],
+                "terminal.ansi.black": p[0],
+                "terminal.ansi.red": p[1],
+                "terminal.ansi.green": p[2],
+                "terminal.ansi.yellow": p[3],
+                "terminal.ansi.blue": p[4],
+                "terminal.ansi.magenta": p[5],
+                "terminal.ansi.cyan": p[6],
+                "terminal.ansi.white": p[7],
+                "terminal.ansi.bright_black": p[8],
+                "terminal.ansi.bright_red": p[9],
+                "terminal.ansi.bright_green": p[10],
+                "terminal.ansi.bright_yellow": p[11],
+                "terminal.ansi.bright_blue": p[12],
+                "terminal.ansi.bright_magenta": p[13],
+                "terminal.ansi.bright_cyan": p[14],
+                "terminal.ansi.bright_white": p[15],
+                "players": [{
+                    "cursor": p[6],
+                    "background": p[6],
+                    "selection": format!("{}40", p[8])
+                }],
+                "syntax": {
+                    "comment": { "color": p[8], "font_style": "italic" },
+                    "string": { "color": p[2] },
+                    "keyword": { "color": p[5] },
+                    "number": { "color": p[3] },
+                    "boolean": { "color": p[3] },
+                    "function": { "color": p[4] },
+                    "type": { "color": p[6] },
+                    "variable": { "color": p[15] },
+                    "constant": { "color": p[3] },
+                    "property": { "color": p[7] },
+                    "operator": { "color": p[6] },
+                    "punctuation": { "color": p[7] }
+                }
+            }
+        }]
+    })
+}
+pub fn opencode_theme(p: &Palette, light: bool) -> Value {
+    let acc = accent(p, light);
+    json!({
+        "$schema": "https://opencode.ai/theme.json",
+        "defs": {
+            "bg": p[0],
+            "fg": p[15],
+            "muted": p[8],
+            "accent": acc,
+            "red": p[1],
+            "green": p[2],
+            "yellow": p[3],
+            "blue": p[4],
+            "magenta": p[5],
+            "cyan": p[6]
+        },
+        "theme": {
+            "primary": { "dark": acc, "light": acc },
+            "secondary": { "dark": p[6], "light": p[6] },
+            "accent": { "dark": acc, "light": acc },
+            "error": { "dark": p[1], "light": p[1] },
+            "warning": { "dark": p[3], "light": p[3] },
+            "success": { "dark": p[2], "light": p[2] },
+            "info": { "dark": p[4], "light": p[4] },
+            "text": { "dark": p[15], "light": p[15] },
+            "textMuted": { "dark": p[8], "light": p[8] },
+            "background": { "dark": p[0], "light": p[0] },
+            "backgroundPanel": { "dark": p[0], "light": p[0] },
+            "backgroundElement": { "dark": p[0], "light": p[0] },
+            "border": { "dark": p[8], "light": p[8] },
+            "borderActive": { "dark": acc, "light": acc },
+            "borderSubtle": { "dark": p[8], "light": p[8] }
+        }
+    })
+}
+pub fn antigravity_theme(p: &Palette, light: bool) -> Value {
+    json!({
+        "name": NAME,
+        "colorScheme": if light { "light" } else { "dark" },
+        "light": light,
+        "accent": accent(p, light),
+        "palette": p
+    })
+}
 
 #[cfg(test)]
 mod tests {

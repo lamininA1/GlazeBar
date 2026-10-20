@@ -1,9 +1,11 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+#![recursion_limit = "256"]
 #![deny(
     unreachable_patterns,
     unused_variables,
     dangling_pointers_from_temporaries
 )]
+mod color_schemes;
 mod go_sort;
 mod go_upper_table;
 mod graphics;
@@ -16,6 +18,7 @@ mod palette_mono;
 mod palette_styles;
 mod pixel_sampler;
 mod quantize;
+mod settings_ui;
 mod style_compare_ui;
 mod style_compare_worker;
 mod theme;
@@ -205,6 +208,9 @@ fn run() -> anyhow::Result<()> {
         Some("--shadow-sheet") => {
             runtime::run_with_popup(root.clone(), Some(5), Some(views::Action::Sheet))?
         }
+        Some("--shadow-settings") => {
+            runtime::run_with_popup(root.clone(), Some(5), Some(views::Action::OpenSettings))?
+        }
         Some("--shadow-wallpaper") => runtime::run_with_popup(
             root.clone(),
             Some(args.get(2).and_then(|s| s.parse().ok()).unwrap_or(10)),
@@ -212,7 +218,7 @@ fn run() -> anyhow::Result<()> {
         )?,
         Some(
             arg @ ("--stop" | "--toggle" | "--bar" | "--sheet" | "--wallpaper" | "--resync"
-            | "--snapshot" | "--close-popups"),
+            | "--snapshot" | "--close-popups" | "--settings"),
         ) => runtime::signal(&root, arg)?,
         Some("--probe-weather") => {
             let value = weather::fetch()?;

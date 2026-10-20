@@ -13,13 +13,41 @@ pub const MODES: [&str; 6] = [
     "colorful",
     "high-contrast",
 ];
-pub const NAMES: [&str; 6] = [
+pub const PRESET_MODES: [&str; 6] = [
+    "catppuccin",
+    "everforest",
+    "rose-pine",
+    "monokai",
+    "dracula",
+    "tokyo-night",
+];
+pub const ALL_MODES: [&str; 12] = [
+    "normal",
+    "muted",
+    "pastel",
+    "material",
+    "colorful",
+    "high-contrast",
+    "catppuccin",
+    "everforest",
+    "rose-pine",
+    "monokai",
+    "dracula",
+    "tokyo-night",
+];
+pub const NAMES: [&str; 12] = [
     "기본",
     "차분하게",
     "파스텔",
     "머티리얼",
     "선명하게",
     "고대비",
+    "Catppuccin",
+    "Everforest",
+    "Rosé Pine",
+    "Monokai",
+    "Dracula",
+    "Tokyo Night",
 ];
 #[derive(Clone, Debug, PartialEq)]
 pub enum Action {
@@ -52,6 +80,7 @@ pub struct Picker {
     pub light: bool,
     pub enabled: bool,
     pub targets: [bool; 4],
+    pub extra_targets: [bool; 12],
     pub windows: bool,
     pub options: crate::theme_windows::Options,
     pub busy: bool,
@@ -88,6 +117,27 @@ impl Picker {
                 .ok()
                 .and_then(|b| serde_json::from_slice(&b).ok())
                 .unwrap_or_default();
+        let bar_settings = crate::settings_ui::BarSettings::load(root);
+        let targets = [
+            bar_settings.targets[0],
+            bar_settings.targets[1],
+            bar_settings.targets[2],
+            bar_settings.targets[3],
+        ];
+        let extra_targets = [
+            bar_settings.targets[4],
+            bar_settings.targets[5],
+            bar_settings.targets[6],
+            bar_settings.targets[7],
+            bar_settings.targets[8],
+            bar_settings.targets[9],
+            bar_settings.targets[10],
+            bar_settings.targets[11],
+            bar_settings.targets[12],
+            bar_settings.targets[13],
+            bar_settings.targets[14],
+            bar_settings.targets[15],
+        ];
         Ok(Self {
             operation: 0,
             revision: 0,
@@ -98,7 +148,8 @@ impl Picker {
             mode: 0,
             light: false,
             enabled: true,
-            targets: [true; 4],
+            targets,
+            extra_targets,
             windows: preferences["enabled"].as_bool().unwrap_or(false),
             options: serde_json::from_value(preferences["options"].clone()).unwrap_or(
                 crate::theme_windows::Options {
@@ -116,7 +167,9 @@ impl Picker {
         if !self.busy && !self.files.is_empty() {
             self.selected = (self.selected as i64 + i64::from(delta))
                 .rem_euclid(self.files.len() as i64) as usize;
-            self.palette = None;
+            if self.mode < MODES.len() {
+                self.palette = None;
+            }
             self.status.clear();
         }
     }
@@ -304,12 +357,17 @@ pub fn paint(c: &mut Canvas, p: &Picker, hover: Option<(i32, i32)>) -> Vec<Hit> 
         Action::Enabled,
         p.busy,
     );
+    let mode_prefix = if p.mode >= MODES.len() {
+        "테마"
+    } else {
+        "스타일"
+    };
     button(
         c,
         &mut hits,
-        &format!("스타일 · {}", NAMES[p.mode]),
+        &format!("{mode_prefix} · {}", NAMES[p.mode.min(NAMES.len() - 1)]),
         Rect::new(s(295.), s(18.), s(140.), s(30.)),
-        false,
+        p.mode >= MODES.len(),
         Action::Mode,
         hover,
         p.busy,
@@ -534,6 +592,7 @@ mod tests {
             light: false,
             enabled: true,
             targets: [true; 4],
+            extra_targets: [true; 12],
             windows: false,
             options: Default::default(),
             busy: false,

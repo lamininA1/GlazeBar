@@ -37,7 +37,14 @@ impl Worker {
                 if active.load(Ordering::Acquire) != r.revision {
                     continue;
                 }
-                if let Some(path) = &r.image {
+                if let Some(palette) = crate::color_schemes::palette(r.mode, r.light) {
+                    if active.load(Ordering::Acquire) != r.revision {
+                        continue;
+                    }
+                    if r.image.is_some() {
+                        publish(r.hwnd, r.revision, Item::Palette(Ok(palette)));
+                    }
+                } else if let Some(path) = &r.image {
                     let result =
                         crate::ui_cache::extract(path, r.light, r.mode).map_err(|e| e.to_string());
                     if active.load(Ordering::Acquire) != r.revision {
@@ -66,13 +73,27 @@ impl Worker {
     pub fn request(&self, hwnd: usize, p: &mut crate::wallpaper_ui::Picker) {
         let revision = self.latest.fetch_add(1, Ordering::AcqRel) + 1;
         p.revision = revision;
-        p.palette = None;
+        let mode =
+            crate::wallpaper_ui::ALL_MODES[p.mode.min(crate::wallpaper_ui::ALL_MODES.len() - 1)];
+        if p.enabled {
+            if let Some(preset) = crate::color_schemes::palette(mode, p.light) {
+                p.palette = Some(preset);
+                p.status.clear();
+            } else {
+                p.palette = None;
+            }
+        } else {
+            p.palette = None;
+        }
         let image = if p.enabled {
-            p.files.get(p.selected).cloned()
+            p.files
+                .get(p.selected)
+                .cloned()
+                .or_else(|| crate::color_schemes::find(mode).is_some().then(PathBuf::new))
         } else {
             None
         };
-        p.status = if image.is_some() {
+        p.status = if image.is_some() && p.palette.is_none() {
             "Aether 색상 추출 중…".into()
         } else {
             String::new()
@@ -89,7 +110,7 @@ impl Worker {
             hwnd,
             files,
             image,
-            mode: crate::wallpaper_ui::MODES[p.mode],
+            mode,
             light: p.light,
         });
     }

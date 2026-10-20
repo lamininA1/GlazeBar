@@ -2,6 +2,7 @@ use crate::{
     graphics::{Canvas, Rect},
     ipc::Monitor,
     sensors::Sensors,
+    settings_ui::BarSettings,
 };
 use chrono::{Datelike, Timelike};
 #[derive(Clone, Debug, PartialEq)]
@@ -21,6 +22,8 @@ pub enum Action {
     Close,
     Sheet,
     Wallpaper,
+    OpenSettings,
+    Settings(crate::settings_ui::Edit),
     PrecacheStop,
     Online(crate::online_ui::Edit),
     Compare(crate::style_compare_ui::Edit),
@@ -131,10 +134,36 @@ pub fn bar(
     brightness: Option<u8>,
     weather: Option<(&str, &str)>,
 ) -> Vec<Hit> {
+    bar_with_settings(
+        c,
+        m,
+        s,
+        paused,
+        resize,
+        vertical,
+        clock,
+        brightness,
+        weather,
+        &BarSettings::default(),
+    )
+}
+pub fn bar_with_settings(
+    c: &mut Canvas,
+    m: &Monitor,
+    s: &Sensors,
+    paused: bool,
+    resize: bool,
+    vertical: bool,
+    clock: &str,
+    brightness: Option<u8>,
+    weather: Option<(&str, &str)>,
+    settings: &BarSettings,
+) -> Vec<Hit> {
     let mut hits = vec![];
     let ui = c.ui;
     let h = c.height;
     let mut left = c.p(18.);
+    let logo_rect = Rect::new(left - c.p(4.), c.p(8.), c.p(24.), h - c.p(16.));
     for x in 0..2 {
         for y in 0..2 {
             c.fill(
@@ -143,6 +172,7 @@ pub fn bar(
             )
         }
     }
+    hit(&mut hits, logo_rect, Action::OpenSettings);
     left += c.p(34.);
     for ws in &m.workspaces {
         let width = c.p(28.).max(c.measure(&ws.display, 12.5, true) + c.p(16.));
@@ -163,11 +193,28 @@ pub fn bar(
         );
         left += width + c.p(4.);
     }
-    let mut right = c.width - c.p(18.);
-    if let Some((icon, text)) = weather {
-        metric(c, &mut right, &mut hits, icon, text, ui.muted, None);
+    if settings.show_quick_buttons {
+        left += c.p(6.);
+        for (label, action) in [
+            ("테마", Action::Wallpaper),
+            ("설정", Action::OpenSettings),
+            ("단축키", Action::Sheet),
+        ] {
+            let width = c.measure(label, 11.5, false) + c.p(16.);
+            let r = Rect::new(left, c.p(8.), width, h - c.p(16.));
+            c.fill(r, ui.surface);
+            c.text(label, r, ui.muted, 11.5, false, 1);
+            hit(&mut hits, r, action);
+            left += width + c.p(4.);
+        }
     }
-    if s.battery {
+    let mut right = c.width - c.p(18.);
+    if settings.show_weather {
+        if let Some((icon, text)) = weather {
+            metric(c, &mut right, &mut hits, icon, text, ui.muted, None);
+        }
+    }
+    if settings.show_battery && s.battery {
         let mut vw = 0;
         for d in 0..10 {
             for sign in ["+", "−"] {
@@ -240,25 +287,29 @@ pub fn bar(
             Some(Action::Power),
         );
     }
-    metric(
-        c,
-        &mut right,
-        &mut hits,
-        "cpu",
-        &format!("{:.0}%", s.cpu),
-        ui.text,
-        None,
-    );
-    metric(
-        c,
-        &mut right,
-        &mut hits,
-        "memory-stick",
-        &format!("{:.0}%", s.memory),
-        ui.text,
-        None,
-    );
-    if s.wifi_available {
+    if settings.show_cpu {
+        metric(
+            c,
+            &mut right,
+            &mut hits,
+            "cpu",
+            &format!("{:.0}%", s.cpu),
+            ui.text,
+            None,
+        );
+    }
+    if settings.show_memory {
+        metric(
+            c,
+            &mut right,
+            &mut hits,
+            "memory-stick",
+            &format!("{:.0}%", s.memory),
+            ui.text,
+            None,
+        );
+    }
+    if settings.show_wifi && s.wifi_available {
         let network = if s.network.is_empty() {
             "Wi-Fi".to_string()
         } else if s.network.chars().count() > 24 {
@@ -323,7 +374,7 @@ pub fn bar(
     let dx = (c.width - dw) / 2;
     c.text(clock, Rect::new(dx, 0, dw, h), ui.text, 12.5, true, 0);
     let sr = Rect::new(dx - c.p(40.), (h - c.p(28.)) / 2, c.p(28.), c.p(28.));
-    if sr.x > left {
+    if settings.show_scale && sr.x > left {
         c.fill(sr, ui.surface);
         c.icon(
             "scaling",
@@ -332,8 +383,9 @@ pub fn bar(
         );
         hit(&mut hits, sr, Action::Scale);
     }
-    let br = Rect::new(sr.x - c.p(162.), 0, c.p(150.), h);
-    if br.x > left {
+    let br_right = if settings.show_scale { sr.x } else { dx - c.p(12.) };
+    let br = Rect::new(br_right - c.p(162.), 0, c.p(150.), h);
+    if settings.show_brightness && br.x > left {
         paint_brightness(c, br, brightness);
         if brightness.is_some() {
             hit(&mut hits, br, Action::Brightness);

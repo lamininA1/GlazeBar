@@ -14,6 +14,7 @@ pub const PERSONALIZE: &str = r"Software\Microsoft\Windows\CurrentVersion\Themes
 pub const DWM: &str = r"Software\Microsoft\Windows\DWM";
 pub const ACCENT: &str = r"Software\Microsoft\Windows\CurrentVersion\Explorer\Accent";
 const DESKTOP: &str = r"Control Panel\Desktop";
+pub const PUTTY_SESSIONS: &str = r"Software\SimonTatham\PuTTY\Sessions";
 #[derive(Default, Clone, Deserialize, serde::Serialize)]
 #[serde(default)]
 pub struct Options {
@@ -23,7 +24,21 @@ pub struct Options {
     pub taskbar: Option<bool>,
     pub transparency: Option<bool>,
 }
+fn valid_putty(key: &str, name: &str) -> bool {
+    let prefix = format!(r"{PUTTY_SESSIONS}\");
+    if key.len() <= prefix.len() || !key[..prefix.len()].eq_ignore_ascii_case(&prefix) {
+        return false;
+    }
+    let session = &key[prefix.len()..];
+    if session.is_empty() || session.contains('\\') {
+        return false;
+    }
+    (0..=21).any(|i| name.eq_ignore_ascii_case(&format!("Colour{i}")))
+}
 pub fn valid(key: &str, name: &str) -> bool {
+    if valid_putty(key, name) {
+        return true;
+    }
     [
         (
             PERSONALIZE,
@@ -56,6 +71,10 @@ fn data(typ: u32, payload: &[u8]) -> Vec<u8> {
     let mut b = typ.to_le_bytes().to_vec();
     b.extend_from_slice(payload);
     b
+}
+fn reg_sz(s: &str) -> Vec<u8> {
+    let payload: Vec<u8> = wide(s).into_iter().flat_map(u16::to_le_bytes).collect();
+    data(REG_SZ, &payload)
 }
 fn integer(bytes: &[u8]) -> Option<u64> {
     match bytes.len() {
@@ -183,6 +202,75 @@ pub fn write(key: &str, name: &str, bytes: Option<&[u8]>) -> Result<()> {
     );
     write_raw(key, name, bytes)
 }
+pub fn putty_sessions() -> Vec<String> {
+    unsafe {
+        let mut handle = null_mut();
+        let status = RegOpenKeyExW(
+            HKEY_CURRENT_USER,
+            wide(PUTTY_SESSIONS).as_ptr(),
+            0,
+            KEY_ENUMERATE_SUB_KEYS,
+            &mut handle,
+        );
+        if status != ERROR_SUCCESS {
+            return vec![];
+        }
+        let handle = Key(handle);
+        let mut sessions = vec![];
+        let mut idx = 0;
+        loop {
+            let mut buf = [0u16; 256];
+            let mut len = buf.len() as u32;
+            let status = RegEnumKeyExW(
+                handle.0,
+                idx,
+                buf.as_mut_ptr(),
+                &mut len,
+                null(),
+                null_mut(),
+                null_mut(),
+                null_mut(),
+            );
+            if status != ERROR_SUCCESS {
+                break;
+            }
+            let name = String::from_utf16_lossy(&buf[..len as usize]);
+            if !name.is_empty() && !name.contains('\\') {
+                sessions.push(name);
+            }
+            idx += 1;
+        }
+        sessions.sort();
+        sessions
+    }
+}
+pub fn putty_plan(p: &Palette) -> Result<Vec<Change>> {
+    putty_plan_with(p, &putty_sessions(), read)
+}
+fn putty_plan_with(
+    p: &Palette,
+    sessions: &[String],
+    reader: impl Fn(&str, &str) -> Result<Option<Vec<u8>>>,
+) -> Result<Vec<Change>> {
+    let colours = crate::theme_text::putty_colours(p);
+    let mut changes = Vec::with_capacity(sessions.len() * colours.len());
+    for session in sessions {
+        let key = format!(r"{PUTTY_SESSIONS}\{session}");
+        for (name, val) in &colours {
+            let before = reader(&key, name)?;
+            let after = reg_sz(val);
+            changes.push(Change {
+                registry_key: key.clone(),
+                registry_name: (*name).into(),
+                path: PathBuf::from(format!("HKCU\\{key}\\{name}")),
+                existed: before.is_some(),
+                before: before.unwrap_or_default(),
+                after,
+            });
+        }
+    }
+    Ok(changes)
+}
 pub fn plan(p: &Palette, light: bool, options: &Options) -> Result<Vec<Change>> {
     plan_with(p, light, options, read)
 }
@@ -284,7 +372,13 @@ fn plan_with(
         .collect()
 }
 pub fn notify(changes: &[Change]) {
-    if !changes.iter().any(|c| !c.registry_key.is_empty()) {
+    if !changes.iter().any(|c| {
+        !c.registry_key.is_empty()
+            && !c
+                .registry_key
+                .to_ascii_lowercase()
+                .starts_with(&PUTTY_SESSIONS.to_ascii_lowercase())
+    }) {
         return;
     }
     unsafe {
@@ -392,6 +486,19 @@ mod tests {
         );
         assert!(plan_with(&palette(), false, &Options::default(), |_, _| Ok(None)).is_err());
         assert!(!valid(PERSONALIZE, "Unrelated"));
+    }
+    #[test]
+    fn putty_plan_encodes_reg_sz_colours_and_validates_allowlist() {
+        let sessions = vec!["Default%20Settings".to_owned(), "MyServer".to_owned()];
+        let changes = putty_plan_with(&palette(), &sessions, |_, _| Ok(None)).unwrap();
+        assert_eq!(changes.len(), 44);
+        assert!(
+            changes
+                .iter()
+                .all(|c| valid(&c.registry_key, &c.registry_name))
+        );
+        assert!(!valid(r"Software\SimonTatham\PuTTY\Sessions\Default%20Settings", "HostName"));
+        assert!(!valid(r"Software\SimonTatham\PuTTY\Sessions\Default%20Settings\Sub", "Colour0"));
     }
     #[test]
     fn taskbar_requires_known_dark_mode_unless_mode_is_selected() {

@@ -22,6 +22,27 @@ pub fn prepare(p: &crate::wallpaper_ui::Picker) -> Result<(PathBuf, Option<Reque
         .filter(|(_, enabled)| *enabled)
         .map(|(name, _)| name.into())
         .collect();
+    for (name, enabled) in [
+        "rio",
+        "zed",
+        "antigravity",
+        "claude",
+        "opencode",
+        "firefox",
+        "chrome",
+        "edge",
+        "wezterm",
+        "alacritty",
+        "hyper",
+        "putty",
+    ]
+    .into_iter()
+    .zip(p.extra_targets)
+    {
+        if enabled {
+            targets.push(name.into());
+        }
+    }
     if p.windows {
         targets.push("windows".into());
     }
@@ -31,7 +52,9 @@ pub fn prepare(p: &crate::wallpaper_ui::Picker) -> Result<(PathBuf, Option<Reque
         Some(Request {
             action: "apply".into(),
             image: path.to_string_lossy().into_owned(),
-            mode: crate::wallpaper_ui::MODES[p.mode].into(),
+            mode: crate::wallpaper_ui::ALL_MODES
+                [p.mode.min(crate::wallpaper_ui::ALL_MODES.len() - 1)]
+            .into(),
             light: p.light,
             palette: palette.to_vec(),
             targets,
@@ -102,6 +125,7 @@ mod tests {
             light: true,
             enabled: true,
             targets: [false, true, false, true],
+            extra_targets: [false; 12],
             windows: true,
             options: crate::theme_windows::Options {
                 transparency: Some(false),
@@ -122,6 +146,30 @@ mod tests {
         assert_eq!(request.mode, "muted");
         assert!(request.light);
         assert_eq!(request.windows.unwrap().transparency, Some(false));
+        p.extra_targets = [true; 12];
+        let (_, request_all) = prepare(&p).unwrap();
+        let request_all = request_all.unwrap();
+        assert_eq!(
+            request_all.targets,
+            vec![
+                "terminal",
+                "vscode",
+                "rio",
+                "zed",
+                "antigravity",
+                "claude",
+                "opencode",
+                "firefox",
+                "chrome",
+                "edge",
+                "wezterm",
+                "alacritty",
+                "hyper",
+                "putty",
+                "windows"
+            ]
+        );
+        p.extra_targets = [false; 12];
         p.windows = false;
         p.targets = [false; 4];
         assert!(prepare(&p).is_err());

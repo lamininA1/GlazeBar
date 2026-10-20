@@ -66,20 +66,33 @@ VS Code도 같이 바뀝니다. 영상은 Python이지만 Rust, JavaScript 등 �
 - **Wi-Fi 연결 메뉴** — 주변 네트워크 검색, 선택 및 연결
 - **전원 구성표 전환** — 고성능·균형·절전을 표시줄에서 선택
 - **배경화면 선택기** — 로컬 사진 탐색과 Wallhaven 검색·다운로드
-- **사진 기반 테마 생성** — 색상 추출, 다크·라이트 전환, 6가지 스타일 비교와 미리보기
-- **앱·Windows 색상 연동** — 원하는 앱끼리 색상 맞추기
+- **사진 기반 테마 생성 + 유명 컬러 스킴** — 사진 색상 추출(Aether 6가지 스타일)뿐만 아니라 **Catppuccin, Everforest, Rosé Pine, Monokai, Dracula, Tokyo Night** 등 유명한 컬러 스킴 선택 및 다크·라이트 비교 지원
+- **확장된 앱·브라우저·Windows 색상 연동** — 설치된 앱만 자동으로 감지하여 테마를 적용하고, 설치되지 않은 프로그램은 오류 없이 건너뛰고 다음 프로그램에 적용
+- **직관적인 GlazeBar 환경 설정 UI** — 상단 바의 설정 버튼으로 위젯 표시 여부, 날씨 도시(서울·부산·도쿄·뉴욕 등), 기본 터미널·브라우저 단축키, 창 간격, 테마 적용 대상을 한곳에서 변경
+- **첫 실행 단축키 안내 & Quick Start 요약** — 처음 설치 후 실행 시 핵심 단축키 요약 카드가 포함된 단축키 안내 창을 자동으로 표시하고 상단 바 단축키 버튼으로 언제든 다시 열기 지원
 - **색상 복원과 캐시** — 이전 색상으로 돌아가기, 뽑아둔 색상 재사용하기
 
 ### 테마가 적용되는 범위
 
-**색상 함께 적용**을 켜고 원하는 앱을 골라주면 됩니다. 배경화면만 바꾸는 것도 가능해요.
+**색상 함께 적용**을 켜고 원하는 앱을 골라주면 됩니다. 설치되지 않은 앱은 오류 없이 자동으로 건너뛰고 다음 프로그램에 테마를 적용합니다.
 
 | 적용 대상 | 변경되는 부분 |
 | --- | --- |
 | GlazeBar + GlazeWM | 표시줄, 팝업, 활성 창 테두리 |
-| Windows Terminal | 배경, 글자, 커서와 터미널 색상 |
-| Codex CLI | 코드와 diff 색상 |
+| Windows Terminal | 배경, 글자, 커서와 터미널 16색 팔레트 |
+| Rio Terminal | `themes/glazebar-aether.toml` 테마 파일 생성 및 `config.toml` 테마 연동 |
+| WezTerm | `~/.config/wezterm/colors/glazebar-aether.toml` 생성 및 `wezterm.lua` (`color_scheme`) 연동 |
+| Alacritty | `%APPDATA%/alacritty/themes/glazebar-aether.toml` 생성 및 `alacritty.toml` 색상 블록 연동 |
+| Hyper | `%APPDATA%/Hyper/.hyper.js` 및 `~/.hyper.js` 터미널 16색·배경·커서 연동 |
+| PuTTY | Windows 레지스트리(`HKCU\Software\SimonTatham\PuTTY\Sessions\*`의 `Colour0`~`Colour21`) 및 `.reg` 테마 파일 자동 갱신 |
 | VS Code | 편집기, 사이드바, 탭, 상태 표시줄, 터미널, 코드 문법 색상 |
+| Zed Editor | `themes/glazebar-aether.json` 테마 생성 및 `settings.json` 테마 연동 |
+| Codex CLI | 코드와 diff 색상 (`config.toml`) |
+| Antigravity CLI | `~/.gemini/antigravity-cli` 테마 및 `colorScheme` 설정 |
+| Claude / Claude Code | `~/.claude/settings.json` 및 Claude Desktop 테마 설정 |
+| OpenCode | `~/.config/opencode/themes/glazebar-aether.json` 및 `opencode.json` 테마 연동 |
+| Firefox | 프로필 `chrome/userChrome.css` 및 `user.js` 툴바·탭 강조색 연동 |
+| Chrome / Edge | 브라우저 프로필 `Preferences` 다크/라이트 및 테마 시드 색상 연동 |
 | Windows | 다크·라이트 모드, 강조색, 제목 표시줄, 시작 메뉴·작업 표시줄, 투명 효과 |
 
 Windows 쪽은 바꾸고 싶은 항목만 따로 고를 수 있습니다. 작업 표시줄 강조색은 다크 모드에서 써주세요.

@@ -25,4 +25,6 @@
 제어	Alt + Shift + W	타일링 배치 다시 그리기
 제어	Alt + Shift + E	GlazeWM 종료
 제어	Win + Alt + Shift + B	GlazeBar 숨기기 / 표시 (상단 여백 포함)
-배경화면	Win + Ctrl + Alt + Space	배경화면 미리보기 / 선택
+테마·설정	Win + Ctrl + Alt + Space	배경화면 · 유명 컬러 스킴 선택 및 적용
+테마·설정	상단 바 [설정] 클릭	GlazeBar 환경 설정 열기
+테마·설정	상단 바 [단축키] 클릭	단축키 안내 및 빠른 시작 다시 열기
