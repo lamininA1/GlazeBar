@@ -276,9 +276,17 @@ pub fn run_with_popup(
     } else {
         Some(crate::hooks::Hooks::install(hook_tx, remote.clone(), true)?)
     };
+    if !shadow && initial.is_none() {
+        let onboarding = root.join("theme-state/onboarding-shown.json");
+        if !onboarding.exists() {
+            let _ = crate::theme_transaction::atomic_write(&onboarding, br#"{"shown":true}"#);
+            initial = Some(Action::Sheet);
+        }
+    }
+    let initial_city = crate::settings_ui::BarSettings::load(&root).weather_city;
     let weather_worker = {
         let tx = tx.clone();
-        crate::weather::Worker::spawn(move |result| match result {
+        crate::weather::Worker::spawn_with_city(initial_city, move |result| match result {
             Ok(w) => send(&tx, thread, Update::Weather(w)),
             Err(e) => send(&tx, thread, Update::Error(format!("Weather: {e}"))),
         })
@@ -468,6 +476,7 @@ pub fn run_with_popup(
         "FocusResync",
         "Snapshot",
         "ClosePopups",
+        "Settings",
     ];
     let event_handles = event_names
         .iter()
@@ -721,6 +730,34 @@ pub fn run_with_popup(
                                         root.join("rust-runtime-error.log"),
                                         e.to_string(),
                                     );
+                                }
+                            }
+                        }
+                    }
+                    "Settings" => {
+                        wallpaper_worker.cancel();
+                        child_popup = None;
+                        if popup
+                            .as_ref()
+                            .is_some_and(|w| matches!(w.state.borrow().scene, Scene::Settings(_)))
+                        {
+                            popup = None;
+                        } else {
+                            let settings = crate::settings_ui::BarSettings::load(&root);
+                            let (bounds, scale) = crate::native::centered_bounds(860., 585.);
+                            match Window::new(
+                                "GlazeBar · 환경 설정",
+                                bounds,
+                                make_state(&root, scale, Scene::Settings(settings), false, &ntx),
+                                null_mut(),
+                            ) {
+                                Ok(w) => {
+                                    w.show();
+                                    popup = Some(w);
+                                }
+                                Err(e) => {
+                                    result = Err(e);
+                                    break 'main;
                                 }
                             }
                         }
@@ -1384,12 +1421,18 @@ pub fn run_with_popup(
                                 match edit {
                                     crate::style_compare_ui::Edit::Choose(index) => {
                                         if v.palettes.get(index).is_some_and(Option::is_some) {
-                                            choice = Some((index, v.light));
+                                            choice = Some((v.mode_index(index), v.light));
                                         }
                                     }
                                     crate::style_compare_ui::Edit::Light(light) => {
                                         if v.light != light {
                                             v.light = light;
+                                            compare_worker.request(hwnd, v);
+                                        }
+                                    }
+                                    crate::style_compare_ui::Edit::Presets(presets) => {
+                                        if v.presets != presets {
+                                            v.presets = presets;
                                             compare_worker.request(hwnd, v);
                                         }
                                     }
@@ -1599,7 +1642,8 @@ pub fn run_with_popup(
                                         P::Select(delta) => p.select(delta),
                                         P::Enabled => p.enabled = !p.enabled,
                                         P::Mode => {
-                                            p.mode = (p.mode + 1) % crate::wallpaper_ui::MODES.len()
+                                            p.mode =
+                                                (p.mode + 1) % crate::wallpaper_ui::ALL_MODES.len()
                                         }
                                         P::Light(light) => p.light = light,
                                         P::Target(i) => {
@@ -1622,6 +1666,88 @@ pub fn run_with_popup(
                         }
                     }
                     Action::Sheet => send(&tx, thread, Update::Control("Sheet".into())),
+                    Action::OpenSettings => send(&tx, thread, Update::Control("Settings".into())),
+                    Action::Settings(edit) => {
+                        let mut close_settings = false;
+                        let mut next_control: Option<&'static str> = None;
+                        let mut reload_wm = false;
+                        let mut city_changed: Option<usize> = None;
+                        if let Some(w) = popup.as_ref().filter(|w| w.hwnd as usize == hwnd) {
+                            if let Scene::Settings(v) = &mut w.state.borrow_mut().scene {
+                                use crate::settings_ui::Edit as E;
+                                match &edit {
+                                    E::OpenConfig => {
+                                        let cfg = root.join("config.yaml");
+                                        if let Some(s) = cfg.to_str() {
+                                            unsafe {
+                                                ShellExecuteW(
+                                                    hwnd as HWND,
+                                                    null(),
+                                                    wide(s).as_ptr(),
+                                                    null(),
+                                                    null(),
+                                                    SW_SHOWNORMAL,
+                                                );
+                                            }
+                                        }
+                                        v.status = "기본 편집기로 config.yaml 파일을 열었습니다.".into();
+                                    }
+                                    E::ReloadGlazeWM => {
+                                        let _ = v.save(&root);
+                                        reload_wm = true;
+                                        v.status = "설정을 저장하고 GlazeWM에 다시 적용했습니다.".into();
+                                    }
+                                    E::OpenWallpaper => {
+                                        let _ = v.save(&root);
+                                        next_control = Some("Wallpaper");
+                                    }
+                                    E::OpenSheet => {
+                                        let _ = v.save(&root);
+                                        next_control = Some("Sheet");
+                                    }
+                                    E::Save => {
+                                        match v.save(&root) {
+                                            Ok(()) => {
+                                                reload_wm = true;
+                                                close_settings = true;
+                                            }
+                                            Err(e) => v.status = e.to_string(),
+                                        }
+                                    }
+                                    other => {
+                                        v.apply_edit(other);
+                                        let _ = v.save(&root);
+                                        if matches!(other, E::CycleCity) {
+                                            city_changed = Some(v.weather_city);
+                                        }
+                                        if matches!(
+                                            other,
+                                            E::CycleTerminal | E::CycleBrowser | E::CycleGap
+                                        ) {
+                                            reload_wm = true;
+                                        }
+                                    }
+                                }
+                                w.invalidate();
+                            }
+                        }
+                        if let Some(city) = city_changed {
+                            weather_worker.set_city(city);
+                        }
+                        if reload_wm {
+                            let _ = work_tx.try_send(Work::Command("wm-reload-config".into()));
+                        }
+                        request_refresh(&work_tx, &pending);
+                        for bar in bars.values() {
+                            bar.window.invalidate();
+                        }
+                        if close_settings {
+                            popup = None;
+                        } else if let Some(ctrl) = next_control {
+                            popup = None;
+                            send(&tx, thread, Update::Control(ctrl.into()));
+                        }
+                    }
                     Action::Wifi if sensors.wifi_available => {
                         if let Some(bar) = bars.values().find(|b| b.window.hwnd as usize == hwnd) {
                             let factor = bar.window.state.borrow().scale;
@@ -2135,7 +2261,7 @@ pub fn run_with_popup(
                 let ready = {
                     let state = w.state.borrow();
                     if let Scene::Wallpaper(p) = &state.scene {
-                        let _=std::fs::write(root.join("rust-shadow-wallpaper.json"),serde_json::to_vec_pretty(&serde_json::json!({"pid":std::process::id(),"files":p.files.len(),"selected":p.selected,"loaded":p.loaded.len(),"paletteReady":p.palette.is_some(),"status":p.status,"hits":state.hits.len(),"mode":crate::wallpaper_ui::MODES[p.mode],"light":p.light})).unwrap());
+                        let _=std::fs::write(root.join("rust-shadow-wallpaper.json"),serde_json::to_vec_pretty(&serde_json::json!({"pid":std::process::id(),"files":p.files.len(),"selected":p.selected,"loaded":p.loaded.len(),"paletteReady":p.palette.is_some(),"status":p.status,"hits":state.hits.len(),"mode":crate::wallpaper_ui::ALL_MODES[p.mode.min(crate::wallpaper_ui::ALL_MODES.len()-1)],"light":p.light})).unwrap());
                         p.palette.is_some()
                             && p.neighbors().iter().all(|path| p.loaded.contains(path))
                     } else {
@@ -2249,7 +2375,7 @@ pub fn signal(root: &std::path::Path, argument: &str) -> Result<()> {
         _ => anyhow::bail!("Unknown resident command"),
     };
     unsafe {
-        if matches!(argument, "--sheet" | "--wallpaper") {
+        if matches!(argument, "--sheet" | "--wallpaper" | "--settings") {
             if let Some(pid) = std::fs::read(root.join("rust-ready.json"))
                 .ok()
                 .and_then(|b| serde_json::from_slice::<serde_json::Value>(&b).ok())

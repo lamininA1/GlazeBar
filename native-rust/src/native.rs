@@ -47,6 +47,7 @@ pub enum Scene {
     Compare(crate::style_compare_ui::Comparison),
     Precache(crate::precache::Progress),
     Online(crate::online_ui::Online),
+    Settings(crate::settings_ui::BarSettings),
 }
 pub enum NativeEvent {
     Dismiss(usize),
@@ -113,7 +114,8 @@ impl State {
                 brightness,
                 weather,
             } => {
-                self.hits = views::bar(
+                let bar_settings = crate::settings_ui::BarSettings::load(&self.root);
+                self.hits = views::bar_with_settings(
                     &mut c,
                     monitor,
                     sensors,
@@ -123,6 +125,7 @@ impl State {
                     clock,
                     *brightness,
                     weather.as_ref().map(|(i, t)| (i.as_str(), t.as_str())),
+                    &bar_settings,
                 )
             }
             Scene::Scale {
@@ -134,6 +137,7 @@ impl State {
             Scene::Power(p) => self.hits = views::power(&mut c, p, self.hover),
             Scene::Wifi(v) => self.hits = crate::wifi_ui::paint(&mut c, v, self.hover),
             Scene::Sheet(v) => self.hits = crate::sheet::paint(&mut c, v, self.hover),
+            Scene::Settings(v) => self.hits = crate::settings_ui::paint(&mut c, v, self.hover),
             Scene::ThemePreview(v) => crate::theme_preview_ui::paint(&mut c, v),
             Scene::Precache(v) => self.hits = crate::precache::paint(&mut c, v, self.hover),
             Scene::Online(v) => self.hits = crate::online_ui::paint(&mut c, v, self.hover),
@@ -401,7 +405,7 @@ unsafe extern "system" fn wndproc(h: HWND, m: u32, wp: usize, lp: isize) -> isiz
             return DefWindowProcW(h, m, wp, lp);
         };
         match m {
-            WM_NCHITTEST if matches!(s.scene, Scene::Sheet(_)) => {
+            WM_NCHITTEST if matches!(s.scene, Scene::Sheet(_) | Scene::Settings(_)) => {
                 let mut pos = POINT {
                     x: (lp as u16) as i16 as i32,
                     y: ((lp >> 16) as u16) as i16 as i32,
@@ -409,8 +413,10 @@ unsafe extern "system" fn wndproc(h: HWND, m: u32, wp: usize, lp: isize) -> isiz
                 ScreenToClient(h, &mut pos);
                 let mut r = RECT::default();
                 GetClientRect(h, &mut r);
-                if pos.y < (94. * s.scale).round_ties_even() as i32
-                    && pos.x < r.right - (64. * s.scale).round_ties_even() as i32
+                let right_margin = if matches!(s.scene, Scene::Sheet(_)) { 276. } else { 110. };
+                let top_margin = if matches!(s.scene, Scene::Sheet(_)) { 94. } else { 68. };
+                if pos.y < (top_margin * s.scale).round_ties_even() as i32
+                    && pos.x < r.right - (right_margin * s.scale).round_ties_even() as i32
                 {
                     return HTCAPTION as isize;
                 }
@@ -730,6 +736,12 @@ unsafe extern "system" fn wndproc(h: HWND, m: u32, wp: usize, lp: isize) -> isiz
                     s.send(NativeEvent::Action(
                         h as usize,
                         Action::WindowsOption(crate::windows_options_ui::Edit::Save),
+                    ));
+                }
+                if matches!(s.scene, Scene::Settings(_)) && wp == VK_RETURN as usize {
+                    s.send(NativeEvent::Action(
+                        h as usize,
+                        Action::Settings(crate::settings_ui::Edit::Save),
                     ));
                 }
                 let mut compare_choice = None;
@@ -1144,7 +1156,7 @@ pub fn validate(root: PathBuf) -> anyhow::Result<()> {
         window.state.borrow_mut().paint(dc, 1120, 680);
         ReleaseDC(handle, dc);
         anyhow::ensure!(
-            window.state.borrow().hits.len() == 9,
+            window.state.borrow().hits.len() == 11,
             "Style comparison hit areas missing"
         );
         SendMessageW(handle, WM_KEYDOWN, VK_RIGHT as usize, 0);

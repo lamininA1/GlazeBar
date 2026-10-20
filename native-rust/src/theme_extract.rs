@@ -98,6 +98,9 @@ mod tests {
     }
 }
 pub fn extract(path: &Path, light: bool, mode: &str) -> Result<Palette> {
+    if let Some(p) = crate::color_schemes::palette(mode, light) {
+        return Ok(p);
+    }
     let mode = if mode.is_empty() { "normal" } else { mode };
     let p = extract_cached(
         path,

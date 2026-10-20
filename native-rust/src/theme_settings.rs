@@ -169,7 +169,12 @@ impl Document {
         Ok(n)
     }
     fn new(text: &str) -> Result<Self> {
-        let d = Self(text.trim_start_matches('\u{feff}').to_owned());
+        let trimmed = text.trim_start_matches('\u{feff}');
+        let d = Self(if trimmed.trim().is_empty() {
+            "{}".to_owned()
+        } else {
+            trimmed.to_owned()
+        });
         d.parse()?;
         Ok(d)
     }
@@ -291,6 +296,67 @@ pub fn vscode_settings(text: &str, p: &Palette) -> Result<String> {
     d.parse()?;
     Ok(d.0)
 }
+pub fn zed_settings(text: &str, _p: &Palette, _light: bool) -> Result<String> {
+    let mut d = Document::new(text)?;
+    d.set(&["theme"], &Value::String(theme::NAME.into()))?;
+    d.parse()?;
+    Ok(d.0)
+}
+pub fn antigravity_settings(text: &str, light: bool) -> Result<String> {
+    let mut d = Document::new(text)?;
+    d.set(
+        &["colorScheme"],
+        &Value::String(if light { "light" } else { "dark" }.into()),
+    )?;
+    d.parse()?;
+    Ok(d.0)
+}
+pub fn claude_settings(text: &str, light: bool) -> Result<String> {
+    let mut d = Document::new(text)?;
+    d.set(
+        &["theme"],
+        &Value::String(if light { "light" } else { "dark" }.into()),
+    )?;
+    d.parse()?;
+    Ok(d.0)
+}
+pub fn opencode_settings(text: &str, theme_name: &str) -> Result<String> {
+    let mut d = Document::new(text)?;
+    d.set(&["theme"], &Value::String(theme_name.into()))?;
+    d.parse()?;
+    Ok(d.0)
+}
+pub fn chromium_preferences(text: &str, p: &Palette, light: bool) -> Result<String> {
+    let mut d = Document::new(text)?;
+    let acc = theme::accent(p, light);
+    let rgb = u32::from_str_radix(acc.trim_start_matches('#'), 16).unwrap_or(0);
+    let argb_signed = ((0xFF00_0000u32 | rgb) as i32) as i64;
+    let scheme_num = if light { 1 } else { 2 };
+    d.object(&["browser", "theme"])?;
+    d.set(
+        &["browser", "theme", "color_scheme"],
+        &serde_json::json!(scheme_num),
+    )?;
+    d.set(
+        &["browser", "theme", "color_scheme2"],
+        &serde_json::json!(scheme_num),
+    )?;
+    d.set(
+        &["browser", "theme", "user_color"],
+        &serde_json::json!(argb_signed),
+    )?;
+    d.set(
+        &["browser", "theme", "user_color2"],
+        &serde_json::json!(argb_signed),
+    )?;
+    d.object(&["extensions", "theme"])?;
+    d.set(
+        &["extensions", "theme", "use_system"],
+        &serde_json::json!(false),
+    )?;
+    d.parse()?;
+    Ok(d.0)
+}
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -357,6 +423,36 @@ mod tests {
             assert!(result.contains(keep));
         }
         assert_eq!(vscode_settings(&result, &palette()).unwrap(), result);
+    }
+    #[test]
+    fn zed_antigravity_claude_opencode_and_chromium_settings_preserve_existing_keys() {
+        let p = palette();
+        let zed = zed_settings(
+            "// Zed comment\n{\"vim_mode\": true, \"theme\": \"Old\",}",
+            &p,
+            false,
+        )
+        .unwrap();
+        assert!(zed.contains("// Zed comment"));
+        assert!(zed.contains("\"GlazeBar Aether\""));
+
+        let agy = antigravity_settings("{\"model\": \"Gemini\",}", true).unwrap();
+        assert!(agy.contains("\"colorScheme\": \"light\""));
+
+        let claude = claude_settings("{\"autoUpdates\": true}", false).unwrap();
+        assert!(claude.contains("\"theme\": \"dark\""));
+
+        let opencode = opencode_settings("{\"model\": \"claude\"}", "glazebar-aether").unwrap();
+        assert!(opencode.contains("\"theme\": \"glazebar-aether\""));
+
+        let chrome = chromium_preferences("{\"browser\": {\"check_default_browser\": false}}", &p, false).unwrap();
+        let parsed = Document::new(&chrome).unwrap().parse().unwrap();
+        assert_eq!(
+            parsed
+                .at(&["browser", "theme", "color_scheme2"])
+                .map(|n| value(n)),
+            Some(serde_json::json!(2))
+        );
     }
     #[test]
     fn malformed_settings_are_rejected() {
