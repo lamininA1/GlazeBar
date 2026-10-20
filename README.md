@@ -80,15 +80,19 @@ VS Code도 같이 바뀝니다. 영상은 Python이지만 Rust, JavaScript 등 �
 | --- | --- |
 | GlazeBar + GlazeWM | 표시줄, 팝업, 활성 창 테두리 |
 | Windows Terminal | 배경, 글자, 커서와 터미널 16색 팔레트 |
-| Rio Terminal | 	hemes/glazebar-aether.toml 테마 파일 생성 및 config.toml 테마 연동 |
+| Rio Terminal | `themes/glazebar-aether.toml` 테마 파일 생성 및 `config.toml` 테마 연동 |
+| WezTerm | `~/.config/wezterm/colors/glazebar-aether.toml` 생성 및 `wezterm.lua` (`color_scheme`) 연동 |
+| Alacritty | `%APPDATA%/alacritty/themes/glazebar-aether.toml` 생성 및 `alacritty.toml` 색상 블록 연동 |
+| Hyper | `%APPDATA%/Hyper/.hyper.js` 및 `~/.hyper.js` 터미널 16색·배경·커서 연동 |
+| PuTTY | Windows 레지스트리(`HKCU\Software\SimonTatham\PuTTY\Sessions\*`의 `Colour0`~`Colour21`) 및 `.reg` 테마 파일 자동 갱신 |
 | VS Code | 편집기, 사이드바, 탭, 상태 표시줄, 터미널, 코드 문법 색상 |
-| Zed Editor | 	hemes/glazebar-aether.json 테마 생성 및 settings.json 테마 연동 |
-| Codex CLI | 코드와 diff 색상 (config.toml) |
-| Antigravity CLI | ~/.gemini/antigravity-cli 테마 및 colorScheme 설정 |
-| Claude / Claude Code | ~/.claude/settings.json 및 Claude Desktop 테마 설정 |
-| OpenCode | ~/.config/opencode/themes/glazebar-aether.json 및 opencode.json 테마 연동 |
-| Firefox | 프로필 chrome/userChrome.css 및 user.js 툴바·탭 강조색 연동 |
-| Chrome / Edge | 브라우저 프로필 Preferences 다크/라이트 및 테마 시드 색상 연동 |
+| Zed Editor | `themes/glazebar-aether.json` 테마 생성 및 `settings.json` 테마 연동 |
+| Codex CLI | 코드와 diff 색상 (`config.toml`) |
+| Antigravity CLI | `~/.gemini/antigravity-cli` 테마 및 `colorScheme` 설정 |
+| Claude / Claude Code | `~/.claude/settings.json` 및 Claude Desktop 테마 설정 |
+| OpenCode | `~/.config/opencode/themes/glazebar-aether.json` 및 `opencode.json` 테마 연동 |
+| Firefox | 프로필 `chrome/userChrome.css` 및 `user.js` 툴바·탭 강조색 연동 |
+| Chrome / Edge | 브라우저 프로필 `Preferences` 다크/라이트 및 테마 시드 색상 연동 |
 | Windows | 다크·라이트 모드, 강조색, 제목 표시줄, 시작 메뉴·작업 표시줄, 투명 효과 |
 
 Windows 쪽은 바꾸고 싶은 항목만 따로 고를 수 있습니다. 작업 표시줄 강조색은 다크 모드에서 써주세요.

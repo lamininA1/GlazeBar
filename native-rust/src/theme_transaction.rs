@@ -70,6 +70,10 @@ pub fn canonical_target(t: &str) -> Option<&'static str> {
         "glazebar" | "glazewm" => Some("glazebar"),
         "terminal" | "windows-terminal" | "wt" => Some("terminal"),
         "rio" | "rio-terminal" => Some("rio"),
+        "wezterm" | "wezterm-gui" => Some("wezterm"),
+        "alacritty" => Some("alacritty"),
+        "hyper" | "hyper-terminal" => Some("hyper"),
+        "putty" => Some("putty"),
         "vscode" | "code" => Some("vscode"),
         "zed" | "zed-editor" => Some("zed"),
         "codex" | "codex-cli" => Some("codex"),
@@ -430,6 +434,83 @@ impl Plan {
                 }
             }
         }
+        if wanted("wezterm") {
+            let lua_files = wezterm_configs(home);
+            if lua_files.is_empty() {
+                plan.skipped.push("wezterm".into());
+            } else {
+                plan.add(
+                    home.join(".config/wezterm/colors/glazebar-aether.toml"),
+                    theme_text::wezterm_theme(&p).into_bytes(),
+                )?;
+                for lua_path in lua_files {
+                    let source = text_raw(&lua_path)?;
+                    plan.add(
+                        lua_path,
+                        theme_text::wezterm_settings(&source, theme::NAME).into_bytes(),
+                    )?;
+                }
+                plan.applied.push("wezterm".into());
+            }
+        }
+        if wanted("alacritty") {
+            let dirs = alacritty_dirs(home);
+            if dirs.is_empty() {
+                plan.skipped.push("alacritty".into());
+            } else {
+                for dir in dirs {
+                    plan.add(
+                        dir.join("themes/glazebar-aether.toml"),
+                        theme_text::alacritty_theme(&p).into_bytes(),
+                    )?;
+                    let config_path = dir.join("alacritty.toml");
+                    let source = text_raw(&config_path)?;
+                    plan.add(
+                        config_path,
+                        theme_text::alacritty_settings(&source, &p).into_bytes(),
+                    )?;
+                }
+                plan.applied.push("alacritty".into());
+            }
+        }
+        if wanted("hyper") {
+            let files = hyper_configs(home);
+            if files.is_empty() {
+                plan.skipped.push("hyper".into());
+            } else {
+                for path in files {
+                    let source = text_raw(&path)?;
+                    plan.add(path, theme_text::hyper_settings(&source, &p).into_bytes())?;
+                }
+                plan.applied.push("hyper".into());
+            }
+        }
+        if wanted("putty") {
+            let putty_dir = home.join("AppData/Roaming/PuTTY");
+            let dot_putty = home.join(".putty");
+            let reg_changes = if real_home {
+                crate::theme_windows::putty_plan(&p)?
+            } else {
+                vec![]
+            };
+            if reg_changes.is_empty() && !putty_dir.is_dir() && !dot_putty.is_dir() {
+                plan.skipped.push("putty".into());
+            } else {
+                plan.changes.extend(reg_changes);
+                let reg_file = if putty_dir.is_dir() {
+                    putty_dir.join("glazebar-aether.reg")
+                } else if dot_putty.is_dir() {
+                    dot_putty.join("glazebar-aether.reg")
+                } else {
+                    plan.state.join("putty-glazebar-aether.reg")
+                };
+                plan.add(
+                    reg_file,
+                    theme_text::putty_reg("Default%20Settings", &p).into_bytes(),
+                )?;
+                plan.applied.push("putty".into());
+            }
+        }
         plan.add(
             plan.state.join("current-palette.json"),
             json(&serde_json::json!({"name":theme::NAME,"image":r.image,"mode":if r.mode.is_empty(){"normal"}else{&r.mode},"light":r.light,"palette":p}))?,
@@ -664,6 +745,45 @@ fn chromium_prefs(home: &Path, vendor_rel: &str) -> Vec<PathBuf> {
     }
     prefs
 }
+fn wezterm_configs(home: &Path) -> Vec<PathBuf> {
+    let mut files = vec![];
+    let config_dir = home.join(".config/wezterm");
+    let config_lua = config_dir.join("wezterm.lua");
+    let dot_lua = home.join(".wezterm.lua");
+    if config_lua.is_file() || config_dir.is_dir() {
+        files.push(config_lua.clone());
+    }
+    if dot_lua.is_file() {
+        files.push(dot_lua);
+    }
+    if files.is_empty() && home.join("AppData/Local/Programs/WezTerm").is_dir() {
+        files.push(config_lua);
+    }
+    files
+}
+fn alacritty_dirs(home: &Path) -> Vec<PathBuf> {
+    let mut dirs = vec![];
+    for rel in ["AppData/Roaming/alacritty", ".config/alacritty"] {
+        let p = home.join(rel);
+        if p.is_dir() && !dirs.contains(&p) {
+            dirs.push(p);
+        }
+    }
+    dirs
+}
+fn hyper_configs(home: &Path) -> Vec<PathBuf> {
+    let mut files = vec![];
+    let appdata_dir = home.join("AppData/Roaming/Hyper");
+    let appdata_js = appdata_dir.join(".hyper.js");
+    if appdata_js.is_file() || appdata_dir.is_dir() {
+        files.push(appdata_js);
+    }
+    let dot_js = home.join(".hyper.js");
+    if dot_js.is_file() {
+        files.push(dot_js);
+    }
+    files
+}
 fn reload(changes: &[Change]) -> Result<()> {
     crate::theme_windows::notify(changes);
     let Some(home) = std::env::var_os("USERPROFILE") else {
@@ -834,6 +954,10 @@ mod tests {
                 "firefox".into(),
                 "chrome".into(),
                 "edge".into(),
+                "wezterm".into(),
+                "alacritty".into(),
+                "hyper".into(),
+                "putty".into(),
             ],
             ..Default::default()
         };
@@ -842,6 +966,10 @@ mod tests {
         assert!(plan.skipped.contains(&"terminal".to_owned()));
         assert!(plan.skipped.contains(&"firefox".to_owned()));
         assert!(plan.skipped.contains(&"chrome".to_owned()));
+        assert!(plan.skipped.contains(&"wezterm".to_owned()));
+        assert!(plan.skipped.contains(&"alacritty".to_owned()));
+        assert!(plan.skipped.contains(&"hyper".to_owned()));
+        assert!(plan.skipped.contains(&"putty".to_owned()));
         plan.apply_with(|_| Ok(())).unwrap();
         assert!(home.join("AppData/Local/rio/themes/glazebar-aether.toml").exists());
         assert!(home.join("AppData/Roaming/Zed/themes/glazebar-aether.json").exists());
@@ -854,6 +982,10 @@ mod tests {
         fs::create_dir_all(home.join(".claude")).unwrap();
         fs::create_dir_all(home.join(".config/opencode")).unwrap();
         fs::create_dir_all(home.join("AppData/Roaming/Mozilla/Firefox/Profiles/abc.default-release")).unwrap();
+        fs::create_dir_all(home.join(".config/wezterm")).unwrap();
+        fs::create_dir_all(home.join("AppData/Roaming/alacritty")).unwrap();
+        fs::create_dir_all(home.join("AppData/Roaming/Hyper")).unwrap();
+        fs::create_dir_all(home.join("AppData/Roaming/PuTTY")).unwrap();
         atomic_write(
             &home.join("AppData/Local/Microsoft/Edge/User Data/Default/Preferences"),
             b"{\"browser\":{}}",
@@ -868,13 +1000,27 @@ mod tests {
                 "opencode".into(),
                 "firefox".into(),
                 "edge".into(),
+                "wezterm".into(),
+                "alacritty".into(),
+                "hyper".into(),
+                "putty".into(),
             ],
             ..Default::default()
         };
         let plan = Plan::build(home, &r).unwrap();
         assert_eq!(
             plan.applied,
-            vec!["antigravity", "claude", "opencode", "firefox", "edge"]
+            vec![
+                "antigravity",
+                "claude",
+                "opencode",
+                "firefox",
+                "edge",
+                "wezterm",
+                "alacritty",
+                "hyper",
+                "putty"
+            ]
         );
         plan.apply_with(|_| Ok(())).unwrap();
         assert!(home.join(".gemini/antigravity-cli/settings.json").exists());
@@ -884,8 +1030,17 @@ mod tests {
             home.join("AppData/Roaming/Mozilla/Firefox/Profiles/abc.default-release/chrome/userChrome.css")
                 .exists()
         );
+        assert!(home.join(".config/wezterm/colors/glazebar-aether.toml").exists());
+        assert!(home.join(".config/wezterm/wezterm.lua").exists());
+        assert!(home.join("AppData/Roaming/alacritty/alacritty.toml").exists());
+        assert!(home.join("AppData/Roaming/Hyper/.hyper.js").exists());
+        assert!(home.join("AppData/Roaming/PuTTY/glazebar-aether.reg").exists());
         restore_with(home, |_| Ok(())).unwrap();
         assert!(!home.join(".config/opencode/themes/glazebar-aether.json").exists());
+        assert!(!home.join(".config/wezterm/wezterm.lua").exists());
+        assert!(!home.join("AppData/Roaming/alacritty/alacritty.toml").exists());
+        assert!(!home.join("AppData/Roaming/Hyper/.hyper.js").exists());
+        assert!(!home.join("AppData/Roaming/PuTTY/glazebar-aether.reg").exists());
     }
     #[test]
     fn apply_restore_preserves_bytes_and_removes_created_files() {

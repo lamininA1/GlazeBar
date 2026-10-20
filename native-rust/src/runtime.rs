@@ -744,7 +744,7 @@ pub fn run_with_popup(
                             popup = None;
                         } else {
                             let settings = crate::settings_ui::BarSettings::load(&root);
-                            let (bounds, scale) = crate::native::centered_bounds(860., 585.);
+                            let (bounds, scale) = crate::native::centered_bounds(860., 615.);
                             match Window::new(
                                 "GlazeBar · 환경 설정",
                                 bounds,

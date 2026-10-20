@@ -6,7 +6,7 @@ use crate::{
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 
-pub const APP_LABELS: [&str; 12] = [
+pub const APP_LABELS: [&str; 16] = [
     "GlazeBar",
     "Terminal",
     "Codex CLI",
@@ -19,14 +19,19 @@ pub const APP_LABELS: [&str; 12] = [
     "Firefox",
     "Chrome",
     "Edge",
+    "WezTerm",
+    "Alacritty",
+    "Hyper",
+    "PuTTY",
 ];
 
-pub const TERMINALS: [(&str, &str); 5] = [
+pub const TERMINALS: [(&str, &str); 6] = [
     ("Windows Terminal (wt)", "shell-exec wt"),
     ("Rio Terminal (rio)", "shell-exec rio"),
     ("PowerShell (pwsh)", "shell-exec pwsh"),
     ("Alacritty", "shell-exec alacritty"),
     ("WezTerm", "shell-exec wezterm-gui"),
+    ("Hyper", "shell-exec hyper"),
 ];
 
 pub const BROWSERS: [(&str, &str); 4] = [
@@ -58,8 +63,8 @@ pub const GAPS: [(&str, &str); 4] = [
 fn default_true() -> bool {
     true
 }
-fn default_targets() -> [bool; 12] {
-    [true; 12]
+fn default_targets() -> [bool; 16] {
+    [true; 16]
 }
 fn default_gap_idx() -> usize {
     2
@@ -94,7 +99,7 @@ pub struct BarSettings {
     #[serde(default = "default_gap_idx")]
     pub gap_idx: usize,
     #[serde(default = "default_targets")]
-    pub targets: [bool; 12],
+    pub targets: [bool; 16],
     #[serde(skip)]
     pub status: String,
 }
@@ -115,7 +120,7 @@ impl Default for BarSettings {
             terminal_idx: 0,
             browser_idx: 0,
             gap_idx: 2,
-            targets: [true; 12],
+            targets: [true; 16],
             status: String::new(),
         }
     }
@@ -222,7 +227,7 @@ impl BarSettings {
                 }
             }
             Edit::SelectAllTargets(val) => {
-                self.targets = [*val; 12];
+                self.targets = [*val; 16];
             }
             _ => {}
         }
@@ -423,7 +428,7 @@ pub fn paint(c: &mut Canvas, v: &BarSettings, hover: Option<(i32, i32)>) -> Vec<
     );
 
     // Section 3: 테마 자동 적용 대상 프로그램
-    let sec3 = Rect::new(s(24.), s(336.), w - s(48.), s(156.));
+    let sec3 = Rect::new(s(24.), s(336.), w - s(48.), s(190.));
     c.round_rect(sec3, c.ui.surface, s(8.));
     c.text(
         "테마 자동 적용 대상 프로그램 (설치되지 않은 앱은 오류 없이 자동 건너뜀)",
@@ -477,7 +482,7 @@ pub fn paint(c: &mut Canvas, v: &BarSettings, hover: Option<(i32, i32)>) -> Vec<
         ("GlazeWM 재적용", 524., 135., false, Edit::ReloadGlazeWM),
         ("저장 완료", 686., 150., true, Edit::Save),
     ] {
-        let r = Rect::new(s(x), s(510.), s(width), s(34.));
+        let r = Rect::new(s(x), s(538.), s(width), s(34.));
         views::button(
             c,
             &mut hits,
@@ -521,7 +526,7 @@ mod tests {
         .unwrap();
         let mut s = BarSettings::load(dir.path());
         assert!(s.show_weather);
-        assert_eq!(s.targets, [true; 12]);
+        assert_eq!(s.targets, [true; 16]);
         s.apply_edit(&Edit::CycleCity);
         s.apply_edit(&Edit::CycleTerminal);
         s.apply_edit(&Edit::ToggleAutoSplit);

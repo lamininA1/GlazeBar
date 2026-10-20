@@ -80,7 +80,7 @@ pub struct Picker {
     pub light: bool,
     pub enabled: bool,
     pub targets: [bool; 4],
-    pub extra_targets: [bool; 8],
+    pub extra_targets: [bool; 12],
     pub windows: bool,
     pub options: crate::theme_windows::Options,
     pub busy: bool,
@@ -133,6 +133,10 @@ impl Picker {
             bar_settings.targets[9],
             bar_settings.targets[10],
             bar_settings.targets[11],
+            bar_settings.targets[12],
+            bar_settings.targets[13],
+            bar_settings.targets[14],
+            bar_settings.targets[15],
         ];
         Ok(Self {
             operation: 0,
@@ -588,7 +592,7 @@ mod tests {
             light: false,
             enabled: true,
             targets: [true; 4],
-            extra_targets: [true; 8],
+            extra_targets: [true; 12],
             windows: false,
             options: Default::default(),
             busy: false,

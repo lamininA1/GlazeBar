@@ -25,7 +25,7 @@ impl Sheet {
                 let p = line
                     .trim()
                     .split('\t')
-                    .map(str::to_owned)
+                    .map(|s| s.trim().to_owned())
                     .collect::<Vec<_>>();
                 p.try_into().ok()
             })
@@ -219,5 +219,10 @@ mod tests {
         assert_eq!(s.offset, 88);
         s.scroll(-10000, 1., 250);
         assert_eq!(s.offset, 0);
+
+        let template = include_str!("../../distribution/templates/cheatsheet.tsv");
+        let parsed = Sheet::parse(template);
+        let expected_rows = template.lines().skip(1).filter(|l| !l.trim().is_empty()).count();
+        assert_eq!(parsed.rows.len(), expected_rows);
     }
 }
