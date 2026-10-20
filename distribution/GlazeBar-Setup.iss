@@ -21,7 +21,7 @@
 [Setup]
 AppId={#ProductId}
 AppName=GlazeBar + GlazeWM
-AppVersion=0.1.0-preview.4
+AppVersion=0.1.0-preview.5
 AppPublisher=lamininA1
 AppPublisherURL=https://github.com/lamininA1/GlazeBar
 AppSupportURL=https://github.com/lamininA1/GlazeBar/issues
@@ -42,7 +42,7 @@ DisableWelcomePage=no
 LicenseFile={#BundleDir}\LICENSE
 InfoBeforeFile=Setup-Info.txt
 OutputDir={#OutputDir}
-OutputBaseFilename=GlazeBar-GlazeWM-Setup-0.1.0-preview.4-{#Arch}{#FileSuffix}
+OutputBaseFilename=GlazeBar-GlazeWM-Setup-0.1.0-preview.5-{#Arch}{#FileSuffix}
 Compression=lzma2/fast
 SolidCompression=no
 WizardStyle=modern

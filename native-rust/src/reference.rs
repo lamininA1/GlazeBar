@@ -5,6 +5,109 @@ use crate::{
     views,
 };
 use std::path::Path;
+pub fn render_wallhaven(root: &Path) -> anyhow::Result<()> {
+    let output = root.join("ui-reference/rust");
+    std::fs::create_dir_all(&output)?;
+    for factor in [1., 1.75] {
+        for light in [false, true] {
+            let mut colors: Vec<String> = [
+                "#10131c", "#e57878", "#90bc91", "#e6c887", "#9ebbf0", "#bc9bd9", "#89c4cc",
+                "#bfc5d4", "#4d5364", "#ef9999", "#b2dbad", "#f4dca1", "#b5cbfa", "#d5b5e9",
+                "#addce1", "#edf1fa",
+            ]
+            .into_iter()
+            .map(String::from)
+            .collect();
+            if light {
+                colors[0] = "#f8f8f8".into();
+                colors[15] = "#202020".into();
+            }
+            let palette = Palette::from_colors(&colors);
+            let mut online = crate::online_ui::Online {
+                query: "landscape".into(),
+                page: 3,
+                last: 50,
+                total: 1200,
+                selected: 7,
+                ..Default::default()
+            };
+            online.begin_search("landscape");
+            for query in ["landscape", "+city -people", "id:37", "space", "mountains"] {
+                online.preferences.toggle(crate::wallhaven::SearchOptions {
+                    query: query.into(),
+                    ..Default::default()
+                })?;
+            }
+            for index in 0..24 {
+                let id = format!("{index:06}");
+                let path = Path::new(env!("CARGO_MANIFEST_DIR"))
+                    .join(format!("fixtures/sampler-{}.png", index % 6));
+                online.thumbs.insert(
+                    id.clone(),
+                    std::sync::Arc::new(image::open(path)?.thumbnail(480, 480).into_rgba8()),
+                );
+                online.rows.push(crate::wallhaven::Wallpaper {
+                    id,
+                    resolution: "2560x1440".into(),
+                    purity: "sfw".into(),
+                    ..Default::default()
+                });
+            }
+            let (events, _) = std::sync::mpsc::channel();
+            let (width, height) = ((1000. * factor) as i32, (650. * factor) as i32);
+            let window = crate::native::Window::new(
+                "Wallhaven render",
+                Rect::new(-32000, -32000, width, height),
+                crate::native::State {
+                    root: root.to_path_buf(),
+                    scale: factor,
+                    palette,
+                    scene: crate::native::Scene::Online(online.clone()),
+                    resources: graphics::Resources::new(),
+                    hits: vec![],
+                    hover: None,
+                    drag: false,
+                    passive: false,
+                    events,
+                    wake: 0,
+                },
+                std::ptr::null_mut(),
+            )?;
+            window.online_layout();
+            window.set_edit_text(101, "landscape");
+            window.set_edit_text(102, "3");
+            graphics::render_png(
+                root,
+                &output.join(format!(
+                    "wallhaven-{}-{}.png",
+                    if light { "light" } else { "dark" },
+                    (factor * 100.) as u32
+                )),
+                width,
+                height,
+                factor,
+                palette,
+                |c| {
+                    crate::online_ui::paint(c, &online, None);
+                    unsafe {
+                        use windows_sys::Win32::{Graphics::Gdi::*, UI::WindowsAndMessaging::*};
+                        for (id, x, y) in [(101, 145., 18.), (102, 128., 553.)] {
+                            let saved = SaveDC(c.dc);
+                            SetViewportOrgEx(c.dc, c.p(x), c.p(y), std::ptr::null_mut());
+                            windows_sys::Win32::Storage::Xps::PrintWindow(
+                                GetDlgItem(window.hwnd, id),
+                                c.dc,
+                                0,
+                            );
+                            RestoreDC(c.dc, saved);
+                        }
+                    }
+                },
+            )?;
+        }
+    }
+    Ok(())
+}
 pub fn render(root: &Path) -> anyhow::Result<()> {
     let output = root.join("ui-reference/rust");
     std::fs::create_dir_all(&output)?;

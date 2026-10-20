@@ -1,4 +1,7 @@
-﻿preview.4 x64 / ARM64: GlazeWM 3.10.1-glazebar.1 (modified from https://github.com/glzr-io/glazewm).
+preview.5: Wallhaven search filters, saved searches, persistent preview cache and heart collection.
+GlazeBar ARM64 UI tested on Windows on ARM; bundled modified WM remains the preview.4 build.
+
+preview.4 x64 / ARM64: GlazeWM 3.10.1-glazebar.1 (modified from https://github.com/glzr-io/glazewm).
 Alt+M preserves the layout while minimizing/restoring real windows. Corrective placement is retained.
 Use GlazeBar + GlazeWM in the Start menu, or run %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe.
 The unchanged upstream MSI is retained for CLI compatibility and rollback; community shortcuts run the modified build.

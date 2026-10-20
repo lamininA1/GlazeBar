@@ -9,6 +9,7 @@ mod go_upper_table;
 mod graphics;
 mod hooks;
 mod ipc;
+mod online_preferences;
 mod online_ui;
 mod palette_base;
 mod palette_extra;
@@ -233,6 +234,7 @@ fn run() -> anyhow::Result<()> {
             println!("{result}");
         }
         Some("--validate-native") => native::validate(root.clone())?,
+        Some("--render-wallhaven") => reference::render_wallhaven(&root)?,
         Some("--probe-brightness") => {
             let names = ipc::Client::new()
                 .model()?

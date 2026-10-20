@@ -845,8 +845,61 @@ pub fn run_with_popup(
                         if let Scene::Online(v) = &mut w.state.borrow_mut().scene {
                             if v.revision == revision {
                                 match item {
+                                    crate::online_ui::Item::Stats(stats) => v.cache = stats,
+                                    crate::online_ui::Item::Gallery(result) => {
+                                        v.busy = false;
+                                        v.downloading = false;
+                                        v.status.clear();
+                                        v.thumbs.clear();
+                                        v.selected = 0;
+                                        v.page = 1;
+                                        match result {
+                                            Ok(gallery) => {
+                                                v.rows = gallery.rows;
+                                                v.total = v.rows.len() as u64;
+                                                v.last = v.rows.len().div_ceil(24).max(1) as i32;
+                                                v.cache = gallery.stats;
+                                            }
+                                            Err(e) => {
+                                                v.rows.clear();
+                                                v.total = 0;
+                                                v.last = 1;
+                                                v.status = e;
+                                            }
+                                        }
+                                        w.set_edit_text(102, "1");
+                                    }
+                                    crate::online_ui::Item::Pinned(result) => {
+                                        v.busy = false;
+                                        v.downloading = false;
+                                        match result {
+                                            Ok((row, image)) => {
+                                                let mut preferences = v.preferences.clone();
+                                                if !preferences
+                                                    .saved_wallpapers
+                                                    .iter()
+                                                    .any(|saved| saved.id == row.id)
+                                                {
+                                                    preferences.saved_wallpapers.push(row.clone());
+                                                }
+                                                match preferences.save(&root) {
+                                                    Ok(()) => {
+                                                        v.preferences = preferences;
+                                                        v.thumbs.insert(row.id, image);
+                                                        v.status="♥ 미리보기를 보관했습니다. 원본 다운로드는 별도입니다.".into();
+                                                    }
+                                                    Err(e) => {
+                                                        v.status =
+                                                            format!("보관 설정 저장 실패: {e}")
+                                                    }
+                                                }
+                                            }
+                                            Err(e) => v.status = format!("미리보기 보관 실패: {e}"),
+                                        }
+                                    }
                                     crate::online_ui::Item::Rows(result) => {
                                         v.busy = false;
+                                        v.downloading = false;
                                         v.status.clear();
                                         match result {
                                             Ok(result) => {
@@ -855,9 +908,22 @@ pub fn run_with_popup(
                                                     result.last_page.min(i32::MAX as u32) as i32;
                                                 v.page = result.page.min(i32::MAX as u32) as i32;
                                                 v.selected = 0;
+                                                v.total = result.total;
+                                                if v.active.seed.is_none() {
+                                                    v.active.seed = result.seed;
+                                                }
                                                 v.thumbs.clear();
+                                                w.set_edit_text(102, &v.page.to_string());
                                             }
-                                            Err(e) => v.status = e,
+                                            Err(e) => {
+                                                v.rows.clear();
+                                                v.thumbs.clear();
+                                                v.page = 1;
+                                                v.last = 1;
+                                                v.selected = 0;
+                                                v.total = 0;
+                                                v.status = e;
+                                            }
                                         }
                                     }
                                     crate::online_ui::Item::Thumb(id, image) => {
@@ -865,6 +931,7 @@ pub fn run_with_popup(
                                     }
                                     crate::online_ui::Item::Download(result) => {
                                         v.busy = false;
+                                        v.downloading = false;
                                         match result {
                                             Ok(path) => downloaded = Some(path),
                                             Err(e) => v.status = e,
@@ -1142,7 +1209,9 @@ pub fn run_with_popup(
                     // Losing focus closes the popup family. Explicit Back/Escape
                     // still uses Action::Close and may reactivate its parent.
                     if popup.as_ref().is_some_and(|w| w.hwnd as usize == hwnd)
-                        || child_popup.as_ref().is_some_and(|w| w.hwnd as usize == hwnd)
+                        || child_popup
+                            .as_ref()
+                            .is_some_and(|w| w.hwnd as usize == hwnd)
                     {
                         child_popup = None;
                         preview_popup = None;
@@ -1262,7 +1331,7 @@ pub fn run_with_popup(
                                     make_state(
                                         &root,
                                         scale,
-                                        Scene::Online(Default::default()),
+                                        Scene::Online(crate::online_ui::Online::load(&root)),
                                         false,
                                         &ntx,
                                     ),
@@ -1271,7 +1340,8 @@ pub fn run_with_popup(
                                     Ok(w) => {
                                         w.online_layout();
                                         if let Scene::Online(v) = &mut w.state.borrow_mut().scene {
-                                            online_worker.search(w.hwnd as usize, v, String::new());
+                                            w.set_edit_text(101, &v.active.query);
+                                            online_worker.search(w.hwnd as usize, v);
                                         }
                                         online_active = true;
                                         w.show();
@@ -1291,22 +1361,187 @@ pub fn run_with_popup(
                         if let Some(w) = child_popup.as_ref().filter(|w| w.hwnd as usize == hwnd) {
                             let query = w.edit_text(101);
                             if let Scene::Online(v) = &mut w.state.borrow_mut().scene {
+                                v.query = query.clone();
                                 match edit {
+                                    crate::online_ui::Edit::Tab(mode) if !v.downloading => {
+                                        v.mode = mode;
+                                        if mode == crate::online_ui::Mode::Search {
+                                            v.begin_search(&query);
+                                            online_worker.search(hwnd, v);
+                                        } else {
+                                            online_worker.gallery(hwnd, v);
+                                        }
+                                    }
+                                    crate::online_ui::Edit::Heart if !v.busy => {
+                                        if let Some(row) = v.rows.get(v.selected).cloned() {
+                                            if let Some(index) = v
+                                                .preferences
+                                                .saved_wallpapers
+                                                .iter()
+                                                .position(|saved| saved.id == row.id)
+                                            {
+                                                let mut preferences = v.preferences.clone();
+                                                preferences.saved_wallpapers.remove(index);
+                                                match preferences.save(&root) {
+                                                    Ok(()) => {
+                                                        v.preferences = preferences;
+                                                        if v.mode == crate::online_ui::Mode::Hearts
+                                                        {
+                                                            v.rows.remove(v.selected);
+                                                            v.total = v.rows.len() as u64;
+                                                            v.selected = v.selected.min(
+                                                                v.rows.len().saturating_sub(1),
+                                                            );
+                                                            v.page = (v.selected / 24 + 1) as i32;
+                                                            v.last =
+                                                                v.rows.len().div_ceil(24).max(1)
+                                                                    as i32;
+                                                        }
+                                                        v.status="하트를 해제했습니다. 일반 미리보기 캐시는 유지합니다.".into();
+                                                    }
+                                                    Err(e) => v.status = e.to_string(),
+                                                }
+                                            } else {
+                                                online_worker.pin(hwnd, v);
+                                            }
+                                        }
+                                    }
+                                    crate::online_ui::Edit::QueryChanged => {}
                                     crate::online_ui::Edit::Select(i) => {
                                         v.selected = i.min(v.rows.len().saturating_sub(1));
                                     }
-                                    crate::online_ui::Edit::Search(reset) if !v.busy => {
-                                        if reset {
-                                            v.page = 1;
+                                    crate::online_ui::Edit::Search(_) if !v.downloading => {
+                                        v.begin_search(&query);
+                                        v.persist(&root);
+                                        online_worker.search(hwnd, v);
+                                    }
+                                    crate::online_ui::Edit::Refresh if !v.downloading => {
+                                        if v.mode != crate::online_ui::Mode::Search {
+                                            online_worker.gallery(hwnd, v);
+                                            w.invalidate();
+                                            continue;
                                         }
-                                        online_worker.search(hwnd, v, query);
+                                        if query.trim() != v.active.query {
+                                            v.begin_search(&query);
+                                        } else {
+                                            v.requested_page = v.page;
+                                        }
+                                        v.persist(&root);
+                                        online_worker.refresh(hwnd, v);
                                     }
                                     crate::online_ui::Edit::Page(delta) if !v.busy => {
                                         let next = v.page.saturating_add(delta);
-                                        if next >= 1 && next <= v.last {
-                                            v.page = next;
-                                            online_worker.search(hwnd, v, query);
+                                        if (1..=v.last).contains(&next) {
+                                            if v.mode == crate::online_ui::Mode::Search {
+                                                v.requested_page = next;
+                                                online_worker.search(hwnd, v);
+                                            } else {
+                                                v.page = next;
+                                                v.selected = ((next - 1) as usize * 24)
+                                                    .min(v.rows.len().saturating_sub(1));
+                                                w.set_edit_text(102, &next.to_string());
+                                            }
                                         }
+                                    }
+                                    crate::online_ui::Edit::Jump if !v.busy => {
+                                        match v.jump(&w.edit_text(102)) {
+                                            Ok(page) => {
+                                                if v.mode == crate::online_ui::Mode::Search {
+                                                    v.requested_page = page;
+                                                    online_worker.search(hwnd, v);
+                                                } else {
+                                                    v.page = page;
+                                                    v.selected = ((page - 1) as usize * 24)
+                                                        .min(v.rows.len().saturating_sub(1));
+                                                }
+                                            }
+                                            Err(e) => v.status = e.to_string(),
+                                        }
+                                    }
+                                    crate::online_ui::Edit::Batch(delta) => {
+                                        v.batch(delta);
+                                        if v.mode != crate::online_ui::Mode::Search {
+                                            w.set_edit_text(102, &v.page.to_string());
+                                        }
+                                    }
+                                    crate::online_ui::Edit::Sort
+                                    | crate::online_ui::Edit::Range
+                                    | crate::online_ui::Edit::Category(_)
+                                    | crate::online_ui::Edit::Minimum
+                                        if !v.downloading =>
+                                    {
+                                        match edit {
+                                            crate::online_ui::Edit::Sort => {
+                                                v.filters.sorting = v.filters.sorting.next()
+                                            }
+                                            crate::online_ui::Edit::Range => {
+                                                v.filters.top_range = (v.filters.top_range + 1)
+                                                    % crate::wallhaven::TOP_RANGES.len()
+                                            }
+                                            crate::online_ui::Edit::Category(i) if i < 3 => {
+                                                if v.filters.categories[i]
+                                                    && v.filters
+                                                        .categories
+                                                        .iter()
+                                                        .filter(|b| **b)
+                                                        .count()
+                                                        == 1
+                                                {
+                                                    v.status =
+                                                        "카테고리를 하나 이상 선택해주세요".into();
+                                                    w.invalidate();
+                                                    continue;
+                                                }
+                                                v.filters.categories[i] = !v.filters.categories[i];
+                                            }
+                                            crate::online_ui::Edit::Minimum => {
+                                                v.filters.minimum = (v.filters.minimum + 1)
+                                                    % crate::wallhaven::MINIMUMS.len()
+                                            }
+                                            _ => {}
+                                        }
+                                        v.begin_search(&query);
+                                        v.persist(&root);
+                                        online_worker.search(hwnd, v);
+                                    }
+                                    crate::online_ui::Edit::Favorite => {
+                                        let mut preferences = v.preferences.clone();
+                                        match preferences.toggle(v.draft(&query)).and_then(
+                                            |added| {
+                                                preferences.save(&root)?;
+                                                Ok(added)
+                                            },
+                                        ) {
+                                            Ok(added) => {
+                                                v.preferences = preferences;
+                                                v.status = if added {
+                                                    "태그 / 검색어와 필터를 저장했습니다"
+                                                } else {
+                                                    "즐겨찾기를 삭제했습니다"
+                                                }
+                                                .into();
+                                            }
+                                            Err(e) => v.status = e.to_string(),
+                                        }
+                                    }
+                                    crate::online_ui::Edit::UseFavorite(index)
+                                        if !v.downloading =>
+                                    {
+                                        if let Some(options) =
+                                            v.preferences.favorites.get(index).cloned()
+                                        {
+                                            v.filters = options.filters.clone();
+                                            v.mode = crate::online_ui::Mode::Search;
+                                            v.active = options;
+                                            v.requested_page = 1;
+                                            w.set_edit_text(101, &v.active.query);
+                                            v.persist(&root);
+                                            online_worker.search(hwnd, v);
+                                        }
+                                    }
+                                    crate::online_ui::Edit::FavoritePage => {
+                                        v.favorite_page = (v.favorite_page + 1)
+                                            % v.preferences.favorites.len().div_ceil(4).max(1)
                                     }
                                     crate::online_ui::Edit::Download if !v.busy => {
                                         if let Some(home) = std::env::var_os("USERPROFILE") {
@@ -2111,7 +2346,7 @@ pub fn run_with_popup(
         if shadow {
             if let Some(w) = &child_popup {
                 if let Scene::Online(v) = &w.state.borrow().scene {
-                    let _=std::fs::write(root.join("rust-shadow-online.json"),serde_json::to_vec_pretty(&serde_json::json!({"pid":std::process::id(),"rows":v.rows.len(),"thumbs":v.thumbs.len(),"page":v.page,"last":v.last,"selected":v.selected,"busy":v.busy,"status":v.status,"revision":v.revision})).unwrap());
+                    let _=std::fs::write(root.join("rust-shadow-online.json"),serde_json::to_vec_pretty(&serde_json::json!({"pid":std::process::id(),"rows":v.rows.len(),"thumbs":v.thumbs.len(),"page":v.page,"last":v.last,"selected":v.selected,"busy":v.busy,"status":v.status,"revision":v.revision,"mode":format!("{:?}",v.mode),"query":v.query,"activeQuery":v.active.query,"hearts":v.preferences.saved_wallpapers.len(),"cacheBytes":v.cache.bytes})).unwrap());
                 }
                 if let Scene::Precache(p) = &w.state.borrow().scene {
                     let _=std::fs::write(root.join("rust-shadow-precache.json"),serde_json::to_vec_pretty(&serde_json::json!({"pid":std::process::id(),"running":p.running,"created":p.created,"reused":p.reused,"failed":p.failed,"current":p.current,"images":p.images})).unwrap());

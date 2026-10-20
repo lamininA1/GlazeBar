@@ -343,7 +343,7 @@ impl Window {
                 WS_CHILD | WS_VISIBLE | WS_TABSTOP | ES_AUTOHSCROLL as u32,
                 p(145.),
                 p(18.),
-                self.rect().w - p(272.),
+                self.rect().w - p(368.),
                 p(30.),
                 self.hwnd,
                 101usize as HMENU,
@@ -352,6 +352,27 @@ impl Window {
             );
             SendMessageW(edit, WM_SETFONT, font as usize, 1);
             SendMessageW(edit, 0x00c5, 2048, 0);
+            let page = CreateWindowExW(
+                WS_EX_CLIENTEDGE,
+                wide("EDIT").as_ptr(),
+                wide("1").as_ptr(),
+                WS_CHILD | WS_VISIBLE | WS_TABSTOP | ES_AUTOHSCROLL as u32 | ES_NUMBER as u32,
+                p(128.),
+                self.rect().h - p(97.),
+                p(112.),
+                p(30.),
+                self.hwnd,
+                102usize as HMENU,
+                GetModuleHandleW(null()),
+                null(),
+            );
+            SendMessageW(page, WM_SETFONT, font as usize, 1);
+            SendMessageW(page, 0x00c5, 10, 0);
+        }
+    }
+    pub fn set_edit_text(&self, id: i32, text: &str) {
+        unsafe {
+            SetWindowTextW(GetDlgItem(self.hwnd, id), wide(text).as_ptr());
         }
     }
     pub fn edit_text(&self, id: i32) -> String {
@@ -401,6 +422,15 @@ unsafe extern "system" fn wndproc(h: HWND, m: u32, wp: usize, lp: isize) -> isiz
             return DefWindowProcW(h, m, wp, lp);
         };
         match m {
+            WM_COMMAND if matches!(s.scene, Scene::Online(_)) => {
+                if (wp & 0xffff) == 101 && (wp >> 16) as u32 == EN_CHANGE {
+                    s.send(NativeEvent::Action(
+                        h as usize,
+                        Action::Online(crate::online_ui::Edit::QueryChanged),
+                    ));
+                }
+                return 0;
+            }
             WM_NCHITTEST if matches!(s.scene, Scene::Sheet(_)) => {
                 let mut pos = POINT {
                     x: (lp as u16) as i16 as i32,
@@ -415,6 +445,20 @@ unsafe extern "system" fn wndproc(h: HWND, m: u32, wp: usize, lp: isize) -> isiz
                     return HTCAPTION as isize;
                 }
                 return HTCLIENT as isize;
+            }
+            WM_MOUSEWHEEL if matches!(s.scene, Scene::Online(_)) => {
+                let delta = (wp >> 16) as i16;
+                if delta != 0 {
+                    s.send(NativeEvent::Action(
+                        h as usize,
+                        Action::Online(crate::online_ui::Edit::Batch(if delta > 0 {
+                            -1
+                        } else {
+                            1
+                        })),
+                    ));
+                }
+                return 0;
             }
             WM_MOUSEWHEEL if matches!(s.scene, Scene::Wallpaper(_)) => {
                 let delta = (wp >> 16) as i16;
@@ -536,6 +580,9 @@ unsafe extern "system" fn wndproc(h: HWND, m: u32, wp: usize, lp: isize) -> isiz
                 return 0;
             }
             WM_MOUSEMOVE | WM_LBUTTONDOWN | WM_LBUTTONUP => {
+                if m == WM_LBUTTONDOWN && matches!(s.scene, Scene::Online(_)) {
+                    SetFocus(h);
+                }
                 let x = (lp as u16) as i16 as i32;
                 let y = ((lp >> 16) as u16) as i16 as i32;
                 if m == WM_MOUSEMOVE {
@@ -682,13 +729,34 @@ unsafe extern "system" fn wndproc(h: HWND, m: u32, wp: usize, lp: isize) -> isiz
                     }
                 }
                 if let Scene::Online(v) = &s.scene {
+                    let editing =
+                        GetFocus() == GetDlgItem(h, 101) || GetFocus() == GetDlgItem(h, 102);
                     let edit = match wp as u16 {
-                        VK_RETURN if GetFocus() == GetDlgItem(h, 101) => {
-                            Some(crate::online_ui::Edit::Search(false))
+                        VK_RETURN if GetFocus() == GetDlgItem(h, 102) => {
+                            Some(crate::online_ui::Edit::Jump)
                         }
-                        VK_UP => Some(crate::online_ui::Edit::Select(v.selected.saturating_sub(1))),
-                        VK_DOWN => Some(crate::online_ui::Edit::Select(
+                        VK_RETURN if GetFocus() == GetDlgItem(h, 101) => {
+                            Some(crate::online_ui::Edit::Search(true))
+                        }
+                        VK_LEFT if GetAsyncKeyState(VK_CONTROL as i32) < 0 => {
+                            Some(crate::online_ui::Edit::Page(-1))
+                        }
+                        VK_RIGHT if GetAsyncKeyState(VK_CONTROL as i32) < 0 => {
+                            Some(crate::online_ui::Edit::Page(1))
+                        }
+                        VK_PRIOR if !editing => Some(crate::online_ui::Edit::Batch(-1)),
+                        VK_NEXT if !editing => Some(crate::online_ui::Edit::Batch(1)),
+                        VK_LEFT if !editing => {
+                            Some(crate::online_ui::Edit::Select(v.selected.saturating_sub(1)))
+                        }
+                        VK_RIGHT if !editing => Some(crate::online_ui::Edit::Select(
                             (v.selected + 1).min(v.rows.len().saturating_sub(1)),
+                        )),
+                        VK_UP if !editing => {
+                            Some(crate::online_ui::Edit::Select(v.selected.saturating_sub(3)))
+                        }
+                        VK_DOWN if !editing => Some(crate::online_ui::Edit::Select(
+                            (v.selected + 3).min(v.rows.len().saturating_sub(1)),
                         )),
                         _ => None,
                     };
@@ -890,7 +958,9 @@ pub fn preview(root: PathBuf, seconds: u64) -> anyhow::Result<()> {
         }
         for e in rx.try_iter() {
             match e {
-                NativeEvent::Action(_, Action::Close) | NativeEvent::Dismiss(_) | NativeEvent::Closed(_) => return Ok(()),
+                NativeEvent::Action(_, Action::Close)
+                | NativeEvent::Dismiss(_)
+                | NativeEvent::Closed(_) => return Ok(()),
                 NativeEvent::ScaleCommit(_, state, selected) => {
                     match display::write(state, selected) {
                         Ok(()) => return Ok(()),
@@ -1088,15 +1158,30 @@ pub fn validate(root: PathBuf) -> anyhow::Result<()> {
         handle,
     )?;
     unsafe {
-        anyhow::ensure!(window.owns_focus(options.hwnd), "Owned popup is outside its family");
+        anyhow::ensure!(
+            window.owns_focus(options.hwnd),
+            "Owned popup is outside its family"
+        );
         anyhow::ensure!(options.owns_focus(options.hwnd), "Popup excludes itself");
-        anyhow::ensure!(!options.owns_focus(handle), "Popup includes its owner bar in its click area");
-        anyhow::ensure!(!window.owns_focus(GetDesktopWindow()), "Desktop belongs to popup family");
+        anyhow::ensure!(
+            !options.owns_focus(handle),
+            "Popup includes its owner bar in its click area"
+        );
+        anyhow::ensure!(
+            !window.owns_focus(GetDesktopWindow()),
+            "Desktop belongs to popup family"
+        );
         // Neither window has been shown or clicked: dismissal must not need
         // an earlier activation or pointer event inside the popup.
-        SendMessageW(options.hwnd, WM_ACTIVATE, WA_INACTIVE as usize, GetDesktopWindow() as isize);
+        SendMessageW(
+            options.hwnd,
+            WM_ACTIVATE,
+            WA_INACTIVE as usize,
+            GetDesktopWindow() as isize,
+        );
         anyhow::ensure!(
-            rx.try_iter().any(|e| matches!(e, NativeEvent::Dismiss(h) if h == options.hwnd as usize)),
+            rx.try_iter()
+                .any(|e| matches!(e, NativeEvent::Dismiss(h) if h == options.hwnd as usize)),
             "Unclicked popup did not dismiss on outside activation"
         );
         SendMessageW(
@@ -1106,8 +1191,10 @@ pub fn validate(root: PathBuf) -> anyhow::Result<()> {
             options.hwnd as isize,
         );
         anyhow::ensure!(
-            !rx.try_iter()
-                .any(|e| matches!(e, NativeEvent::Action(_, Action::Close) | NativeEvent::Dismiss(_))),
+            !rx.try_iter().any(|e| matches!(
+                e,
+                NativeEvent::Action(_, Action::Close) | NativeEvent::Dismiss(_)
+            )),
             "Owned dialog closes its picker"
         );
         let dc = GetDC(options.hwnd);
@@ -1176,18 +1263,48 @@ pub fn validate(root: PathBuf) -> anyhow::Result<()> {
         window.state.borrow_mut().paint(dc, 1000, 650);
         ReleaseDC(handle, dc);
         anyhow::ensure!(
-            window.state.borrow().hits.len() == 4,
+            [
+                crate::online_ui::Edit::Sort,
+                crate::online_ui::Edit::Favorite,
+                crate::online_ui::Edit::Jump
+            ]
+            .iter()
+            .all(|edit| window
+                .state
+                .borrow()
+                .hits
+                .iter()
+                .any(|hit| hit.action == Action::Online(edit.clone()))),
             "Online empty controls missing"
         );
         SendMessageW(handle, WM_LBUTTONUP, 0, ((30 << 16) | 920) as isize);
+        let page = GetDlgItem(handle, 102);
+        anyhow::ensure!(
+            !page.is_null() && window.owns_focus(page),
+            "Page jump native input missing"
+        );
+        SetWindowTextW(page, wide("12").as_ptr());
+        anyhow::ensure!(
+            window.edit_text(102) == "12",
+            "Page number roundtrip failed"
+        );
+        SendMessageW(handle, WM_MOUSEWHEEL, (-120i16 as u16 as usize) << 16, 0);
+        SendMessageW(handle, WM_LBUTTONUP, 0, ((568 << 16) | 280) as isize);
     }
+    let online_events: Vec<_> = rx.try_iter().collect();
     anyhow::ensure!(
-        rx.try_iter().any(|e| matches!(
+        online_events.iter().any(|e| matches!(
             e,
             NativeEvent::Action(_, Action::Online(crate::online_ui::Edit::Search(true)))
         )),
         "Online search click missing"
     );
+    for expected in [
+        crate::online_ui::Edit::Batch(1),
+        crate::online_ui::Edit::Jump,
+    ] {
+        anyhow::ensure!(online_events.iter().any(|event|matches!(event,NativeEvent::Action(_,Action::Online(edit)) if *edit==expected)),"Missing online input: {expected:?}");
+    }
     drop(window);
     anyhow::ensure!(
         unsafe { IsWindow(handle) } == 0,

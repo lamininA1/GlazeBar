@@ -1,5 +1,7 @@
 # GlazeBar + GlazeWM
 
+> **preview.5 x64 / ARM64: Wallhaven 탐색·보관함 개선.** 검색 필터와 페이지 이동, 검색어·태그 즐겨찾기, 영구 미리보기 캐시, 하트 보관함과 캐시 용량 표시를 추가했습니다. 수정 GlazeWM은 preview.4와 같습니다. [사용법과 검증](docs/wallhaven-browser.md).
+
 > **preview.4 x64 / ARM64: 수정 GlazeWM 포함.** [원본 GlazeWM](https://github.com/glzr-io/glazewm) v3.10.1을 수정해 Alt+M의 실제 최소화·배치 보존 복원, 빈 분할 정리와 포커스 처리를 개선했습니다. ARM64에도 동일한 수정본을 포함합니다. ARM64는 교차 빌드했으며 실제 장치 검증은 별도입니다. 한영 입력 증상은 사용자가 기존 Codex 세션에 한정된 것으로 확인했으며, 이번 배포를 IME 수정으로 주장하지 않습니다. [변경 내역과 검증](docs/glazewm-modifications.md).
 
 [한국어](README.md) · [English](README.en.md)
@@ -23,8 +25,8 @@ GlazeWM이 창과 작업공간을 관리하고, GlazeBar에서 시스템 상태�
 
 | 사용하는 PC | 통합 설치 프로그램 |
 | --- | --- |
-| Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.4/GlazeBar-GlazeWM-Setup-0.1.0-preview.4-x64.exe) |
-| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.4/GlazeBar-GlazeWM-Setup-0.1.0-preview.4-arm64.exe) |
+| Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.5/GlazeBar-GlazeWM-Setup-0.1.0-preview.5-x64.exe) |
+| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.5/GlazeBar-GlazeWM-Setup-0.1.0-preview.5-arm64.exe) |
 
 ## 설치
 
@@ -69,6 +71,8 @@ VS Code도 같이 바뀝니다. 영상은 Python이지만 Rust, JavaScript 등 �
 - **사진 기반 테마 생성** — 색상 추출, 다크·라이트 전환, 6가지 스타일 비교와 미리보기
 - **앱·Windows 색상 연동** — 원하는 앱끼리 색상 맞추기
 - **색상 복원과 캐시** — 이전 색상으로 돌아가기, 뽑아둔 색상 재사용하기
+
+> preview.5의 Wallhaven 검색·필터·페이지 이동·즐겨찾기·웹 미리보기 캐시·하트 보관함은 [사용법과 검증 기록](docs/wallhaven-browser.md)을 참고하세요.
 
 ### 테마가 적용되는 범위
 

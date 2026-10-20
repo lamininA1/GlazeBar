@@ -1,5 +1,17 @@
 # 소스 빌드
 
+## preview.5 Wallhaven 배포
+
+`Repackage-Bundle.py`는 공개된 preview.4 ZIP의 manifest 해시와 Cargo.lock 일치를 검사한 뒤 GlazeBar 실행 파일과 대응 소스를 교체합니다. 수정 GlazeWM, 공식 MSI, 의존성 소스와 라이선스는 그대로 보존합니다. 작업 트리를 먼저 커밋해야 소스 revision과 새 파일 목록이 정확하게 포함됩니다.
+
+```powershell
+python distribution/Repackage-Bundle.py --base <preview.4-architecture.zip> --bar <matching-target-release.exe> --output distribution/output-preview5
+./distribution/Test-Bundle.ps1 -Bundle distribution/output-preview5/GlazeBar-Community-0.1.0-preview.5-windows-arm64
+./distribution/Build-Setup.ps1 -BundleRoot distribution/output-preview5 -Version 0.1.0-preview.5 -Architectures x64,arm64
+```
+
+두 아키텍처에 대해 각각 패키징합니다. `Build-Setup.ps1`과 `GlazeBar-Setup.iss`의 기본 버전은 preview.5입니다. 아래 preview.4 설명은 이전 번들의 재현 절차입니다.
+
 Windows, Rust 1.93 이상, 대상 아키텍처의 MSVC C++ 도구와 Windows SDK가 필요합니다.
 
 ```powershell
