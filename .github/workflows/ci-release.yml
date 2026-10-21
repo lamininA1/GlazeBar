@@ -66,8 +66,10 @@ jobs:
         include:
           - target: x86_64-pc-windows-msvc
             arch: x64
+            msvc_arch: x64
           - target: aarch64-pc-windows-msvc
             arch: arm64
+            msvc_arch: amd64_arm64
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -80,7 +82,7 @@ jobs:
       - name: Set up MSVC Developer Command Prompt
         uses: ilammy/msvc-dev-cmd@v1
         with:
-          arch: ${{ matrix.arch }}
+          arch: ${{ matrix.msvc_arch }}
 
       - name: Cache Cargo build
         uses: actions/cache@v4
