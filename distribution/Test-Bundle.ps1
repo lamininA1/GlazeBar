@@ -6,6 +6,8 @@ $bar = Join-Path $Bundle 'payload/GlazeBar.exe'
 if (!(Test-Path -LiteralPath $bar)) { throw 'GlazeBar.exe payload missing' }
 $versionInfo = [Diagnostics.FileVersionInfo]::GetVersionInfo($bar)
 if ($versionInfo.FileDescription -ne 'GlazeBar' -or $versionInfo.ProductName -ne 'GlazeBar') { throw 'Task Manager product metadata missing' }
+$releaseManifest = Get-Content -LiteralPath (Join-Path $Bundle 'manifest.json') -Raw | ConvertFrom-Json
+if ($versionInfo.ProductVersion -ne $releaseManifest.version) { throw 'Executable version does not match bundle manifest' }
 if (Test-Path -LiteralPath (Join-Path $Bundle 'payload/WorkspaceToggle.exe')) { throw 'Legacy resident executable still shipped' }
 $profile = Join-Path $env:TEMP ("GlazeBar bundle's 한글 " + [Guid]::NewGuid().ToString('N'))
 $target = Join-Path $profile '.glzr/glazewm'

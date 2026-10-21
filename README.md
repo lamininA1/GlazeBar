@@ -1,8 +1,6 @@
 # GlazeBar + GlazeWM
 
-> **preview.5 x64 / ARM64: Wallhaven 탐색·보관함 개선.** 검색 필터와 페이지 이동, 검색어·태그 즐겨찾기, 영구 미리보기 캐시, 하트 보관함과 캐시 용량 표시를 추가했습니다. 수정 GlazeWM은 preview.4와 같습니다. [사용법과 검증](docs/wallhaven-browser.md).
-
-> **preview.4 x64 / ARM64: 수정 GlazeWM 포함.** [원본 GlazeWM](https://github.com/glzr-io/glazewm) v3.10.1을 수정해 Alt+M의 실제 최소화·배치 보존 복원, 빈 분할 정리와 포커스 처리를 개선했습니다. ARM64에도 동일한 수정본을 포함합니다. ARM64는 교차 빌드했으며 실제 장치 검증은 별도입니다. 한영 입력 증상은 사용자가 기존 Codex 세션에 한정된 것으로 확인했으며, 이번 배포를 IME 수정으로 주장하지 않습니다. [변경 내역과 검증](docs/glazewm-modifications.md).
+> **최신: 0.1.0-preview.6 · Windows 11 x64 / ARM64.** Wallhaven 탐색·보관함, 배치를 보존하는 최소화·복원, 본문과 구분되는 읽기 쉬운 주석 색상을 포함합니다. [주석 색상 변경](docs/comment-colors.md) · [Wallhaven 사용법](docs/wallhaven-browser.md).
 
 [한국어](README.md) · [English](README.en.md)
 
@@ -25,14 +23,10 @@ GlazeWM이 창과 작업공간을 관리하고, GlazeBar에서 시스템 상태�
 
 | 사용하는 PC | 통합 설치 프로그램 |
 | --- | --- |
-| Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.5/GlazeBar-GlazeWM-Setup-0.1.0-preview.5-x64.exe) |
-| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.5/GlazeBar-GlazeWM-Setup-0.1.0-preview.5-arm64.exe) |
+| Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.6/GlazeBar-GlazeWM-Setup-0.1.0-preview.6-x64.exe) |
+| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.6/GlazeBar-GlazeWM-Setup-0.1.0-preview.6-arm64.exe) |
 
 ## 설치
-
-0.1.0-preview.3에서는 Wi-Fi를 사용할 수 없는 PC에서 해당 항목을 숨깁니다. 팝업을 한 번도 클릭하지 않았더라도 다른 창이나 Bar를 클릭하면 닫힙니다. 팝업 내부 입력란과 하위 설정 창으로 이동할 때는 유지됩니다.
-
-0.1.0-preview.2에서는 WMI 밝기 조절을 지원하지 않는 PC에서 바가 종료되는 문제를 수정했습니다. 상주 프로세스 이름은 `GlazeBar.exe`, Windows 파일 설명은 `GlazeBar`입니다. 노트북·데스크탑 구분 대신 모니터의 기능 지원 여부를 확인하며, 지원하지 않는 밝기 조작은 비활성화됩니다. 외부 모니터 DDC/CI 제어는 아직 포함되지 않습니다.
 
 1. PC에 맞는 설치 EXE를 다운로드합니다.
 2. 실행 중인 GlazeWM과 GlazeBar가 있다면 종료합니다.
@@ -44,6 +38,12 @@ x64와 ARM64 모두 사용자 폴더의 수정 GlazeWM 3.10.1-glazebar.1을 실�
 
 GlazeBar에는 .NET·Go·WebView2 설치가 필요 없습니다. GlazeWM에 필요한 Visual C++ 런타임이 없는 경우에만 Microsoft 설치 프로그램을 내려받도록 안내합니다.
 GlazeWM 및 런타임 설치 중 Windows 관리자 권한 확인이 나타날 수 있습니다.
+
+### 기존 번들에서 업데이트
+
+GlazeWM과 GlazeBar를 종료한 뒤 **Windows 설정 → 앱 → GlazeBar + GlazeWM (community setup)**에서 기존 번들을 제거하고 새 설치 프로그램을 실행하세요. 제거 시 설치 전 파일은 복원되고, 설치 후 수정한 파일은 별도로 보관됩니다. 사용자 설정을 새 설치에 옮길 때 이 백업을 유지하세요.
+
+업데이트 후 현재 배경화면/테마를 다시 선택하고 VS Code에 적용하세요. 이전 팔레트를 재생성해야 주석이 본문과 다른 차분한 색상으로 표시됩니다. 새 실행 파일을 시작하는 것만으로 기존에 내보낸 설정이 바뀌지는 않습니다.
 
 ## 주요 기능
 
@@ -72,7 +72,7 @@ VS Code도 같이 바뀝니다. 영상은 Python이지만 Rust, JavaScript 등 �
 - **앱·Windows 색상 연동** — 원하는 앱끼리 색상 맞추기
 - **색상 복원과 캐시** — 이전 색상으로 돌아가기, 뽑아둔 색상 재사용하기
 
-> preview.5의 Wallhaven 검색·필터·페이지 이동·즐겨찾기·웹 미리보기 캐시·하트 보관함은 [사용법과 검증 기록](docs/wallhaven-browser.md)을 참고하세요.
+> Wallhaven 검색·필터·페이지 이동·즐겨찾기·웹 미리보기 캐시·하트 보관함은 [사용법과 검증 기록](docs/wallhaven-browser.md)을 참고하세요.
 
 ### 테마가 적용되는 범위
 
@@ -120,7 +120,7 @@ GlazeWM까지 지우려면 앱 목록에서 **GlazeWM**도 제거해주세요. �
 
 - Windows 11 ARM64 / x64
 - 아직 미리보기 버전이고 코드 서명은 없습니다.
-- preview.4: 실제 x64에서 확인했습니다. ARM64는 교차 빌드 및 패키지 검사만 완료했으며 실제 ARM64 실행 검증은 별도입니다.
+- preview.6: x64는 실제 Windows에서 검사했습니다. ARM64는 교차 빌드 및 패키지 검사 대상이며, 이 버전의 실제 ARM64 기기 실행은 검증하지 않았습니다.
 - 밝기와 전원 설정은 기기에 따라 다를 수 있습니다.
 - 날씨는 일단 서울입니다. Open-Meteo 무료 API를 사용합니다([이용 조건](https://open-meteo.com/en/terms)).
 

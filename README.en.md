@@ -1,8 +1,6 @@
 # GlazeBar + GlazeWM
 
-> **preview.5 x64 / ARM64: Wallhaven browser and collections.** Adds search filters, page jumps, saved searches/tags, persistent preview caching, a heart collection and disk usage display. Bundled modified GlazeWM is unchanged from preview.4. [Usage and validation (Korean)](docs/wallhaven-browser.md).
-
-> **preview.4 x64 / ARM64 includes modified GlazeWM.** Based on [upstream GlazeWM](https://github.com/glzr-io/glazewm) v3.10.1, with real group minimize/restore preserving layout, empty-split cleanup and focus changes. ARM64 includes the same changes, cross-built without physical ARM64 device validation. The user isolated the Korean input symptom to an existing Codex session; this release does not claim an IME fix. See [changes and validation](docs/glazewm-modifications.md).
+> **Latest: 0.1.0-preview.6 · Windows 11 x64 / ARM64.** Includes the Wallhaven browser and collections, layout-preserving minimize/restore, and readable comment colors that remain distinct from body text. [Comment color changes](docs/comment-colors.md) · [Wallhaven guide (Korean)](docs/wallhaven-browser.md).
 
 [한국어](README.md) · [English](README.en.md)
 
@@ -25,12 +23,10 @@ The font is Pretendard, color extraction comes from Aether, and the UI is based 
 
 | Your PC | Bundled installer |
 | --- | --- |
-| Intel / AMD Windows | [x64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.5/GlazeBar-GlazeWM-Setup-0.1.0-preview.5-x64.exe) |
-| Windows on ARM | [ARM64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.5/GlazeBar-GlazeWM-Setup-0.1.0-preview.5-arm64.exe) |
+| Intel / AMD Windows | [x64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.6/GlazeBar-GlazeWM-Setup-0.1.0-preview.6-x64.exe) |
+| Windows on ARM | [ARM64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.6/GlazeBar-GlazeWM-Setup-0.1.0-preview.6-arm64.exe) |
 
 ## Install
-
-Version 0.1.0-preview.2 fixes a startup crash on systems without WMI brightness support. The resident process is now `GlazeBar.exe`, with `GlazeBar` as its Windows file description. Brightness availability is detected per display; unsupported controls remain disabled without stopping the bar. External-monitor DDC/CI control is not included.
 
 1. Download the setup EXE for your PC.
 2. Close GlazeWM and GlazeBar if they're running.
@@ -42,6 +38,12 @@ Both architecture bundles run modified GlazeWM 3.10.1-glazebar.1 from the user p
 
 GlazeBar doesn't need .NET, Go, or WebView2 installed. If the Visual C++ runtime needed by GlazeWM is missing, the installer downloads Microsoft's setup program for you.
 Windows may ask for administrator approval while installing GlazeWM or the runtime.
+
+### Updating an existing bundle
+
+Close GlazeWM and GlazeBar, then uninstall **GlazeBar + GlazeWM (community setup)** from Windows Settings → Apps before running the new installer. The uninstaller restores pre-install files and saves files edited after installation separately. Keep those backups when bringing your custom settings into the new installation.
+
+After updating, select your current wallpaper/theme again and apply it to VS Code. This regenerates old palettes so comments retain their muted color instead of matching the body text. Starting the new binary alone does not rewrite previously exported settings.
 
 ## Features
 
@@ -70,7 +72,7 @@ These are the things I missed in the Zebar bar I was using.
 - **App and Windows colors** — match the colors of whichever apps you want
 - **Color restore and caching** — go back to previous colors and reuse palettes you've already generated
 
-> preview.5 adds Wallhaven filters, page jumps, saved searches, persistent previews and a heart collection. See [usage and validation notes (Korean)](docs/wallhaven-browser.md).
+> Wallhaven includes filters, page jumps, saved searches, persistent previews and a heart collection. See [usage and validation notes (Korean)](docs/wallhaven-browser.md).
 
 ### What gets themed?
 
@@ -118,7 +120,7 @@ To remove GlazeWM too, uninstall **GlazeWM** from the app list as well. Your app
 
 - Windows 11 ARM64 / x64
 - Still a preview, and the binaries aren't code-signed yet.
-- preview.4: tested on physical x64; ARM64 cross-built and package-validated, without physical ARM64 testing.
+- preview.6: tested on x64 Windows; ARM64 cross-built and package-validated, without physical ARM64 execution testing for this version.
 - Brightness and power settings can vary by device.
 - Weather is set to Seoul for now, using the free Open-Meteo API ([terms](https://open-meteo.com/en/terms)).
 

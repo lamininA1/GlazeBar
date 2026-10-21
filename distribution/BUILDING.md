@@ -1,73 +1,87 @@
-# 소스 빌드
+# Build and package preview.6
 
-## preview.5 Wallhaven 배포
+The current release is **0.1.0-preview.6**, for Windows 11 x64 and ARM64.
+It includes the readable comment-color fix, Wallhaven browser and collections,
+and modified GlazeWM 3.10.1-glazebar.1. See
+[comment colors](../docs/comment-colors.md) and
+[GlazeWM changes](../docs/glazewm-modifications.md).
 
-`Repackage-Bundle.py`는 공개된 preview.4 ZIP의 manifest 해시와 Cargo.lock 일치를 검사한 뒤 GlazeBar 실행 파일과 대응 소스를 교체합니다. 수정 GlazeWM, 공식 MSI, 의존성 소스와 라이선스는 그대로 보존합니다. 작업 트리를 먼저 커밋해야 소스 revision과 새 파일 목록이 정확하게 포함됩니다.
+## Build GlazeBar
+
+Use Rust 1.93.0 or later, the matching MSVC C++ tools and Windows SDK.
+Open a Visual Studio developer shell for the target architecture so `rc.exe`
+and the correct linker/libraries are on PATH. On x64 Windows, use the x64-to-ARM64
+developer shell for the ARM64 build. Runtime tests must run on the host architecture.
 
 ```powershell
-python distribution/Repackage-Bundle.py --base <preview.4-architecture.zip> --bar <matching-target-release.exe> --output distribution/output-preview5
-./distribution/Test-Bundle.ps1 -Bundle distribution/output-preview5/GlazeBar-Community-0.1.0-preview.5-windows-arm64
-./distribution/Build-Setup.ps1 -BundleRoot distribution/output-preview5 -Version 0.1.0-preview.5 -Architectures x64,arm64
-```
-
-두 아키텍처에 대해 각각 패키징합니다. `Build-Setup.ps1`과 `GlazeBar-Setup.iss`의 기본 버전은 preview.5입니다. 아래 preview.4 설명은 이전 번들의 재현 절차입니다.
-
-Windows, Rust 1.93 이상, 대상 아키텍처의 MSVC C++ 도구와 Windows SDK가 필요합니다.
-
-```powershell
+rustup target add --toolchain 1.93.0 x86_64-pc-windows-msvc aarch64-pc-windows-msvc
 cd native-rust
-rustup target add aarch64-pc-windows-msvc x86_64-pc-windows-msvc
-cargo test --locked
-cargo build --locked --release --target aarch64-pc-windows-msvc
-cargo build --locked --release --target x86_64-pc-windows-msvc
+cargo +1.93.0 test --locked
+cargo +1.93.0 build --locked --release --target x86_64-pc-windows-msvc
+# Switch to the ARM64 developer environment before this command:
+cargo +1.93.0 build --locked --release --target aarch64-pc-windows-msvc
 ```
 
-## 배포 번들
+The resulting `glazebar-native.exe` is installed as both `GlazeBar.exe`
+and `GlazeTheme.exe`; the executable name selects its role.
+The release PE version is defined in `native-rust/glazebar.rc`.
+Cross-building does not establish that the ARM64 app runs correctly on hardware.
 
-저장소 루트에서 PowerShell 7로 실행합니다.
+## Package each architecture
+
+Commit the source and documentation before repackaging so the source revision
+and tracked source archive describe the release. `Repackage-Bundle.py` verifies
+the base bundle manifest, executable PE architecture, and Cargo.lock before
+reusing dependency vendors, licenses, official GlazeWM MSI, and modified WM.
+Use a locally retained, verified preview.5 ZIP for each architecture; these
+base archives need not remain published after preview.6 is validated.
 
 ```powershell
-.\distribution\Prepare-Upstream.ps1
-.\distribution\Build-Bundle.ps1
+python distribution/Repackage-Bundle.py --base <verified-x64-base.zip> --bar native-rust/target/x86_64-pc-windows-msvc/release/glazebar-native.exe --version 0.1.0-preview.6 --output distribution/output-preview6
+python distribution/Repackage-Bundle.py --base <verified-arm64-base.zip> --bar native-rust/target/aarch64-pc-windows-msvc/release/glazebar-native.exe --version 0.1.0-preview.6 --output distribution/output-preview6
 ```
 
-생성된 `distribution/output-날짜-시간` 경로를 다음 단계에 전달합니다.
-GlazeWM 공식 MSI와 대응 소스, 의존성 소스 및 라이선스를 수집하므로 네트워크와 디스크 공간이 필요합니다.
+Each bundle includes corresponding source and vendors in
+`source/glazebar-source.zip`, updated package documentation, and build provenance
+in `source/BUILD-GLAZEBAR.json`. The bundled source config uses `vendor/` for
+offline builds. The unchanged GlazeWM sources and vendors remain included.
 
-## 설치 EXE
+For a fresh modified WM build, follow
+[the WM build notes](../docs/glazewm-modifications.md) and
+`Build-ModifiedBundle.py`; the older `Build-Bundle.ps1` creates upstream-based
+bundles and is not the current modified-WM release recipe.
 
-Inno Setup 6.7 이상을 설치한 뒤 실행합니다.
+## Validate and build installers
+
+Use PowerShell 7 and Inno Setup 6.7 or later. Run both isolated bundle tests:
 
 ```powershell
-.\distribution\Build-Setup.ps1 -BundleRoot .\distribution\output-날짜-시간
+./distribution/Test-Bundle.ps1 -Bundle distribution/output-preview6/GlazeBar-Community-0.1.0-preview.6-windows-x64
+./distribution/Test-Bundle.ps1 -Bundle distribution/output-preview6/GlazeBar-Community-0.1.0-preview.6-windows-arm64
+./distribution/Build-Setup.ps1 -BundleRoot distribution/output-preview6 -Version 0.1.0-preview.6 -Architectures x64,arm64
+./distribution/Test-SetupStartup.ps1 -SetupExe distribution/setup-output/GlazeBar-GlazeWM-Setup-0.1.0-preview.6-x64.exe
 ```
 
-기본 출력은 `distribution/setup-output`입니다. Inno Setup 설치 위치가 다르면 `-Compiler`로 ISCC.exe 경로를 지정합니다.
-`-TestProfile`은 별도 테스트 설치 프로그램을 만드는 개발자 옵션입니다. 실제 MSI나 사용자 설정을 변경하지 않고 격리된 프로필에서 설치·복원을 시험하며, 이 실행 파일은 배포하면 안 됩니다.
+`Test-Bundle.ps1` checks integrity, isolated installation, Unicode/space paths,
+backup/restore, preserved edits, corruption rejection, and partial-install rollback.
+ARM64 package tests stage files without executing the ARM64 binary on x64.
+Run ARM64 startup and app checks on an actual ARM64 machine separately.
+`/CHECKSTARTUP` checks installer startup without installing MSI or changing settings;
+it does not replace full clean-machine MSI/UAC installation testing.
 
-배포용 EXE의 사용자 프로필 경로 처리는 해당 아키텍처의 Windows에서 아래처럼 확인합니다. `/CHECKSTARTUP`으로 시작 검사만 수행하고 설치 전에 종료합니다.
+`-TestProfile` on `Build-Setup.ps1` creates isolated test installers. Never publish
+those installers. The production source is copied to `setup-source` in the installation.
+Publish both architecture ZIPs and setup EXEs, corresponding source archives,
+and SHA256SUMS.txt. The release is a prerelease; Windows binaries are unsigned.
 
-```powershell
-.\distribution\Test-SetupStartup.ps1 -SetupExe .\distribution\setup-output\GlazeBar-GlazeWM-Setup-0.1.0-preview.4-arm64.exe
-```
+After updating an installed bundle, select the wallpaper/theme again and apply
+it to regenerate palettes and exported comment colors. Existing community
+bundles must be uninstalled first; keep the user-settings backups.
 
-x64 Windows에서는 파일 이름의 `arm64`를 `x64`로 바꿉니다. 이 검사는 MSI 설치·권한 확인을 포함한 전체 설치 테스트와는 별개입니다.
+## Hosted installer packaging
 
-설치 프로그램은 현재 사용자 권한으로 실행하고, GlazeWM의 공식 MSI 및 필요한 Microsoft 런타임 설치 프로그램만 자체 권한 확인 절차를 거칩니다.
-제거 과정에서 설정 복원에 실패하면 복구에 필요한 파일을 유지합니다.
-
-상주 실행 파일은 `GlazeBar.exe`, 테마 처리 도우미는 `GlazeTheme.exe`입니다. 같은 Rust 바이너리가 이름에 따라 역할을 선택합니다. preview.1의 `WorkspaceToggle.exe`를 직접 참조하는 사용자 설정은 `GlazeBar.exe`로 변경해야 합니다. 기존 번들은 제거 후 새 번들을 설치합니다.
-Windows 파일 설명과 버전은 `native-rust/glazebar.rc`에서 정의하며, 빌드에는 Windows SDK의 `rc.exe`가 PATH에 있어야 합니다.
-
-설치 폴더의 소스로 재구성하려면 `bundle/source/glazebar-source.zip`을 풀고,
-`setup-source`의 스크립트·설명 파일을 그 트리의 `distribution`에 복사하세요.
-`INNO-SETUP-LICENSE.txt`는 트리 루트의 `licenses` 폴더에 두세요.
-`Build-Setup.ps1`의 `-BundleRoot`에는 설치 시 포함된 `bundle` 폴더의 상위에
-`GlazeBar-Community-0.1.0-preview.4-windows-arm64` 또는 `...-x64` 이름으로 배치한 경로를 지정합니다.
-두 아키텍처를 모두 만들려면 양쪽 번들 입력이 필요합니다.
-
-## preview.4 x64 / ARM64 modified WM
-
-The previous Build-Bundle.ps1 recipe produces upstream-based bundles. For preview.4 use Build-ModifiedBundle.py with an existing preview.3 x64 bundle (dependency/license inputs), the GlazeBar repository, built GlazeBar executable, and modified GlazeWM checkout/runtime. Then run Build-Setup.ps1 (defaults to preview.4 x64; pass -Architectures arm64 for ARM64). See docs/glazewm-modifications.md for the WM toolchain and patch. Extract glazewm-modified-source.zip into a build root, then extract glazewm-vendor.zip into its vendor/ subfolder beside Cargo.toml. Set VERSION_NUMBER=3.10.1-glazebar.1.
-
-ARM64: pass `--arch arm64` and a preview.3 ARM64 base bundle to Build-ModifiedBundle.py, then `-Architectures arm64` to Build-Setup.ps1. Use `vcvarsamd64_arm64.bat` and `--target aarch64-pc-windows-msvc` for both programs. Install the ARM64 Rust target for nightly and 1.93.0.
+The Package release installers GitHub Actions workflow accepts a draft release
+containing both bundle ZIPs and SHA256SUMS.txt. It verifies the archives, runs
+isolated package tests, compiles both installers on Windows, checks x64 installer
+startup, and uploads installers, merged checksums and validation to the draft.
+The workflow does not publish the release or remove older releases.

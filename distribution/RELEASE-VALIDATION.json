@@ -1,81 +1,31 @@
-{
-  "version": "0.1.0-preview.3",
-  "date": "2026-10-19",
-  "rust": "1.93.0",
-  "tests": {
-    "passed": 76,
-    "failed": 0
-  },
-  "x64Runtime": {
-    "physicalWindows": true,
-    "residentProcess": "GlazeBar.exe",
-    "nativeValidation": "passed",
-    "hooksValidation": "passed",
-    "popupAltTab": "passed without clicking popup",
-    "popupBarClick": "passed on owned scale popup",
-    "unavailableWifi": "hidden on both monitors"
-  },
-  "arm64Runtime": "Not run; cross-compiled on x64 Windows",
-  "bundleTests": {
-    "x64": [
-      "hash verification",
-      "path substitution with spaces and Unicode",
-      "backup and restore",
-      "preserve user edits",
-      "preserve unrelated files",
-      "remove new files",
-      "reject corruption",
-      "rollback partial install",
-      "script parsing",
-      "GlazeBar.exe process filename and Windows version resource"
-    ],
-    "arm64": [
-      "hash verification",
-      "path substitution with spaces and Unicode",
-      "backup and restore",
-      "preserve user edits",
-      "preserve unrelated files",
-      "remove new files",
-      "reject corruption",
-      "rollback partial install",
-      "script parsing",
-      "GlazeBar.exe process filename and Windows version resource"
-    ]
-  },
-  "setupStartupCheck": {
-    "x64": "passed without installing",
-    "arm64": "not run"
-  },
-  "limitations": [
-    "Clean-machine MSI/UAC installation not tested",
-    "DDC/CI brightness not implemented",
-    "Binaries unsigned"
-  ],
-  "artifacts": [
-    {
-      "file": "GlazeBar-Community-0.1.0-preview.3-windows-arm64.zip",
-      "size": 135579659,
-      "sha256": "fae253c5a0e8b85842a2df4b48e30b861f61f687651bb6a7b74cb6ac2a372ccc"
-    },
-    {
-      "file": "GlazeBar-Community-0.1.0-preview.3-windows-x64.zip",
-      "size": 136150057,
-      "sha256": "028e9b8f37f8a7fd2e881ee395dcf21ce33166f18ce0837ccd8fe2337c099f0a"
-    },
-    {
-      "file": "GlazeBar-GlazeWM-Setup-0.1.0-preview.3-arm64.exe",
-      "size": 137191174,
-      "sha256": "b46c66a38365d4396efac3830b443220aad3fcd4a6e5dd5e1627d0ebe5612a66"
-    },
-    {
-      "file": "GlazeBar-GlazeWM-Setup-0.1.0-preview.3-x64.exe",
-      "size": 137826915,
-      "sha256": "36e959800278e56f22e096bc3e8092488e7e866e20b0aac101cdb51365255955"
-    },
-    {
-      "file": "glazebar-source.zip",
-      "size": 40905931,
-      "sha256": "71712bc3883241220a19e96c44e5aa208dcdd1a389fec38815d54e237b02c1de"
-    }
-  ]
+﻿{
+    "version":  "0.1.0-preview.6",
+    "date":  "2026-10-21",
+    "rust":  "1.93.0",
+    "tests":  {
+                  "ignored":  1,
+                  "ignoredReason":  "Live Wallhaven test requires explicit internet verification",
+                  "failed":  0,
+                  "passed":  86
+              },
+    "builds":  {
+                   "x64":  {
+                               "productVersion":  "0.1.0-preview.6",
+                               "target":  "x86_64-pc-windows-msvc",
+                               "peMachine":  "0x8664"
+                           },
+                   "arm64":  {
+                                 "runtimeTested":  false,
+                                 "productVersion":  "0.1.0-preview.6",
+                                 "target":  "aarch64-pc-windows-msvc",
+                                 "peMachine":  "0xAA64"
+                             }
+               },
+    "bundleValidation":  "Per-architecture validation JSON files accompany the release",
+    "installerValidation":  "validation-installers.json accompanies the release after the packaging workflow succeeds",
+    "limitations":  [
+                        "ARM64 cross-built on x64; physical ARM64 runtime not tested for preview.6",
+                        "Clean-machine MSI/UAC installation not tested",
+                        "Binaries unsigned"
+                    ]
 }

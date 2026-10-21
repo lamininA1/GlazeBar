@@ -1,0 +1,87 @@
+name: Package release installers
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing draft release tag containing both verified bundle ZIPs
+        required: true
+        default: v0.1.0-preview.6
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  installers:
+    runs-on: windows-2025
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_TAG: ${{ inputs.tag }}
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Check tag and source
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:RELEASE_TAG -notmatch '^v0\.1\.0-preview\.\d+$') { throw 'Unexpected release tag' }
+          $release = gh release view $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --json isDraft,tagName | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0 -or !$release.isDraft) { throw 'Packaging requires an existing draft release' }
+          git clone --depth 1 --branch $env:RELEASE_TAG "https://github.com/$env:GITHUB_REPOSITORY.git" release-source
+          if ($LASTEXITCODE -ne 0) { throw 'Source checkout failed' }
+      - name: Download and verify bundle archives
+        working-directory: release-source
+        run: |
+          $ErrorActionPreference = 'Stop'
+          gh release download $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY --pattern 'GlazeBar-Community-*-windows-*.zip' --pattern SHA256SUMS.txt --dir downloaded
+          if ($LASTEXITCODE -ne 0) { throw 'Bundle download failed' }
+          $version = $env:RELEASE_TAG.Substring(1)
+          $checksums = Get-Content downloaded/SHA256SUMS.txt
+          foreach ($arch in 'x64','arm64') {
+            $name = "GlazeBar-Community-$version-windows-$arch.zip"
+            $expected = @($checksums | Where-Object { $_ -match ('  ' + [regex]::Escape($name) + '$') })
+            if ($expected.Count -ne 1) { throw "Missing checksum: $name" }
+            if ((Get-FileHash "downloaded/$name").Hash -ne $expected[0].Split(' ')[0]) { throw "Archive checksum mismatch: $name" }
+            Expand-Archive "downloaded/$name" "distribution/output-release/GlazeBar-Community-$version-windows-$arch"
+          }
+      - name: Validate isolated bundle installation and restore
+        working-directory: release-source
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $version = $env:RELEASE_TAG.Substring(1)
+          foreach ($arch in 'x64','arm64') {
+            ./distribution/Test-Bundle.ps1 -Bundle "distribution/output-release/GlazeBar-Community-$version-windows-$arch"
+          }
+      - name: Compile installers and check x64 startup
+        working-directory: release-source
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $compiler = "${env:ProgramFiles(x86)}/Inno Setup 6/ISCC.exe"
+          if (!(Test-Path $compiler)) {
+            choco install innosetup --version=6.7.3 --yes --no-progress --limit-output
+            if ($LASTEXITCODE -ne 0 -or !(Test-Path $compiler)) { throw 'Inno Setup installation failed on temporary runner' }
+          }
+          $version = $env:RELEASE_TAG.Substring(1)
+          ./distribution/Build-Setup.ps1 -BundleRoot distribution/output-release -Version $version -Architectures x64,arm64 -Compiler $compiler
+          ./distribution/Test-SetupStartup.ps1 -SetupExe "distribution/setup-output/GlazeBar-GlazeWM-Setup-$version-x64.exe"
+      - name: Upload installers, checksums and validation
+        working-directory: release-source
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $version = $env:RELEASE_TAG.Substring(1)
+          $checksums = @(Get-Content downloaded/SHA256SUMS.txt) + @(Get-Content distribution/setup-output/SHA256SUMS.txt)
+          $checksums | Sort-Object -Unique | Set-Content SHA256SUMS.txt -Encoding ascii
+          $validation = [ordered]@{
+            tag = $env:RELEASE_TAG
+            source = (git rev-parse HEAD)
+            runner = $env:RUNNER_OS
+            checks = @('both archive hashes', 'both isolated bundle installation/restore tests', 'both installer compilation', 'x64 installer startup')
+            arm64RuntimeTested = $false
+            cleanMachineMsiUacTested = $false
+            run = "https://github.com/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID"
+          }
+          $validation | ConvertTo-Json -Depth 5 | Set-Content validation-installers.json -Encoding utf8
+          gh release upload $env:RELEASE_TAG --repo $env:GITHUB_REPOSITORY "distribution/setup-output/GlazeBar-GlazeWM-Setup-$version-x64.exe" "distribution/setup-output/GlazeBar-GlazeWM-Setup-$version-arm64.exe" SHA256SUMS.txt validation-installers.json --clobber
+          if ($LASTEXITCODE -ne 0) { throw 'Installer upload failed' }

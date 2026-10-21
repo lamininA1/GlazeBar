@@ -5,7 +5,7 @@ param(
     [string]$OutputDirectory = (Join-Path $PSScriptRoot 'setup-output'),
     [string]$Compiler = (Join-Path $env:LOCALAPPDATA 'Programs/Inno Setup 6/ISCC.exe'),
     [string]$TestProfile,
-    [string]$Version = '0.1.0-preview.5',
+    [string]$Version = '0.1.0-preview.6',
     [string[]]$Architectures = @('x64')
 )
 $ErrorActionPreference = 'Stop'

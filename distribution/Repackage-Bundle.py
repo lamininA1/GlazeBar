@@ -1,4 +1,4 @@
-"""Update a verified preview.4 bundle with GlazeBar, retaining WM and vendors."""
+"""Update a verified architecture bundle with GlazeBar, retaining WM and vendors."""
 import argparse
 import hashlib
 import json
@@ -17,7 +17,7 @@ def main():
     parser.add_argument('--base', type=Path, required=True)
     parser.add_argument('--bar', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--version', default='0.1.0-preview.5')
+    parser.add_argument('--version', default='0.1.0-preview.6')
     args = parser.parse_args()
     repo = Path(__file__).resolve().parents[1]
     with zipfile.ZipFile(args.base) as base:
@@ -65,7 +65,7 @@ def main():
         'barSHA256': sha(binary), 'glazewmVersion': manifest['glazewmVersion'],
         'unchangedComponents': ['modified GlazeWM', 'official GlazeWM MSI', 'dependency vendors', 'third-party licenses'],
     }
-    (folder / 'source/BUILD-PREVIEW5.json').write_text(json.dumps(provenance, indent=2), encoding='utf-8')
+    (folder / 'source/BUILD-GLAZEBAR.json').write_text(json.dumps(provenance, indent=2), encoding='utf-8')
     manifest['version'] = args.version
     manifest['files'] = [{'path': p.relative_to(folder).as_posix(), 'sha256': sha(p.read_bytes())}
                          for p in sorted(folder.rglob('*')) if p.is_file() and p.name != 'manifest.json']

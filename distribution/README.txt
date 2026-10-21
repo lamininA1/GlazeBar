@@ -1,77 +1,57 @@
-﻿preview.4 x64 / ARM64: GlazeWM 3.10.1-glazebar.1 (modified from https://github.com/glzr-io/glazewm).
-Alt+M preserves the layout while minimizing/restoring real windows. Corrective placement is retained.
-Use GlazeBar + GlazeWM in the Start menu, or run %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe.
-The unchanged upstream MSI is retained for CLI compatibility and rollback; community shortcuts run the modified build.
-This release supports x64 and ARM64. ARM64 is cross-built, not tested on physical ARM64 hardware. No IME fix is claimed.
+GlazeBar + GlazeWM community bundle 0.1.0-preview.6
 
-GlazeBar Community Bundle 0.1.0-preview.4 / GlazeWM 3.10.1
+For Windows 11 x64 / ARM64. Choose the package matching your Windows architecture.
+Includes native Rust GlazeBar and modified GlazeWM 3.10.1-glazebar.1.
+This is an independent community bundle, not an official GlazeWM release.
 
-preview.3 hides Wi-Fi when no usable WLAN interface is available. Disconnected
-Wi-Fi adapters remain visible. Popups dismiss on outside clicks, including the
-bar, or foreground switches without requiring a prior click inside the popup.
-Input controls and owned settings dialogs remain part of the popup.
+Current changes
+Comment colors retain their muted hue while meeting the background contrast
+threshold, instead of becoming identical to body text. Old palette caches are
+regenerated. After updating, select your wallpaper/theme again and apply it to VS Code.
+Also includes Wallhaven search filters, pagination, saved searches, persistent
+previews and collections, plus layout-preserving Alt+M minimize/restore.
 
-Independent community bundle. Not an official GlazeWM release.
-Windows 11 x64 (Intel / AMD) or ARM64; use the matching package.
-GlazeBar needs no .NET, Go, Rust or WebView2 installation.
-Modified GlazeWM is included alongside the unchanged official standalone MSI.
-GlazeBar statically links its C runtime. The official GlazeWM binary still
-requires Microsoft Visual C++ Runtime. If it is missing, Install.ps1 downloads
-Microsoft's installer, verifies its signature, and shows its license/install
-dialog. Internet access is required for this one-time prerequisite download.
-Microsoft runtime terms apply separately; that installer is not redistributed
-inside this ZIP. See https://aka.ms/vc14/vc_redist.x64.exe (x64) or
-https://aka.ms/vc14/vc_redist.arm64.exe (ARM64).
-
-INSTALL
-1. Extract the entire ZIP to a local folder.
-2. Exit any existing GlazeWM and GlazeBar processes.
-3. In PowerShell, run:
+Install / update
+1. Extract the entire ZIP.
+2. Close GlazeWM and GlazeBar.
+3. Uninstall an existing community bundle first, retaining your configuration backups.
+4. Run in the extracted folder:
    powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1
-   Add -AutoStart to create a per-user startup shortcut.
-4. Run %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe (or the community setup shortcut).
-The script backs up every existing file it replaces in
-%USERPROFILE%\.glzr\community-backups, then installs GlazeBar and the
-bundle configuration under %USERPROFILE%\.glzr\glazewm.
-GlazeWM MSI may request administrator consent. Existing GlazeWM versions
-other than 3.10.1 are left intact and installation is refused.
-Existing third-party startup entries are not modified: avoid duplicate starts.
+   Add -AutoStart to start at sign-in.
+5. Run %USERPROFILE%\.glzr\glazewm\wm\glazewm.exe.
+For the bundled setup EXE, use GlazeBar + GlazeWM in the Start menu instead.
 
-UNINSTALL / RESTORE
-Exit GlazeWM and GlazeBar, then run:
+Install path: %USERPROFILE%\.glzr\glazewm
+Backups: %USERPROFILE%\.glzr\community-backups
+Existing files are backed up. Incompatible GlazeWM versions are not silently replaced.
+If GlazeWM needs the Visual C++ runtime, the installer downloads it directly from
+Microsoft, verifies its signature, and opens its installer. Internet access and
+administrator approval may be required. GlazeBar does not need .NET, Go or WebView2.
+
+Uninstall / restore
+Close both programs, then run:
    powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Uninstall.ps1
-Original files are restored. Files edited after installation are first copied
-into the backup's edits-at-uninstall directory. New caches and user-created
-files are retained. GlazeWM itself stays installed and can be removed using
-Windows Settings > Installed apps. Wallpaper/Windows theme changes explicitly
-applied while using the app are not undone by uninstalling the bundle.
+For an EXE installation, uninstall the community bundle in Windows Settings > Apps.
+Original files are restored; files edited since installation are saved separately
+under edits-at-uninstall. Backups, caches, the official GlazeWM installation,
+and previously applied Windows colors/wallpaper are retained.
 
-FEATURES / LIMITS
-Win+F1: shortcuts. Win+Alt+Shift+B: toggle bar.
-Win+Ctrl+Alt+Space: wallpaper picker. Alt+Shift+E: exit GlazeWM.
-Default weather: Seoul, using Open-Meteo; requires internet.
-Weather data attribution: https://open-meteo.com/ (CC BY 4.0).
-The free Open-Meteo endpoint is intended for non-commercial use; configure
-an appropriate service plan/endpoint before commercial deployment.
-Wallhaven search/download requires internet. No downloaded wallpapers are
-redistributed; each image retains its own author's rights.
-Power menu uses existing %USERPROFILE%\PowerProfiles\profiles.json if present.
-Otherwise only available standard Windows power schemes can be selected;
-unavailable schemes show a dash. No power schemes are created or overwritten.
-Brightness is detected per display through WMI. Unsupported providers or
-missing brightness classes disable the control without terminating the bar.
-External-monitor DDC/CI control is not included. The resident process and
-Windows file description are now GlazeBar (GlazeBar.exe).
-The x64 build is tested on physical x64 Windows. ARM64 is cross-built and
-package-validated on x64, without physical ARM64 execution validation. Clean-machine MSI/UAC validation remains pending.
-Preview binaries/scripts are not signed. Checksums detect accidental changes;
-they are not a substitute for publisher identity verification.
+Shortcuts
+Win+F1: shortcut guide
+Win+Alt+Shift+B: show/hide bar
+Win+Ctrl+Alt+Space: wallpaper picker
+Alt+Shift+E: quit GlazeWM
 
-LICENSE / SOURCE
-GlazeBar original code: GPL-3.0-only. See LICENSE and THIRD-PARTY-NOTICES.txt.
-GlazeWM: GNU GPL v3; original notices are preserved in its source archive.
-Other components retain their own licenses; see licenses/ and source/.
-Complete GlazeBar source, Cargo.lock, vendored dependency sources, and build
-instructions are in source/glazebar-source.zip. GlazeWM matching source and
-dependency sources are also included. Keep these with any redistributed ZIP.
-No warranty. Recipients retain the rights granted by the component licenses.
+Validation / limitations
+x64 is checked on Windows. ARM64 is cross-built and package-checked; this version
+has not been run on physical ARM64 hardware. Full MSI/UAC installation on a clean
+Windows system is separate. Binaries are not code-signed.
+Brightness controls depend on per-monitor WMI support; external DDC/CI is not included.
+Weather defaults to Seoul, using Open-Meteo's free non-commercial service:
+https://open-meteo.com/en/terms
+
+License / source
+GlazeBar and bundle scripts: GPL-3.0-only. GlazeWM and dependency licenses are retained.
+Redistribute LICENSE, THIRD-PARTY-NOTICES.txt, licenses and source together.
+Corresponding source, dependency source and build instructions are under source.
+Full guide: https://github.com/lamininA1/GlazeBar
