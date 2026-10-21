@@ -1,4 +1,4 @@
-//! Theme export compatibility with the pinned Go/Aether implementation.
+//! Theme export mappings from Go/Aether, with contrast-preserving muted colors.
 //! Planning is pure: callers perform transactional writes separately.
 use anyhow::{Result, ensure};
 use serde_json::{Value, json};
@@ -39,7 +39,7 @@ pub fn readable(colors: &[String]) -> Result<Palette> {
         );
     }
     let mut p: Palette = std::array::from_fn(|i| colors[i].clone());
-    for i in [7, 8, 15] {
+    for i in [7, 15] {
         if contrast(&p[0], &p[i]) < 4.5 {
             p[i] = p[15].clone();
         }
@@ -50,7 +50,40 @@ pub fn readable(colors: &[String]) -> Result<Palette> {
             }
         }
     }
+    p[8] = readable_muted(&p[0], &p[8]);
     Ok(p)
+}
+
+// Preserve the muted color's hue and chroma instead of replacing it with the
+// body foreground. Evaluate quantized RGB colors so the exported hex actually
+// meets the contrast threshold, including after gamut clipping.
+fn readable_muted(background: &str, color: &str) -> String {
+    if contrast(background, color) >= 4.5 {
+        return color.to_owned();
+    }
+    let [lightness, chroma, hue] = to_oklch(color);
+    let mut best = None;
+    let mut distance = f64::INFINITY;
+    for step in 0..=1000 {
+        let candidate_lightness = step as f64 / 1000.;
+        let delta = (candidate_lightness - lightness).abs();
+        if delta >= distance {
+            continue;
+        }
+        let [r, g, b] = from_oklch([candidate_lightness, chroma, hue]);
+        let candidate = format!("#{r:02x}{g:02x}{b:02x}");
+        if contrast(background, &candidate) >= 4.5 {
+            best = Some(candidate);
+            distance = delta;
+        }
+    }
+    best.unwrap_or_else(|| {
+        if contrast(background, "#000000") >= 4.5 {
+            "#000000".into()
+        } else {
+            "#ffffff".into()
+        }
+    })
 }
 pub fn accent(p: &Palette, light: bool) -> String {
     let [_, mut c, h] = to_oklch(&p[4]);
@@ -227,26 +260,69 @@ pub fn textmate(p: &Palette) -> String {
 }
 pub fn export_preview(colors: &[String], light: bool) -> Result<Value> {
     let p = readable(colors)?;
-    Ok(
-        json!({"palette":p,"accent":accent(&p,light),"terminal":terminal(&p),"codeColors":code_colors(&p),"codeTokens":code_tokens(&p),"textMate":textmate(&p),"glazebar":{"name":NAME,"palette":p,"light":light}}),
-    )
+    Ok(export_palette(&p, light))
+}
+fn export_palette(p: &Palette, light: bool) -> Value {
+    json!({"palette":p,"accent":accent(p,light),"terminal":terminal(p),"codeColors":code_colors(p),"codeTokens":code_tokens(p),"textMate":textmate(p),"glazebar":{"name":NAME,"palette":p,"light":light}})
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
     #[test]
-    fn exports_match_go_reference() {
+    fn export_mappings_match_go_reference() {
         let cases: Vec<Value> =
             serde_json::from_str(include_str!("../fixtures/theme-export-go.json")).unwrap();
         assert_eq!(cases.len(), 138);
         for (i, case) in cases.iter().enumerate() {
-            let input: Vec<String> = serde_json::from_value(case["input"].clone()).unwrap();
+            // Keep the historical fixtures as mapping checks. Contrast repair
+            // intentionally differs from Go and is covered separately below.
+            let input: Palette =
+                serde_json::from_value(case["expected"]["palette"].clone()).unwrap();
             assert_eq!(
-                export_preview(&input, case["light"].as_bool().unwrap()).unwrap(),
+                export_palette(&input, case["light"].as_bool().unwrap()),
                 case["expected"],
                 "Go reference case {i}"
             );
+        }
+    }
+    #[test]
+    fn muted_comments_stay_readable_and_distinct_from_body() {
+        for (background, muted, foreground) in [
+            ("#181818", "#55443b", "#fdf3eb"),
+            ("#fafafa", "#d6c5b8", "#181818"),
+        ] {
+            let mut input = vec![foreground.to_owned(); 16];
+            input[0] = background.into();
+            input[8] = muted.into();
+            let p = readable(&input).unwrap();
+            assert!(contrast(background, &p[8]) >= 4.5);
+            assert_ne!(p[8], p[15]);
+            assert!(contrast(background, &p[8]) < contrast(background, &p[15]));
+            let [r, g, b] = rgb(&p[8]);
+            assert!(r > g && g > b, "warm comment hue should survive: {}", p[8]);
+            assert_eq!(readable(&p).unwrap(), p);
+            assert_eq!(code_tokens(&p)["comments"], p[8]);
+            let settings = crate::theme_settings::vscode_settings("{}", &p).unwrap();
+            let settings: Value = serde_json::from_str(&settings).unwrap();
+            assert_ne!(
+                settings["editor.tokenColorCustomizations"]["comments"],
+                settings["workbench.colorCustomizations"]["editor.foreground"]
+            );
+        }
+    }
+    #[test]
+    fn all_reference_palettes_remain_readable_and_idempotent() {
+        let cases: Vec<Value> =
+            serde_json::from_str(include_str!("../fixtures/theme-export-go.json")).unwrap();
+        for case in cases {
+            let input: Vec<String> = serde_json::from_value(case["input"].clone()).unwrap();
+            let p = readable(&input).unwrap();
+            assert!(contrast(&p[0], &p[8]) >= 4.5);
+            if contrast(&input[0], &input[8]) >= 4.5 {
+                assert_eq!(p[8], input[8]);
+            }
+            assert_eq!(readable(&p).unwrap(), p);
         }
     }
     #[test]

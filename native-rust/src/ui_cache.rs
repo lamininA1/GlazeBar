@@ -42,7 +42,7 @@ fn palette_key_at(identity: &str, mode: &str, light: bool) -> Option<String> {
         "SHA256",
         32,
         format!(
-            "aether-29d07b1-normalize-v1|{identity}|{mode}|{}",
+            "aether-29d07b1-normalize-v2|{identity}|{mode}|{}",
             if light { "True" } else { "False" }
         )
         .as_bytes(),
@@ -177,7 +177,7 @@ mod tests {
         .unwrap();
     }
     #[test]
-    fn identities_and_hashes_match_go_including_unicode() {
+    fn identities_match_go_and_palette_keys_invalidate_old_normalization() {
         let cases: Vec<serde_json::Value> =
             serde_json::from_str(include_str!("../fixtures/ui-cache-go.json")).unwrap();
         for c in cases {
@@ -187,7 +187,7 @@ mod tests {
                 u128::from(c["ticks"].as_u64().unwrap()),
             );
             assert_eq!(id, c["identity"]);
-            assert_eq!(
+            assert_ne!(
                 palette_key_at(
                     &id,
                     c["mode"].as_str().unwrap(),
@@ -202,6 +202,28 @@ mod tests {
                 c["thumbnailKey"]
             );
         }
+    }
+    #[test]
+    fn old_final_palette_is_regenerated_with_readable_comments() {
+        let dir = tempfile::tempdir().unwrap();
+        let image = Path::new(env!("CARGO_MANIFEST_DIR")).join("fixtures/sampler-0.png");
+        let id = identity(&image).unwrap();
+        let old_key = crate::theme_cache::hash(
+            "SHA256",
+            32,
+            format!("aether-29d07b1-normalize-v1|{id}|normal|False").as_bytes(),
+        )
+        .unwrap();
+        let old: Palette = std::array::from_fn(|_| "#fdf3eb".into());
+        let old_path = dir.path().join(format!("{old_key}.json"));
+        std::fs::write(&old_path, serde_json::to_vec(&old).unwrap()).unwrap();
+        assert!(load(dir.path(), &image, "normal", false).is_none());
+        let generated = extract_modes(&image, false, &["normal"], Some(dir.path()), None).unwrap();
+        let p = &generated[0];
+        assert_ne!(p[8], p[15]);
+        assert!(crate::theme::contrast(&p[0], &p[8]) >= 4.5);
+        assert_eq!(load(dir.path(), &image, "normal", false).as_ref(), Some(p));
+        assert!(old_path.exists());
     }
     #[test]
     fn final_palette_hit_preserves_bytes_and_skips_decoder() {
