@@ -33,6 +33,11 @@ jobs:
         with:
           targets: ${{ matrix.target }}
 
+      - name: Set up MSVC Developer Command Prompt
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
       - name: Cache Cargo dependencies
         uses: actions/cache@v4
         with:
@@ -71,6 +76,11 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: ${{ matrix.target }}
+
+      - name: Set up MSVC Developer Command Prompt
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: ${{ matrix.arch }}
 
       - name: Cache Cargo build
         uses: actions/cache@v4
