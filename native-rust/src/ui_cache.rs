@@ -242,7 +242,7 @@ mod tests {
             vec![palette]
         );
         assert!(extract_modes(&path, true, &["normal"], Some(dir.path()), None).is_err());
-        std::fs::write(&path, b"changed size").unwrap();
+        std::fs::write(&path, b"changed size and different length").unwrap();
         assert!(load(dir.path(), &path, "normal", false).is_none());
     }
 }
