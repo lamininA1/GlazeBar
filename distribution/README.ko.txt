@@ -1,13 +1,13 @@
-GlazeBar + GlazeWM 커뮤니티 번들 0.1.0-preview.7
+GlazeBar + GlazeWM 커뮤니티 번들 0.1.0-preview.8
 
 Windows 11 x64 / ARM64용입니다. PC 아키텍처에 맞는 패키지를 사용하세요.
 GlazeBar와 수정 GlazeWM 3.10.1-glazebar.2가 포함됩니다.
 GlazeWM 공식 배포판이 아닌 독립적인 커뮤니티 번들입니다.
 
 최신 변경
-창을 옮길 때 GlazeWM이 "No workspace is currently focused."
-"Focused container has no monitor." 오류를 반복하던 문제를 수정했습니다.
-빈 분할 정리는 화면을 다시 그리기 직전에 수행합니다.
+WSL2(WSLg) 실행 시 내부 msrdc.exe를 원격 데스크탑으로 오인해 GlazeWM이
+자동 일시중지되던 문제를 수정했습니다. 또한 Windows 작업 관리자(Taskmgr)와
+한글(Hwp) 보조창을 기본 ignore 규칙에 추가했습니다.
 
 설치 및 업데이트
 1. ZIP 전체를 압축 해제합니다.

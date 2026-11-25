@@ -1,6 +1,6 @@
-# Build and package preview.7
+# Build and package preview.8
 
-The current release is **0.1.0-preview.7**, for Windows 11 x64 and ARM64.
+The current release is **0.1.0-preview.8**, for Windows 11 x64 and ARM64.
 It includes the Wallhaven browser and collections, readable comment colors and
 modified GlazeWM 3.10.1-glazebar.2. See
 [comment colors](../docs/comment-colors.md) and

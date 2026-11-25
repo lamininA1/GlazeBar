@@ -1,6 +1,6 @@
 # GlazeBar + GlazeWM
 
-> **Latest: 0.1.0-preview.7 · Windows 11 x64 / ARM64.** Fixes the repeated `No workspace is currently focused.` and `Focused container has no monitor.` errors in GlazeWM when moving windows. Recommended for preview.4–6 users. [Cause and fix](docs/glazewm-modifications.md#preview7-fix)
+> **Latest: 0.1.0-preview.8 · Windows 11 x64 / ARM64.** Fixes false Remote Desktop auto-pause triggers from WSL2/WSLg (`msrdc.exe`) and adds default `ignore` rules for Windows Task Manager (`Taskmgr`) and Hancom Office helper windows.
 
 [한국어](README.md) · [English](README.en.md)
 
@@ -23,8 +23,8 @@ The font is Pretendard, color extraction comes from Aether, and the UI is based 
 
 | Your PC | Bundled installer |
 | --- | --- |
-| Intel / AMD Windows | [x64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.7/GlazeBar-GlazeWM-Setup-0.1.0-preview.7-x64.exe) |
-| Windows on ARM | [ARM64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.7/GlazeBar-GlazeWM-Setup-0.1.0-preview.7-arm64.exe) |
+| Intel / AMD Windows | [x64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.8/GlazeBar-GlazeWM-Setup-0.1.0-preview.8-x64.exe) |
+| Windows on ARM | [ARM64 setup EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.8/GlazeBar-GlazeWM-Setup-0.1.0-preview.8-arm64.exe) |
 
 ## Install
 

@@ -1,13 +1,13 @@
-GlazeBar + GlazeWM community bundle 0.1.0-preview.7
+GlazeBar + GlazeWM community bundle 0.1.0-preview.8
 
 For Windows 11 x64 / ARM64. Choose the package matching your Windows architecture.
 Includes native Rust GlazeBar and modified GlazeWM 3.10.1-glazebar.2.
 This is an independent community bundle, not an official GlazeWM release.
 
 Current changes
-Fixes the repeated "No workspace is currently focused." and "Focused container has no
-monitor." errors in GlazeWM after moving windows. Empty-split cleanup now runs just
-before redraw.
+Fixes false Remote Desktop auto-pause triggers caused by WSL2/WSLg's internal
+msrdc.exe or hidden windows, and adds default ignore rules for Windows Task Manager
+and Hancom Office helper windows.
 
 Install / update
 1. Extract the entire ZIP.

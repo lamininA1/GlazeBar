@@ -162,6 +162,12 @@ window_rules:
         window_class: { not_regex: 'OpusApp' }
       - window_process: { equals: 'POWERPNT' }
         window_class: { not_regex: 'PPTFrameClass' }
+      # Hancom Office(한글): 보조 메시지 창(제목 없음)이 타일에 끼어드는 것을 방지.
+      - window_process: { equals: 'Hwp' }
+        window_class: { regex: '^MessageWindowClass' }
+      # Windows 작업 관리자(관리자 권한): UIPI 권한 격리 및 듀얼 모니터 경계 트리 오류 방지.
+      - window_process: { regex: '^[Tt]askmgr$' }
+      - window_class: { equals: 'TaskManagerWindow' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.

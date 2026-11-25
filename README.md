@@ -1,6 +1,6 @@
 # GlazeBar + GlazeWM
 
-> **최신: 0.1.0-preview.7 · Windows 11 x64 / ARM64.** 창을 옮길 때 `No workspace is currently focused.`, `Focused container has no monitor.` 오류가 반복되던 GlazeWM 문제를 고쳤습니다. preview.4~6 사용자는 업데이트를 권장합니다. [원인과 수정](docs/glazewm-modifications.md#preview7-fix)
+> **최신: 0.1.0-preview.8 · Windows 11 x64 / ARM64.** WSL2(WSLg) 사용 시 `msrdc.exe` 오탐으로 GlazeWM이 자동 일시중지되던 문제를 수정하고, Windows 작업 관리자(`Taskmgr`) 및 한글(`Hwp`) 보조창 기본 `ignore` 규칙을 추가했습니다.
 
 [한국어](README.md) · [English](README.en.md)
 
@@ -23,8 +23,8 @@ GlazeWM이 창과 작업공간을 관리하고, GlazeBar에서 시스템 상태�
 
 | 사용하는 PC | 통합 설치 프로그램 |
 | --- | --- |
-| Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.7/GlazeBar-GlazeWM-Setup-0.1.0-preview.7-x64.exe) |
-| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.7/GlazeBar-GlazeWM-Setup-0.1.0-preview.7-arm64.exe) |
+| Intel / AMD Windows | [x64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.8/GlazeBar-GlazeWM-Setup-0.1.0-preview.8-x64.exe) |
+| Windows on ARM | [ARM64 설치 EXE](https://github.com/lamininA1/GlazeBar/releases/download/v0.1.0-preview.8/GlazeBar-GlazeWM-Setup-0.1.0-preview.8-arm64.exe) |
 
 ## 설치
 

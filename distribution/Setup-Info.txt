@@ -1,4 +1,4 @@
-GlazeBar + GlazeWM 0.1.0-preview.7 — Windows 11 x64 / ARM64
+GlazeBar + GlazeWM 0.1.0-preview.8 — Windows 11 x64 / ARM64
 
 GlazeBar와 수정 GlazeWM 3.10.1-glazebar.2를 설치하는 커뮤니티 번들입니다.
 PC에 맞는 설치 프로그램을 사용하고 실행 중인 GlazeWM과 GlazeBar를 종료하세요.
@@ -12,8 +12,9 @@ GlazeWM의 Visual C++ 런타임이 없으면 Microsoft에서 내려받아 서명
 로그인 시 자동 시작은 다음 화면에서 선택합니다.
 설치 후 시작 메뉴의 GlazeBar + GlazeWM을 실행하세요.
 
-이번 버전은 창을 옮길 때 GlazeWM이 "No workspace is currently focused."
-"Focused container has no monitor." 오류를 반복하던 문제를 수정합니다.
+이번 버전은 WSL2(WSLg) 사용 시 원격 데스크탑(msrdc.exe) 오탐으로
+GlazeWM이 자동 일시중지되던 문제를 수정하고, 작업 관리자(Taskmgr)와
+한글(Hwp) 보조창의 기본 ignore 규칙을 추가했습니다.
 
 제거 시 Windows 설정 > 앱에서 커뮤니티 번들을 제거하세요.
 설치 전 파일을 복원하고 설치 후 수정한 파일은 별도 보관합니다.
@@ -26,7 +27,7 @@ GlazeBar 및 설치 스크립트는 GPL-3.0-only이며 제삼자 라이선스를
 
 English: This community bundle installs GlazeBar and modified GlazeWM.
 Close both programs and uninstall an older community bundle before updating.
-Keep configuration backups. This version fixes repeated "No workspace is currently
-focused" / "Focused container has no monitor" errors in GlazeWM after moving windows.
+Keep configuration backups. This version fixes false Remote Desktop pause triggers
+from WSL2/WSLg (msrdc.exe) and adds default ignore rules for Windows Task Manager.
 The ARM64 package is cross-built on x64. Corresponding source and licenses are included.
 See the repository for details: https://github.com/lamininA1/GlazeBar

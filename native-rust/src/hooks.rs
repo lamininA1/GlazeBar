@@ -167,17 +167,26 @@ unsafe extern "system" fn mouse(code: i32, wp: WPARAM, lp: LPARAM) -> LRESULT {
     unsafe { CallNextHookEx(null_mut(), code, wp, lp) }
 }
 fn remote_name(path: &str) -> bool {
-    matches!(
-        path.rsplit(['\\', '/'])
-            .next()
-            .unwrap_or("")
-            .to_ascii_lowercase()
-            .as_str(),
-        "mstsc.exe" | "msrdc.exe" | "rdclientwpf.exe"
-    )
+    let lower = path.to_ascii_lowercase();
+    let mut parts = lower.rsplit(['\\', '/']);
+    match parts.next().unwrap_or("") {
+        "mstsc.exe" | "rdclientwpf.exe" => true,
+        "msrdc.exe" => !parts.any(|segment| {
+            segment == "wsl"
+                || segment == "wslg"
+                || segment.contains("windowssubsystemforlinux")
+        }),
+        _ => false,
+    }
 }
 fn is_remote(hwnd: HWND) -> bool {
+    if hwnd.is_null() {
+        return false;
+    }
     unsafe {
+        if IsWindowVisible(hwnd) == 0 {
+            return false;
+        }
         let mut pid = 0;
         GetWindowThreadProcessId(hwnd, &mut pid);
         let process = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, 0, pid);
@@ -427,6 +436,11 @@ mod tests {
     #[test]
     fn remote_process_names_are_exact() {
         assert!(remote_name("C:\\Windows\\System32\\MSTSC.EXE"));
+        assert!(remote_name("C:\\Program Files\\Remote Desktop\\msrdc.exe"));
+        assert!(!remote_name("C:\\Program Files\\WSL\\msrdc.exe"));
+        assert!(!remote_name(
+            "C:\\Program Files\\WindowsApps\\MicrosoftCorporationII.WindowsSubsystemForLinux_2.3.26.0_x64__8wekyb3d8bbwe\\msrdc.exe"
+        ));
         assert!(!remote_name("C:\\mstsc.exe.backup"));
     }
 }
