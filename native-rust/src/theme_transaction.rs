@@ -115,7 +115,15 @@ impl Plan {
         ensure!(!r.targets.is_empty(), "select at least one theme target");
         for t in &r.targets {
             ensure!(
-                ["glazebar", "terminal", "codex", "vscode", "windows"].contains(&t.as_str()),
+                [
+                    "glazebar",
+                    "terminal",
+                    "codex",
+                    "vscode",
+                    "antigravity",
+                    "windows"
+                ]
+                .contains(&t.as_str()),
                 "unsupported theme target: {t}"
             );
         }
@@ -179,6 +187,12 @@ impl Plan {
             let updated = theme_settings::vscode_settings(&text(&path)?, &p)?;
             plan.add(path, updated.into_bytes())?;
             plan.applied.push("vscode".into());
+        }
+        if wanted("antigravity") {
+            let path = home.join("AppData/Roaming/Antigravity IDE/User/settings.json");
+            let updated = theme_settings::vscode_settings(&text(&path)?, &p)?;
+            plan.add(path, updated.into_bytes())?;
+            plan.applied.push("antigravity".into());
         }
         plan.add(plan.state.join("current-palette.json"),json(&serde_json::json!({"name":theme::NAME,"image":r.image,"mode":if r.mode.is_empty(){"normal"}else{&r.mode},"light":r.light,"palette":p}))?)?;
         if wanted("windows") {
@@ -459,6 +473,35 @@ mod tests {
         restore_with(home, |_| Ok(())).unwrap();
         assert_eq!(fs::read(code).unwrap(), before);
         assert!(!home.join(".codex/config.toml").exists());
+    }
+    #[test]
+    fn antigravity_apply_restore_matches_vscode_settings() {
+        let temp = tempfile::tempdir().unwrap();
+        let home = temp.path();
+        let code = home.join("AppData/Roaming/Code/User/settings.json");
+        let antigravity = home.join("AppData/Roaming/Antigravity IDE/User/settings.json");
+        let before = b"{\n  \"workbench.colorTheme\": \"One Dark Modern\"\n}\n";
+        atomic_write(&code, before).unwrap();
+        atomic_write(&antigravity, before).unwrap();
+        let req = Request {
+            action: "apply".into(),
+            palette: vec!["#123456".into(); 16],
+            targets: vec!["vscode".into(), "antigravity".into()],
+            ..Default::default()
+        };
+        let plan = Plan::build(home, &req).unwrap();
+        assert_eq!(plan.applied, vec!["vscode", "antigravity"]);
+        plan.apply_with(|_| Ok(())).unwrap();
+        let code_after = fs::read(&code).unwrap();
+        let antigravity_after = fs::read(&antigravity).unwrap();
+        assert_eq!(antigravity_after, code_after);
+        let text = String::from_utf8(antigravity_after).unwrap();
+        assert!(text.contains("\"workbench.colorTheme\": \"One Dark Modern\""));
+        assert!(text.contains("\"workbench.colorCustomizations\""));
+        assert!(text.contains("\"editor.tokenColorCustomizations\""));
+        restore_with(home, |_| Ok(())).unwrap();
+        assert_eq!(fs::read(code).unwrap(), before);
+        assert_eq!(fs::read(antigravity).unwrap(), before);
     }
     #[test]
     fn validation_precedes_all_writes() {

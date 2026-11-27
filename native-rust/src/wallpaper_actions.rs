@@ -16,7 +16,7 @@ pub fn prepare(p: &crate::wallpaper_ui::Picker) -> Result<(PathBuf, Option<Reque
         .palette
         .as_ref()
         .ok_or_else(|| anyhow!("색상 추출이 끝난 뒤 적용해주세요"))?;
-    let mut targets: Vec<String> = ["glazebar", "terminal", "codex", "vscode"]
+    let mut targets: Vec<String> = ["glazebar", "terminal", "codex", "vscode", "antigravity"]
         .into_iter()
         .zip(p.targets)
         .filter(|(_, enabled)| *enabled)
@@ -101,7 +101,7 @@ mod tests {
             mode: 1,
             light: true,
             enabled: true,
-            targets: [false, true, false, true],
+            targets: [false, true, false, true, true],
             windows: true,
             options: crate::theme_windows::Options {
                 transparency: Some(false),
@@ -118,12 +118,15 @@ mod tests {
         p.palette = Some(std::array::from_fn(|_| "#123456".into()));
         let (_, request) = prepare(&p).unwrap();
         let request = request.unwrap();
-        assert_eq!(request.targets, vec!["terminal", "vscode", "windows"]);
+        assert_eq!(
+            request.targets,
+            vec!["terminal", "vscode", "antigravity", "windows"]
+        );
         assert_eq!(request.mode, "muted");
         assert!(request.light);
         assert_eq!(request.windows.unwrap().transparency, Some(false));
         p.windows = false;
-        p.targets = [false; 4];
+        p.targets = [false; 5];
         assert!(prepare(&p).is_err());
         p.enabled = false;
         p.busy = true;

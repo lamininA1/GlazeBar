@@ -92,7 +92,7 @@ pub fn paint(c: &mut Canvas, p: &Preview) {
     for (label, y, height) in [
         ("Terminal", 185., 75.),
         ("Codex CLI", 285., 125.),
-        ("VS Code", 430., 118.),
+        ("VS Code / Antigravity", 430., 118.),
     ] {
         line(c, label, c.ui.muted, 24., y);
         c.fill(

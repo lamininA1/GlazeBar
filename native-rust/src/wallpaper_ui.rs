@@ -51,7 +51,7 @@ pub struct Picker {
     pub mode: usize,
     pub light: bool,
     pub enabled: bool,
-    pub targets: [bool; 4],
+    pub targets: [bool; 5],
     pub windows: bool,
     pub options: crate::theme_windows::Options,
     pub busy: bool,
@@ -98,7 +98,13 @@ impl Picker {
             mode: 0,
             light: false,
             enabled: true,
-            targets: [true; 4],
+            targets: [
+                true,
+                true,
+                true,
+                true,
+                home.join("AppData/Roaming/Antigravity IDE").is_dir(),
+            ],
             windows: preferences["enabled"].as_bool().unwrap_or(false),
             options: serde_json::from_value(preferences["options"].clone()).unwrap_or(
                 crate::theme_windows::Options {
@@ -418,15 +424,21 @@ pub fn paint(c: &mut Canvas, p: &Picker, hover: Option<(i32, i32)>) -> Vec<Hit> 
             );
         }
     }
-    for (i, label) in ["GlazeBar", "Terminal", "Codex CLI", "VS Code"]
-        .iter()
-        .enumerate()
+    for (i, (label, x, width)) in [
+        ("GlazeBar", 24., 84.),
+        ("Terminal", 112., 80.),
+        ("Codex CLI", 196., 88.),
+        ("VS Code", 288., 80.),
+        ("Antigravity", 372., 104.),
+    ]
+    .iter()
+    .enumerate()
     {
         toggle(
             c,
             &mut hits,
             label,
-            Rect::new(s((24 + i * 88) as f64), h - s(84.), s(86.), s(30.)),
+            Rect::new(s(*x), h - s(84.), s(*width), s(30.)),
             p.targets[i],
             Action::Target(i),
             p.busy,
@@ -440,7 +452,7 @@ pub fn paint(c: &mut Canvas, p: &Picker, hover: Option<(i32, i32)>) -> Vec<Hit> 
         } else {
             "Windows · 끔"
         },
-        Rect::new(s(382.), h - s(84.), s(94.), s(30.)),
+        Rect::new(s(486.), h - s(84.), s(94.), s(30.)),
         p.windows,
         Action::Windows,
         hover,
@@ -533,7 +545,7 @@ mod tests {
             mode: 0,
             light: false,
             enabled: true,
-            targets: [true; 4],
+            targets: [true; 5],
             windows: false,
             options: Default::default(),
             busy: false,
